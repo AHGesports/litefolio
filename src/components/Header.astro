@@ -2,6 +2,12 @@
 /* Icon provided by Radix Icons
  * https://www.radix-ui.com/icons
  */
+import {labels} from "@/i18n/ui";
+import {useTranslations} from "@/i18n/utils";
+import {languageList} from "@/i18n/ui";
+
+const currentLang = Astro.currentLocale || "en";
+const translateLabels = useTranslations(currentLang as keyof typeof labels);
 ---
 
 <header class="bg-foreground w-full px-4 h-10 flex justify-center items-center">
@@ -9,9 +15,8 @@
     href="https://github.com/gonzalochale/litefolio"
     target="_blank"
     rel="noopener noreferrer"
-    class="group flex items-center gap-2 text-sm text-card"
-  >
-    Use this template
+    class="group flex items-center gap-2 text-sm text-card">
+    {translateLabels("Header.template")}
     <svg
       width="15"
       height="15"
@@ -25,5 +30,10 @@
         fill-rule="evenodd"
         clip-rule="evenodd"></path></svg
     >
+  </a>
+  <a
+    href={currentLang === "en" ? "/es" : "/"}
+    class="absolute right-4 text-sm text-card border border-white bg-transparent hover:bg-gray-50 hover:text-black px-2 py-1 rounded">
+    {currentLang === "en" ? "Español" : "English"}
   </a>
 </header>

@@ -1,10 +1,13 @@
 ---
+import type { languageList } from "@/i18n/ui";
+import { useTranslations } from "@/i18n/utils";
 import { SEO } from "astro-seo";
 
 interface Props {
   title: string;
 }
-
+const currentLang = Astro.currentLocale || "en";
+const translateLabels = useTranslations(currentLang as keyof typeof languageList);
 const { title } = Astro.props;
 ---
 

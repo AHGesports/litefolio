@@ -15,7 +15,7 @@ export const labels = {
     "project.listitem1": "Building in public",
     "project.listitem2": "Web Development",
     "project.listitem3": "Design",
-    "project.listitem4": " Open Source",
+    "project.listitem4": "Open Source",
     "Project.cta": "Lets work together",
     "Project.ctaButton": "LinkedIn",
     "About.title": "More about me",

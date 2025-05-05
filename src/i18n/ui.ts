@@ -1,4 +1,4 @@
-export const languageList = {es: "Español", en: "English"};
+export const languageList = { es: "Español", en: "English" };
 export const labels = {
   en: {
     "Header.template": "Use this template",

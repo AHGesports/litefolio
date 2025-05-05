@@ -7,12 +7,15 @@ interface Props {
   title: string;
 }
 const currentLang = Astro.currentLocale || "en";
-const translateLabels = useTranslations(currentLang as keyof typeof languageList);
+const translateLabels = useTranslations(
+  currentLang as keyof typeof languageList
+);
+
 const { title } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={currentLang}>
   <head>
     <SEO
       title="Free Portfolio Template - Litefolio"

@@ -1,6 +1,9 @@
 export const languageList = { es: "Español", en: "English" };
 export const labels = {
   en: {
+    "Layout.title": "Free Portfolio Template - Litefolio",
+    "Layout.description":
+      "This is a starter template web protfolio. It is designed to be a starting point to showcase your work and help you stand out from the crowd. Perfect for developers, designers, and other professionals.",
     "Header.template": "Use this template",
     "Hero.title": "Always building things for the web.",
     "Hero.subtitle":
@@ -25,6 +28,9 @@ export const labels = {
     "Footer.title": "Gonzalo Chalé, Systems Engineer.",
   },
   es: {
+    "Layout.title": "Plantilla de Portafolio Gratis - Litefolio",
+    "Layout.description":
+      "Esta es una plantilla de portafolio web. Está diseñada para ser un punto de partida para mostrar tu trabajo y ayudarte a destacar entre la multitud. Perfecta para desarrolladores, diseñadores y otros profesionales.",
     "Header.template": "Usa esta plantilla",
     "Hero.title": "Siempre construyendo cosas para la web.",
     "Hero.subtitle":

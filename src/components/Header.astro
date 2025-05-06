@@ -33,7 +33,7 @@ const translateLabels = useTranslations(currentLang as keyof typeof labels);
   </a>
   <a
     href={currentLang === "en" ? "/es" : "/en"}
-    class="absolute right-4 text-sm text-card border border-white bg-transparent hover:bg-gray-50 hover:text-black px-2 py-1 rounded transition-colors duration-300 ease-in-out">
+    class="gap-2 absolute right-4 text-muted-foreground text-sm font-medium leading-none hover:text-white transition-all duration-300 ease-in-out flex items-center">
     {currentLang === "en" ? "Español" : "English"}
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -41,7 +41,7 @@ const translateLabels = useTranslations(currentLang as keyof typeof labels);
       viewBox="0 0 24 24"
       stroke-width="1.5"
       stroke="currentColor"
-      class="size-4 inline-block ml-2">
+      class="size-4 ml-2">
       <path
         stroke-linecap="round"
         stroke-linejoin="round"

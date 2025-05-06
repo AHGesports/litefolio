@@ -13,10 +13,9 @@ export default defineConfig({
     fallback: {
       es: "en",
     },
+    routing: {
+      prefixDefaultLocale: true,
+      redirectToDefaultLocale: true,
+    },
   },
-  routing: {
-    prefixDefaultLocale: true,
-    redirectToDefaultLocale: true,
-  }
 });
-

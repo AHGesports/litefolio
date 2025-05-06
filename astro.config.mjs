@@ -7,4 +7,15 @@ export default defineConfig({
     enabled: false,
   },
   integrations: [tailwind()],
+  i18n: {
+    defaultLocale: "en",
+    locales: ["es", "en"],
+    fallback: {
+      es: "en",
+    },
+    routing: {
+      prefixDefaultLocale: true,
+      redirectToDefaultLocale: true,
+    },
+  },
 });

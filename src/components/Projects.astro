@@ -38,35 +38,34 @@ const testimonials = [
 ];
 
 import Image from "astro/components/Image.astro";
+
+import type {labels} from "@/i18n/ui";
+import {useTranslations} from "@/i18n/utils";
+const currentLang = Astro.currentLocale || "en";
+const translateLabels = useTranslations(currentLang as keyof typeof labels);
 ---
 
 <section
-  class="relative overflow-hidden bg-foreground w-full max-w-screen-2xl text-center flex flex-col justify-center items-center gap-10 px-4 py-24 sm:py-24 select-none"
->
+  class="relative overflow-hidden bg-foreground w-full max-w-screen-2xl text-center flex flex-col justify-center items-center gap-10 px-4 py-24 sm:py-24 select-none">
   <h2
-    class="z-10 w-full max-w-xl sm:text-center text-lg sm:text-2xl md:text-4xl font-medium tracking-tighter text-pretty bg-clip-text text-transparent bg-gradient-to-b from-background via-background to-muted-foreground"
-  >
-    Every project is a new challenge to overcome.
+    class="z-10 w-full max-w-xl sm:text-center text-lg sm:text-2xl md:text-4xl font-medium tracking-tighter text-pretty bg-clip-text text-transparent bg-gradient-to-b from-background via-background to-muted-foreground">
+    {translateLabels("Project.title")}
   </h2>
   <p
-    class="w-full max-w-xl bg-clip-text text-transparent bg-gradient-to-b from-background via-background to-muted-foreground sm:text-center text-normal sm:text-lg md:text-xl font-light tracking-tighter text-balance"
-  >
-    Design, Code, Learn, Repeat.
+    class="w-full max-w-xl bg-clip-text text-transparent bg-gradient-to-b from-background via-background to-muted-foreground sm:text-center text-normal sm:text-lg md:text-xl font-light tracking-tighter text-balance">
+    {translateLabels("Project.subtitle")}
   </p>
   <div class="z-10 w-full grid grid-cols-1 md:grid-cols-5 grid-rows-6 gap-2">
     <article
-      class="overflow-hidden relative bg-dark-card col-span-1 md:col-span-3 md:row-span-2 border h-[300px] border-dark-border rounded-[1rem] flex flex-col lg:flex-row lg:gap-3"
-    >
+      class="overflow-hidden relative bg-dark-card col-span-1 md:col-span-3 md:row-span-2 border h-[300px] border-dark-border rounded-[1rem] flex flex-col lg:flex-row lg:gap-3">
       <div class="flex flex-col gap-2 w-full items-start p-4 tetx-left">
         <h3
-          class="text-left sm:text-xl md:text-2xl font-medium tracking-tighter text-pretty bg-clip-text text-transparent bg-gradient-to-br from-background via-background to-secondary"
-        >
-          You Project Here
+          class="text-left sm:text-xl md:text-2xl font-medium tracking-tighter text-pretty bg-clip-text text-transparent bg-gradient-to-br from-background via-background to-secondary">
+          {translateLabels("Project.project1.title")}
         </h3>
         <p
-          class="w-full text-muted-foreground text-left text-sm sm:text-normal md:text-lg font-light tracking-tighter text-balance"
-        >
-          Your project description here.
+          class="w-full text-muted-foreground text-left text-sm sm:text-normal md:text-lg font-light tracking-tighter text-balance">
+          {translateLabels("Project.project1.description")}
         </p>
       </div>
       <div class="aspect-video">
@@ -81,54 +80,42 @@ import Image from "astro/components/Image.astro";
       </div>
     </article>
     <article
-      class="overflow-hidden group bg-dark-card col-span-1 md:col-span-2 md:row-span-2 md:col-start-4 h-[300px] border border-dark-border rounded-[1rem] p-4 flex flex-col flex-1 gap-2 justify-center items-center"
-    >
+      class="overflow-hidden group bg-dark-card col-span-1 md:col-span-2 md:row-span-2 md:col-start-4 h-[300px] border border-dark-border rounded-[1rem] p-4 flex flex-col flex-1 gap-2 justify-center items-center">
       <div
-        class="w-fit rounded-full bg-background px-4 py-2 flex justify-center items-center rotate-12 group-hover:rotate-0 border transition-all duration-300 ease-in-out"
-      >
+        class="w-fit rounded-full bg-background px-4 py-2 flex justify-center items-center rotate-12 group-hover:rotate-0 border transition-all duration-300 ease-in-out">
         <span
-          class="text-normal sm:text-lg md:text-xl font-light tracking-tighter"
-        >
-          Building in public
+          class="text-normal sm:text-lg md:text-xl font-light tracking-tighter">
+          {translateLabels("project.listitem1")}
         </span>
       </div>
       <div
-        class="w-fit rounded-full bg-background px-4 py-2 flex justify-center items-center -rotate-6 group-hover:rotate-0 border transition-all duration-300 ease-in-out"
-      >
+        class="w-fit rounded-full bg-background px-4 py-2 flex justify-center items-center -rotate-6 group-hover:rotate-0 border transition-all duration-300 ease-in-out">
         <span
-          class="text-normal sm:text-lg md:text-xl font-light tracking-tighter"
-        >
-          Web Development
+          class="text-normal sm:text-lg md:text-xl font-light tracking-tighter">
+          {translateLabels("project.listitem2")}
         </span>
       </div>
       <div
-        class="w-fit rounded-full bg-background px-4 py-2 flex justify-center items-center border"
-      >
+        class="w-fit rounded-full bg-background px-4 py-2 flex justify-center items-center border">
         <span
-          class="text-normal sm:text-lg md:text-xl font-light tracking-tighter"
-        >
-          Design
+          class="text-normal sm:text-lg md:text-xl font-light tracking-tighter">
+          {translateLabels("project.listitem3")}
         </span>
       </div>
       <div
-        class="w-fit rounded-full bg-background px-4 py-2 flex justify-center items-center border rotate-12 group-hover:rotate-0 transition-all duration-300 ease-in-out"
-      >
+        class="w-fit rounded-full bg-background px-4 py-2 flex justify-center items-center border rotate-12 group-hover:rotate-0 transition-all duration-300 ease-in-out">
         <span
-          class="text-normal sm:text-lg md:text-xl font-light tracking-tighter"
-        >
-          Open Source
+          class="text-normal sm:text-lg md:text-xl font-light tracking-tighter">
+          {translateLabels("project.listitem4")}
         </span>
       </div>
     </article>
     <article
-      class="overflow-hidden bg-dark-card col-span-1 md:col-span-2 md:row-span-2 md:row-start-3 border h-[300px] border-dark-border rounded-[1rem] px-4 group"
-    >
+      class="overflow-hidden bg-dark-card col-span-1 md:col-span-2 md:row-span-2 md:row-start-3 border h-[300px] border-dark-border rounded-[1rem] px-4 group">
       <div
-        class="w-full h-fit max-h-[500px] flex flex-col justify-center select-none overflow-hidden"
-      >
+        class="w-full h-fit max-h-[500px] flex flex-col justify-center select-none overflow-hidden">
         <div
-          class="w-full h-max flex flex-col justify-center items-center gap-[4rem] animate-vertical-slide"
-        >
+          class="w-full h-max flex flex-col justify-center items-center gap-[4rem] animate-vertical-slide">
           {
             testimonials.concat(testimonials).map((testimonial) => (
               <article class="w-full max-w-sm flex flex-col gap-2 items-center justify-center size-20 border border-dark-border bg-background rounded-[1rem] px-4 py-2">
@@ -154,18 +141,15 @@ import Image from "astro/components/Image.astro";
       </div>
     </article>
     <article
-      class="overflow-hidden bg-dark-card col-span-1 md:col-span-3 md:row-span-2 md:col-start-3 md:row-start-3 border h-[300px] border-dark-border rounded-[1rem] flex flex-col lg:flex-row lg:gap-3"
-    >
+      class="overflow-hidden bg-dark-card col-span-1 md:col-span-3 md:row-span-2 md:col-start-3 md:row-start-3 border h-[300px] border-dark-border rounded-[1rem] flex flex-col lg:flex-row lg:gap-3">
       <div class="flex flex-col gap-2 w-full items-start p-4 tetx-left">
         <h3
-          class="text-left sm:text-xl md:text-2xl font-medium tracking-tighter text-pretty bg-clip-text text-transparent bg-gradient-to-br from-background via-background to-secondary"
-        >
-          You Project Here
+          class="text-left sm:text-xl md:text-2xl font-medium tracking-tighter text-pretty bg-clip-text text-transparent bg-gradient-to-br from-background via-background to-secondary">
+          {translateLabels("Project.project1.title")}
         </h3>
         <p
-          class="w-full text-muted-foreground text-left text-sm sm:text-normal md:text-lg font-light tracking-tighter text-balance"
-        >
-          Your project description here.
+          class="w-full text-muted-foreground text-left text-sm sm:text-normal md:text-lg font-light tracking-tighter text-balance">
+          {translateLabels("Project.project1.description")}
         </p>
       </div>
       <div class="aspect-video">
@@ -180,18 +164,15 @@ import Image from "astro/components/Image.astro";
       </div>
     </article>
     <article
-      class="overflow-hidden bg-dark-card col-span-1 md:col-span-3 md:row-span-2 md:row-start-5 border h-[300px] border-dark-border rounded-[1rem] flex flex-col lg:flex-row lg:gap-3"
-    >
+      class="overflow-hidden bg-dark-card col-span-1 md:col-span-3 md:row-span-2 md:row-start-5 border h-[300px] border-dark-border rounded-[1rem] flex flex-col lg:flex-row lg:gap-3">
       <div class="flex flex-col gap-2 w-full items-start p-4 tetx-left">
         <h3
-          class="text-left sm:text-xl md:text-2xl font-medium tracking-tighter text-pretty bg-clip-text text-transparent bg-gradient-to-br from-background via-background to-secondary"
-        >
-          You Project Here
+          class="text-left sm:text-xl md:text-2xl font-medium tracking-tighter text-pretty bg-clip-text text-transparent bg-gradient-to-br from-background via-background to-secondary">
+          {translateLabels("Project.project1.title")}
         </h3>
         <p
-          class="w-full text-muted-foreground text-left text-sm sm:text-normal md:text-lg font-light tracking-tighter text-balance"
-        >
-          Your project description here.
+          class="w-full text-muted-foreground text-left text-sm sm:text-normal md:text-lg font-light tracking-tighter text-balance">
+          {translateLabels("Project.project1.description")}
         </p>
       </div>
       <div class="aspect-video">
@@ -206,23 +187,20 @@ import Image from "astro/components/Image.astro";
       </div>
     </article>
     <article
-      class="overflow-hidden bg-dark-card col-span-1 md:col-span-2 md:row-span-2 md:col-start-4 md:row-start-5 border h-[300px] border-dark-border rounded-[1rem]"
-    >
+      class="overflow-hidden bg-dark-card col-span-1 md:col-span-2 md:row-span-2 md:col-start-4 md:row-start-5 border h-[300px] border-dark-border rounded-[1rem]">
       <div
-        class="w-full h-full flex flex-col gap-5 justify-center items-center"
-      >
+        class="w-full h-full flex flex-col gap-5 justify-center items-center">
         <h1
-          class="sm:text-xl md:text-2xl font-medium tracking-tighter text-pretty bg-clip-text text-transparent bg-gradient-to-br from-background via-background to-secondary"
-        >
-          Lets work together
+          class="sm:text-xl md:text-2xl font-medium tracking-tighter text-pretty bg-clip-text text-transparent bg-gradient-to-br from-background via-background to-secondary">
+          {translateLabels("Project.cta")}
         </h1>
         <a
           href="https://www.linkedin.com/in/gonzalochale/"
           target="_blank"
           rel="noopener noreferrer"
-          class="w-fit flex gap-2 justify-center items-center px-4 py-2 sm:text-lg font-medium text-background bg-primary rounded-full"
-        >
-          LinkedIn
+          class="w-fit flex gap-2 justify-center items-center px-4 py-2 sm:text-lg font-medium text-background bg-primary rounded-full">
+          {translateLabels("Project.ctaButton")}
+
           <svg
             width="256"
             height="256"
@@ -239,8 +217,7 @@ import Image from "astro/components/Image.astro";
     </article>
   </div>
   <div
-    class="bg-white opacity-10 absolute size-80 top-[-160px] border blur-[150px] rounded-full"
-  >
+    class="bg-white opacity-10 absolute size-80 top-[-160px] border blur-[150px] rounded-full">
   </div>
 </section>
 

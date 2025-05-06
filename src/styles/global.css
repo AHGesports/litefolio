@@ -1,0 +1,63 @@
+@import "tailwindcss";
+
+@theme {
+  --font-geist: "Geist", system-ui, sans-serif;
+
+  --color-primary: oklch(0.56 0.2543 283.67);
+  --color-secondary: oklch(0.66 0.1964 290.77);
+  --color-background: oklch(1 0 0);
+  --color-foreground: oklch(0.2 0 0);
+  --color-card: oklch(0.98 0 0);
+  --color-dark-card: oklch(0.18 0 0);
+  --color-muted: oklch(0.94 0 0);
+  --color-muted-foreground: oklch(0.51 0 0);
+  --color-accent: oklch(0.94 0 0);
+  --color-border: oklch(0.93 0.0058 264.53);
+  --color-dark-border: oklch(0.23 0 0);
+
+  --animate-slide-logos: slide-logos 30s linear infinite;
+  --animate-vertical-slide: vertical-slide 30s linear infinite forwards;
+}
+
+@keyframes slide-logos {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: translateX(calc(-50% - 2rem));
+  }
+}
+
+@keyframes vertical-slide {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: translateY(calc(-50% - 2rem));
+  }
+}
+
+@keyframes heroIn {
+  0% {
+    opacity: 0;
+    transform: translateY(0.5rem);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(-0.05rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@font-face {
+  font-family: "Geist";
+  src: url("/fonts/GeistVF.woff") format("woff");
+}
+
+body {
+  font-family: "Geist", system-ui, sans-serif;
+  @apply bg-background text-foreground border-border antialiased;
+}

@@ -1,13 +1,18 @@
 import { defineConfig } from "astro/config";
-import tailwind from "@astrojs/tailwind";
+import tailwindcss from "@tailwindcss/vite";
+import vercelServerless from "@astrojs/vercel/serverless";
 
 // https://astro.build/config
 export default defineConfig({
   output: "server",
+  adapter: vercelServerless(),
   devToolbar: {
     enabled: false,
   },
-  integrations: [tailwind()],
+  vite: {
+    plugins: [tailwindcss()],
+  },
+  integrations: [],
   i18n: {
     defaultLocale: "en",
     locales: ["es", "en"],

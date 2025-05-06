@@ -31,7 +31,7 @@ export const labels = {
     "Layout.title": "Plantilla de Portafolio Gratis - Litefolio",
     "Layout.description":
       "Esta es una plantilla de portafolio web. Está diseñada para ser un punto de partida para mostrar tu trabajo y ayudarte a destacar entre la multitud. Perfecta para desarrolladores, diseñadores y otros profesionales.",
-    "Header.template": "Usa esta plantilla",
+    "Header.template": "Usar esta plantilla",
     "Hero.title": "Siempre construyendo cosas para la web.",
     "Hero.subtitle":
       "Esta es una plantilla simple construida con Astro y Tailwind CSS.",

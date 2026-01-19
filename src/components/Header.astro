@@ -1,29 +1,143 @@
 ---
-/* Icon provided by Radix Icons
- * https://www.radix-ui.com/icons
- */
+import { SITE } from "../consts";
+
+const links = [
+  { name: "Home", href: "/", target: "_self" },
+  { name: "About", href: "#about", target: "_self" },
+  { name: "Work", href: "#projects", target: "_self" },
+  { name: "Contact", href: "#contact", target: "_self" },
+];
+
+// Get first letter of first name
+const firstLetter = SITE.TITLE.charAt(0).toUpperCase();
 ---
 
-<header class="bg-foreground w-full px-4 h-10 flex justify-center items-center">
-  <a
-    href="https://github.com/gonzalochale/litefolio"
-    target="_blank"
-    rel="noopener noreferrer"
-    class="group flex items-center gap-2 text-sm text-card"
-  >
-    Use this template
-    <svg
-      width="15"
-      height="15"
-      viewBox="0 0 15 15"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      class="rotate-45 group-hover:rotate-0 transition-transform duration-300 ease-in-out"
-      ><path
-        d="M3.64645 11.3536C3.45118 11.1583 3.45118 10.8417 3.64645 10.6465L10.2929 4L6 4C5.72386 4 5.5 3.77614 5.5 3.5C5.5 3.22386 5.72386 3 6 3L11.5 3C11.6326 3 11.7598 3.05268 11.8536 3.14645C11.9473 3.24022 12 3.36739 12 3.5L12 9.00001C12 9.27615 11.7761 9.50001 11.5 9.50001C11.2239 9.50001 11 9.27615 11 9.00001V4.70711L4.35355 11.3536C4.15829 11.5488 3.84171 11.5488 3.64645 11.3536Z"
-        fill="currentColor"
-        fill-rule="evenodd"
-        clip-rule="evenodd"></path></svg
+<header class="fixed top-0 w-full z-[100] pointer-events-none">
+  <div class="container mx-auto flex items-center justify-between p-4 md:p-6">
+    <!-- Logo pill -->
+    <a
+      href="/"
+      class="pointer-events-auto font-plex font-bold text-2xl md:text-3xl px-4 py-2 rounded-full bg-background/70 backdrop-blur-xl border border-border/50 shadow-lg hover:bg-background/90 transition-all duration-300"
+      >{firstLetter}.</a
     >
-  </a>
+
+    <!-- Desktop nav pill -->
+    <nav
+      class="nav-container pointer-events-auto hidden md:flex items-center gap-1 px-2 py-2 rounded-full bg-background/70 backdrop-blur-xl border border-border/50 shadow-lg"
+    >
+      {
+        links.map((link) => (
+          <a
+            href={link.href}
+            class="nav-link px-4 py-1.5 rounded-full text-muted-foreground transition-all duration-300 hover:bg-foreground hover:text-background"
+          >
+            {link.name}
+          </a>
+        ))
+      }
+    </nav>
+
+    <!-- Mobile menu button -->
+    <button
+      id="menu-toggle"
+      class="hamburger pointer-events-auto focus:outline-none flex md:hidden px-3 py-3 rounded-full bg-background/70 backdrop-blur-xl border border-border/50 shadow-lg"
+      aria-label="Toggle navigation"
+    >
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </button>
+  </div>
+
+  <!-- Mobile menu -->
+  <div
+    id="menu-mobile"
+    class="hidden md:hidden pointer-events-auto mx-4 mt-2 p-4 rounded-2xl bg-background/90 backdrop-blur-xl border border-border/50 shadow-xl"
+  >
+    <nav class="nav-container flex flex-col gap-2">
+      {
+        links.map((link) => (
+          <a
+            href={link.href}
+            class="nav-link px-4 py-3 rounded-xl text-lg text-muted-foreground transition-all duration-300 hover:bg-foreground hover:text-background"
+          >
+            {link.name}
+          </a>
+        ))
+      }
+    </nav>
+  </div>
 </header>
+
+<style>
+  /* Blur effect on sibling links when hovering */
+  .nav-container:hover .nav-link {
+    opacity: 0.4;
+    filter: blur(1px);
+  }
+
+  .nav-container:hover .nav-link:hover {
+    opacity: 1;
+    filter: blur(0);
+  }
+
+  .hamburger {
+    gap: 5px;
+    cursor: pointer;
+    position: relative;
+    width: 24px;
+    height: 21px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+  }
+
+  .hamburger-line {
+    width: 24px;
+    height: 3px;
+    background-color: hsl(var(--foreground));
+    transition: all 0.3s ease;
+    position: absolute;
+    left: 0;
+  }
+
+  .hamburger-line:nth-child(1) {
+    top: 0;
+  }
+
+  .hamburger-line:nth-child(2) {
+    top: 9px;
+  }
+
+  .hamburger-line:nth-child(3) {
+    top: 18px;
+  }
+
+  .hamburger.active .hamburger-line:nth-child(1) {
+    transform: rotate(45deg);
+    top: 9px;
+  }
+
+  .hamburger.active .hamburger-line:nth-child(2) {
+    display: none;
+    opacity: 0;
+  }
+
+  .hamburger.active .hamburger-line:nth-child(3) {
+    transform: rotate(-45deg);
+    top: 9px;
+  }
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const menuMobile = document.getElementById("menu-mobile");
+    const toggle = document.getElementById("menu-toggle");
+    toggle?.addEventListener("click", () => {
+      menuMobile?.classList.toggle("hidden");
+      toggle.classList.toggle("active");
+      const expanded = toggle.classList.contains("active");
+      toggle.setAttribute("aria-expanded", String(expanded));
+    });
+  });
+</script>

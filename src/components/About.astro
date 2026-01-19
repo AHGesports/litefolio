@@ -1,9 +1,16 @@
+---
+import { SITE, SOCIALS } from "../consts";
+const instagramLink = SOCIALS.find(s => s.NAME === "Instagram")?.HREF || "#";
+---
+
 <section
-  class="relative bg-background w-full max-w-screen-2xl text-center flex justify-center items-center px-4 py-20 sm:py-24"
+  id="about"
+  class="relative bg-background w-full text-center"
 >
-  <div
-    class="flex flex-col md:flex-row gap-10 w-full max-w-2xl justify-center items-center"
-  >
+  <div class="container mx-auto p-6 py-20 sm:py-24 flex justify-center items-center">
+    <div
+      class="flex flex-col md:flex-row gap-10 w-full max-w-2xl justify-center items-center"
+    >
     <div
       class="border h-[300px] w-[200px] bg-accent rotate-6 p-4 perfect-shadow"
     >
@@ -18,12 +25,11 @@
       <p
         class="w-full max-w-md text-left text-sm sm:text-normal md:text-lg font-normal text-balance"
       >
-        I'm a Systems Engineer from Cancún, México. I love building things for
-        the web and sharing my knowledge with others.
+        {SITE.BIO}
       </p>
       <div class="flex items-center gap-3">
         <a
-          href="https://x.com/gonzalochale"
+          href={instagramLink}
           target="_blank"
           rel="noopener noreferrer"
           class="relative w-fit flex justify-center items-center px-4 py-2 sm:px-6 sm:py-3 sm:text-lg font-medium text-background bg-primary rounded-full perfect-shadow"
@@ -35,6 +41,7 @@
           </div>
         </a>
       </div>
+    </div>
     </div>
   </div>
 </section>

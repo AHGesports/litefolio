@@ -1,5 +1,6 @@
 ---
 import { SEO } from "astro-seo";
+import { SITE } from "../consts";
 
 interface Props {
   title: string;
@@ -9,66 +10,38 @@ const { title } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
   <head>
     <SEO
-      title="Free Portfolio Template - Litefolio"
-      description="This is a starter template web protfolio. It is designed to be a starting point to showcase your work and help you stand out from the crowd. Perfect for developers, designers, and other professionals."
+      title={`${SITE.TITLE} - Portfolio`}
+      description={SITE.DESCRIPTION}
       openGraph={{
         basic: {
-          title: "Free Portfolio Template - Litefolio",
+          title: `${SITE.TITLE} - Portfolio`,
           type: "website",
-          image:
-            "https://raw.githubusercontent.com/gonzalochale/litefolio/v2/public/assets/preview.png",
+          image: "/assets/preview.png",
         },
-      }}
-      twitter={{
-        creator: "@gonzalochale",
-      }}
-      extend={{
-        // extending the default meta tags
-        meta: [
-          {
-            name: "twitter:image",
-            content:
-              "https://raw.githubusercontent.com/gonzalochale/litefolio/v2/public/assets/preview.png",
-          },
-          {
-            name: "twitter:title",
-            content: "Free Portfolio Template - Litefolio",
-          },
-          { name: "twitter:description", content: "Free Portfolio Template" },
-          {
-            name: "twitter:card",
-            content: "summary_large_image",
-          },
-          {
-            name: "twitter:site",
-            content: "@gonzalochale",
-          },
-          {
-            name: "twitter:creator",
-            content: "@gonzalochale",
-          },
-          {
-            name: "twitter:image:alt",
-            content: "Free Portfolio Template - Litefolio",
-          },
-        ],
       }}
     />
     <meta charset="UTF-8" />
     <meta
       name="description"
-      content="This is a starter template web protfolio. It is designed to be a starting point to showcase your work and help you stand out from the crowd. Perfect for developers, designers, and other professionals."
+      content={SITE.DESCRIPTION}
     />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <!-- Google Fonts - IBM Plex Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@700&display=swap"
+      rel="stylesheet"
+    />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
   <body
-    class="relative flex flex-col w-full min-h-dvh justify-center items-center bg-background"
+    class="relative flex flex-col w-full min-h-dvh bg-background"
   >
     <slot />
   </body>
@@ -103,6 +76,9 @@ const { title } = Astro.props;
     * {
       @apply border-border;
     }
+    html {
+      scroll-padding-top: 6rem;
+    }
     body {
       font-family: "Geist", system-ui, sans-serif;
       @apply bg-background text-foreground;
@@ -115,5 +91,8 @@ const { title } = Astro.props;
     --perfect-shadow: 0 0 0 1px var(--base), 0 1px 1px -0.5px var(--shade),
       0 3px 3px -1.5px var(--shade), 0 6px 6px -3px var(--shade),
       0 12px 12px -6px var(--base), 0 24px 24px -12px var(--base);
+  }
+  .font-plex {
+    font-family: "IBM Plex Mono", monospace;
   }
 </style>

@@ -39,6 +39,7 @@ const testimonials = [
 
 import Image from "astro/components/Image.astro";
 import SkillsModal from "./skills/SkillsModal.astro";
+import LaptopVideo from "./LaptopVideo.astro";
 import { SKILL_CATEGORIES, getSkillCount } from "../data/skills";
 ---
 
@@ -65,22 +66,18 @@ import { SKILL_CATEGORIES, getSkillCount } from "../data/skills";
         <h3
           class="text-left sm:text-xl md:text-2xl font-medium tracking-tighter text-pretty bg-clip-text text-transparent bg-gradient-to-br from-background via-background to-secondary"
         >
-          You Project Here
+          AutoFlow
         </h3>
         <p
           class="w-full text-muted-foreground text-left text-sm sm:text-normal md:text-lg font-light tracking-tighter text-balance"
         >
-          Your project description here.
+          AI-powered browser automation commercial product with multi-profile orchestration, humanization technology, and multi-provider LLM integration.
         </p>
       </div>
-      <div class="aspect-video">
-        <Image
-          src="/assets/mockup3.png"
-          alt="Mockup Project"
-          loading="lazy"
-          width={1920}
-          height={1080}
-          class="object-contain w-full h-full rounded-md"
+      <div class="flex-1 flex items-center justify-center p-2">
+        <LaptopVideo
+          videoSrc="/assets/autoflow-demo.mp4"
+          alt="Autoflow demo"
         />
       </div>
     </article>

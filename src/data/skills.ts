@@ -111,7 +111,9 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
         title: 'Database Tools',
         skills: [
           { id: 'dbeaver', name: 'DBeaver', icon: '/logos/dbeaver.svg' },
-          { id: 'ssms', name: 'SQL Management Studio', icon: '/logos/mssql.svg' },
+          { id: 'ssms', name: 'SQL Server Management Studio', icon: '/logos/mssql.svg' },
+          { id: 'pgadmin', name: 'pgAdmin', icon: '/logos/postgresql.svg' },
+          { id: 'mysql-workbench', name: 'MySQL Workbench', icon: '/logos/mysql.svg' },
           { id: 'plsql-dev', name: 'PL/SQL Developer', icon: '/logos/oracle.svg' },
         ],
       },
@@ -252,7 +254,19 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
         skills: [
           { id: 'docker', name: 'Docker', icon: '/logos/docker.svg' },
           { id: 'azure', name: 'Microsoft Azure', icon: '/logos/azure.svg' },
+          { id: 'vercel', name: 'Vercel', icon: '/logos/vercel.svg' },
           { id: 'linux', name: 'Linux', icon: '/logos/linux.svg' },
+        ],
+      },
+      {
+        title: 'Development Tools',
+        skills: [
+          { id: 'vscode', name: 'VS Code', icon: '/logos/vscode.svg' },
+          { id: 'visualstudio', name: 'Visual Studio', icon: '/logos/visualstudio.svg' },
+          { id: 'webstorm', name: 'WebStorm', icon: '/logos/webstorm.svg' },
+          { id: 'vim', name: 'Vim', icon: '/logos/vim.svg' },
+          { id: 'dbeaver', name: 'DBeaver', icon: '/logos/dbeaver.svg' },
+          { id: 'plsql-dev', name: 'PL/SQL Developer', icon: '/logos/oracle.svg' },
         ],
       },
       {

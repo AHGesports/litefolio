@@ -38,6 +38,8 @@ const testimonials = [
 ];
 
 import Image from "astro/components/Image.astro";
+import SkillsModal from "./skills/SkillsModal.astro";
+import { SKILL_CATEGORIES, getSkillCount } from "../data/skills";
 ---
 
 <section
@@ -73,7 +75,7 @@ import Image from "astro/components/Image.astro";
       </div>
       <div class="aspect-video">
         <Image
-          src="/assets/mockup1.png"
+          src="/assets/mockup3.png"
           alt="Mockup Project"
           loading="lazy"
           width={1920}
@@ -83,43 +85,67 @@ import Image from "astro/components/Image.astro";
       </div>
     </article>
     <article
-      class="overflow-hidden group bg-dark-card col-span-1 md:col-span-2 md:row-span-2 md:col-start-4 h-[300px] border border-dark-border rounded-[1rem] p-4 flex flex-col flex-1 gap-2 justify-center items-center"
+      class="overflow-hidden group bg-dark-card col-span-1 md:col-span-2 md:row-span-2 md:col-start-4 h-[300px] border border-dark-border rounded-[1rem] p-4 flex flex-col flex-1 gap-1 justify-center items-center"
     >
       <div
-        class="w-fit rounded-full bg-background px-4 py-2 flex justify-center items-center rotate-12 group-hover:rotate-0 border transition-all duration-300 ease-in-out"
+        role="button"
+        tabindex="0"
+        data-skill-category="languages"
+        class="w-fit rounded-full bg-background px-3 py-1.5 flex justify-center items-center gap-2 rotate-12 group-hover:rotate-0 border transition-all duration-300 ease-in-out cursor-pointer hover:scale-105 hover:shadow-lg"
       >
-        <span
-          class="text-normal sm:text-lg md:text-xl font-light tracking-tighter"
-        >
-          Building in public
-        </span>
+        <span class="text-sm sm:text-base md:text-lg font-light tracking-tighter">Languages</span>
+        <span class="text-xs text-muted-foreground">({getSkillCount(SKILL_CATEGORIES[0])})</span>
+        <svg class="w-3 h-3 text-muted-foreground" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
       </div>
       <div
-        class="w-fit rounded-full bg-background px-4 py-2 flex justify-center items-center -rotate-6 group-hover:rotate-0 border transition-all duration-300 ease-in-out"
+        role="button"
+        tabindex="0"
+        data-skill-category="backend"
+        class="w-fit rounded-full bg-background px-3 py-1.5 flex justify-center items-center gap-2 -rotate-6 group-hover:rotate-0 border transition-all duration-300 ease-in-out cursor-pointer hover:scale-105 hover:shadow-lg"
       >
-        <span
-          class="text-normal sm:text-lg md:text-xl font-light tracking-tighter"
-        >
-          Web Development
-        </span>
+        <span class="text-sm sm:text-base md:text-lg font-light tracking-tighter">Backend</span>
+        <span class="text-xs text-muted-foreground">({getSkillCount(SKILL_CATEGORIES[1])})</span>
+        <svg class="w-3 h-3 text-muted-foreground" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
       </div>
       <div
-        class="w-fit rounded-full bg-background px-4 py-2 flex justify-center items-center border"
+        role="button"
+        tabindex="0"
+        data-skill-category="frontend"
+        class="w-fit rounded-full bg-background px-3 py-1.5 flex justify-center items-center gap-2 border transition-all duration-300 ease-in-out cursor-pointer hover:scale-105 hover:shadow-lg"
       >
-        <span
-          class="text-normal sm:text-lg md:text-xl font-light tracking-tighter"
-        >
-          Design
-        </span>
+        <span class="text-sm sm:text-base md:text-lg font-light tracking-tighter">Frontend</span>
+        <span class="text-xs text-muted-foreground">({getSkillCount(SKILL_CATEGORIES[2])})</span>
+        <svg class="w-3 h-3 text-muted-foreground" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
       </div>
       <div
-        class="w-fit rounded-full bg-background px-4 py-2 flex justify-center items-center border rotate-12 group-hover:rotate-0 transition-all duration-300 ease-in-out"
+        role="button"
+        tabindex="0"
+        data-skill-category="devops"
+        class="w-fit rounded-full bg-background px-3 py-1.5 flex justify-center items-center gap-2 rotate-6 group-hover:rotate-0 border transition-all duration-300 ease-in-out cursor-pointer hover:scale-105 hover:shadow-lg"
       >
-        <span
-          class="text-normal sm:text-lg md:text-xl font-light tracking-tighter"
-        >
-          Open Source
-        </span>
+        <span class="text-sm sm:text-base md:text-lg font-light tracking-tighter">DevOps</span>
+        <span class="text-xs text-muted-foreground">({getSkillCount(SKILL_CATEGORIES[3])})</span>
+        <svg class="w-3 h-3 text-muted-foreground" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+      </div>
+      <div
+        role="button"
+        tabindex="0"
+        data-skill-category="ai-automation"
+        class="w-fit rounded-full bg-background px-3 py-1.5 flex justify-center items-center gap-2 -rotate-12 group-hover:rotate-0 border transition-all duration-300 ease-in-out cursor-pointer hover:scale-105 hover:shadow-lg"
+      >
+        <span class="text-sm sm:text-base md:text-lg font-light tracking-tighter">AI & Automation</span>
+        <span class="text-xs text-muted-foreground">({getSkillCount(SKILL_CATEGORIES[4])})</span>
+        <svg class="w-3 h-3 text-muted-foreground" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+      </div>
+      <div
+        role="button"
+        tabindex="0"
+        data-skill-category="specialized"
+        class="w-fit rounded-full bg-background px-3 py-1.5 flex justify-center items-center gap-2 rotate-3 group-hover:rotate-0 border transition-all duration-300 ease-in-out cursor-pointer hover:scale-105 hover:shadow-lg"
+      >
+        <span class="text-sm sm:text-base md:text-lg font-light tracking-tighter">Specialized</span>
+        <span class="text-xs text-muted-foreground">({getSkillCount(SKILL_CATEGORIES[5])})</span>
+        <svg class="w-3 h-3 text-muted-foreground" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
       </div>
     </article>
     <article
@@ -198,7 +224,7 @@ import Image from "astro/components/Image.astro";
       </div>
       <div class="aspect-video">
         <Image
-          src="/assets/mockup3.png"
+          src="/assets/mockup1.png"
           alt="Mockup Project"
           loading="lazy"
           width={1920}
@@ -246,6 +272,8 @@ import Image from "astro/components/Image.astro";
   >
   </div>
 </section>
+
+<SkillsModal />
 
 <style>
   .group:hover .animate-vertical-slide {

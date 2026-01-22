@@ -1,0 +1,1006 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-------------------------------------------------------------- AUTO FLOW ------------------------------------------------------------------
+
+
+ COMPREHENSIVE ANALYSIS: 2JS (AutoFlow) PROJECT
+
+  ---
+  PROJECT OVERVIEW
+
+  AutoFlow (2js) is a production-grade AI-powered browser automation platform designed for:
+  - Mass intelligent automation of web tasks
+  - Workflow orchestration across multiple browser profiles
+  - Advanced anti-bot evasion with humanization technology
+  - Multi-provider AI integration for intelligent task execution
+  - Cross-platform deployment (web, desktop, extension)      
+
+  ---
+  ARCHITECTURE
+
+  3-Tier Distributed Architecture:
+  ExpressUI (Vanilla JS Frontend)
+      ↓ HTTP REST
+  ExpressAPI (Node.js Backend Orchestrator)
+      ↓ HTTP REST
+  Python Local API (FastAPI Automation Engine)
+      ↓
+  Playwright + Browser-Use + Humanizer
+      ↓
+  Anti-Detect Browser (AdsPower, MoreLogin, GoLogin)
+
+  ---
+  TECHNOLOGY STACK
+
+  Frontend (ExpressUI)
+
+  - Language: Vanilla JavaScript (ES2025)
+  - Framework: None (vanilla DOM manipulation)
+  - HTTP Client: Fetch API
+  - Storage: LocalStorage, SessionStorage
+  - Styling: CSS/SCSS
+  - Module Pattern: Feature-based organization
+  - Shared Components: 13 reusable utilities/services        
+  - Logging: Client-side file logging system
+
+  Backend (ExpressAPI)
+
+  - Framework: Express.js 4.21.2
+  - Runtime: Node.js 18+ (ES modules)
+  - Language: JavaScript (ES2025)
+  - Database: LowDB 7.0.1 (JSON-based, no external DB needed)
+  - Job Queue: BullMQ 5.49.0 with Redis 5.8.2
+  - Authentication: JWT (jsonwebtoken 9.0.2) + nonce-based auth
+  - API Documentation: NSwag 13.19.0 (Swagger/OpenAPI)       
+  - File Upload: Multer 1.4.5
+  - Email: Nodemailer 7.0.5
+  - Logging: Winston 3.17.0
+  - Data Validation: AJV 8.17.1 + ajv-formats 3.0.1
+  - HTTP Client: Axios 1.8.4
+
+  Key Features:
+  - 23 API routes (workflow, profile, auth, scheduling, etc.)
+  - 22+ service modules organized by feature
+  - Middleware for error handling, async wrapping
+  - Database abstraction layer over LowDB
+  - 303 Controllers total across system
+
+  Python Local API (FastAPI)
+
+  - Framework: FastAPI 0.120.0
+  - HTTP Server: Uvicorn[standard] 0.38.0 with WebSocket     
+  - Language: Python 3.12+ (strict type checking)
+  - Data Validation: Pydantic 2.12.3 + pydantic-settings 2.11.0
+
+  Browser Automation:
+  - Browser-Use: 0.9.0 (LLM-powered automation framework)    
+  - Playwright: 1.55.0 (browser control)
+  - Humanizer: Custom mouse/typing pattern generation        
+  - Computer Vision: Element detection via LLM vision        
+
+  AI/LLM Integration:
+  - OpenAI: 1.109.1 (GPT-4, GPT-3.5-turbo)
+  - Anthropic: 0.71.0 (Claude models)
+  - Google GenAI: For Gemini models
+  - Groq: Groq API integration
+  - Ollama: Local model support
+  - Langchain: langchain-core, langchain-openai, langchain-anthropic
+  - MCP Support: 1.19.0 (Model Context Protocol)
+
+  Additional Libraries:
+  - Redis: 5.3.1 (hiredis) async caching
+  - HTTP Clients: httpx 0.28.1, aiohttp 3.12.15, requests 2.32.5
+  - Async Utilities: asyncio-throttle 1.0.2, tenacity 8.5.0  
+  - File Processing: aiofiles 25.1.0, ReportLab 4.4.4 (PDF), Pillow 12.0.0 (images)
+  - Web Parsing: BeautifulSoup4 4.14.2
+  - Logging: Structlog 23.3.0 (JSON structured logging)      
+  - JSON: orjson 3.11.3 (fast serialization)
+  - System Monitoring: psutil 7.1.1
+
+  Desktop Application (Tauri)
+
+  - Framework: Tauri 1.x (Rust-based)
+  - UI Technology: WebView2 (embedded Chromium)
+  - Runtime Language: Rust (async, tokio)
+  - Build Tool: NSIS/MSI installer generation
+  - Code Signing: Cryptographic update verification
+  - Python Bundling: PyInstaller embedded runtime
+
+  Build & Development Tools
+
+  - Bundler: No bundling (files served as-is)
+  - Transpiler: Babel 7.23.0
+  - Linting: ESLint 8.50.0 (2025 strict config)
+  - Formatter: Prettier 3.6.2
+  - Type Checking: Pyright (Python, strict mode)
+  - Process Manager: PM2 6.0.5
+  - Environment: cross-env 10.1.0, dotenv 16.4.5
+  - OpenAPI Generation: @openapitools/openapi-generator-cli 2.25.0
+
+  Testing Framework
+
+  - JavaScript: Jest 29.7.0
+    - Test environment: JSDOM 29.7.0
+    - HTTP assertions: Supertest 7.1.4
+    - JUnit reporting: jest-junit 16.0.0
+    - Coverage: Istanbul (built-in)
+  - Python: pytest 7.4.0
+    - Async support: pytest-asyncio 0.21.0
+    - Coverage: pytest-cov
+    - Test data: factories, fixtures, mocks
+  - E2E: Playwright 1.40.0
+  - Load Testing: Artillery 2.0.0
+
+  External Service Integrations
+
+  - Anti-Detect Providers: AdsPower, MoreLogin, GoLogin APIs 
+  - CAPTCHA: 2Captcha (@2captcha/captcha-solver 1.3.0)       
+  - SMS: FiveSim (node-five-sim)
+  - OAuth: Google Auth (google-auth-library 10.1.0)
+  - File Ops: Archiver 7.0.1, adm-zip 0.5.16
+
+  ---
+  KEY FEATURES
+
+  1. Workflow Engine
+
+  - Visual workflow builder with node-based composition      
+  - AI-powered node creation with natural language prompts   
+  - Sequential and parallel execution modes
+  - Real-time progress monitoring with detailed logs
+  - State management and recovery mechanisms
+  - Execution history with full state tracking
+  - Branching and error handling logic
+
+  2. Browser Profile Management
+
+  - Create realistic browser profiles (AI-powered with LLM-generated data)
+  - Multiple creation modes: fast, AI-powered, custom        
+  - JSON Resume format support for realistic personas        
+  - Integration with anti-detect providers (AdsPower, MoreLogin, GoLogin)
+  - Profile grouping for organizational purposes
+  - Custom fingerprint configuration
+  - MCP (Model Context Protocol) for extended AI interactions
+
+  3. Automation & Browser Control
+
+  - Browser-Use framework for intelligent automation
+  - Computer vision-based element detection
+  - Form filling, clicking, typing, scrolling
+  - Screenshot capture and conversation history
+  - Real-time browser state monitoring
+  - Error recovery and retry logic
+  - Multi-browser orchestration support
+
+  4. Advanced Humanization
+
+  - Mouse movement pattern generation (ghostCursor)
+  - Typing speed and pattern mimicking
+  - Behavioral randomization
+  - Device fingerprint spoofing
+  - Anti-bot detection evasion
+  - Real-time behavior customization
+
+  5. Multi-Provider AI Integration
+
+  - Seamless switching between AI providers (OpenAI, Claude, Google, Groq, Ollama)
+  - Dynamic provider selection per workflow
+  - Model chaining and prompt composition
+  - LangChain integration for complex prompts
+  - Context preservation across execution steps
+  - MCP (Model Context Protocol) support for custom AI capabilities
+
+  6. Job Scheduling & Queue Management
+
+  - Time-based workflow triggers
+  - Recurring schedule support (daily, weekly, monthly, custom)
+  - Timezone-aware scheduling
+  - Multi-profile batch execution
+  - BullMQ-backed persistent job queue
+  - Redis-based job state tracking
+  - Background polling service (60-second intervals)
+
+  7. Execution Monitoring & History
+
+  - Real-time execution state tracking
+  - Step-by-step progress monitoring
+  - Screenshot and conversation storage per execution        
+  - Performance metrics and timing analysis
+  - Complete execution history with filtering/search
+  - Individual profile status within workflow
+  - Error logs and debugging information
+
+  8. User Management & Authentication
+
+  - Nonce-based authentication (2-minute expiry, one-time use)
+  - JWT token-based sessions
+    - Web UI: 10-hour token expiration
+    - Desktop: 30-day rolling expiration
+  - Role-based access control (Master User, User Admin, Standard User)
+  - Multi-factor token refresh mechanism
+  - Password reset with email verification
+  - Token revocation and cleanup
+  - Per-user token limits (max 5 concurrent)
+
+  9. CAPTCHA & Challenge Resolution
+
+  - 2Captcha integration for CAPTCHA solving
+  - SMS verification via FiveSim
+  - Automated challenge response
+  - Fallback mechanisms for failed resolutions
+
+  10. Multi-Language & Internationalization
+
+  - Multiple language support
+  - LocalStorage-based language preferences
+  - Locale-aware date and time handling
+  - Timezone support in scheduling
+
+  11. File & Document Management
+
+  - Screenshot capture and storage
+  - Conversation transcript logging
+  - PDF generation (ReportLab)
+  - Image processing and optimization
+  - Hierarchical file storage organization
+  - Execution artifact retrieval
+
+  12. API Contract Validation
+
+  - OpenAPI specification compliance
+  - Request/response model validation
+  - Automatic type generation (TypeScript, Python)
+  - Schema-based validation with AJV (JavaScript), Pydantic (Python)
+
+  13. Cross-Platform Deployment
+
+  - Web platform at http://localhost:3000
+  - Tauri desktop application with native integration        
+  - Browser extension support (workflow-use module)
+  - Hybrid mode supporting both web and desktop workflows    
+
+  14. Admin Controls
+
+  - System configuration management
+  - User administration
+  - Workflow templates
+  - Action library management
+  - System health monitoring
+  - License management
+
+  15. Logging & Diagnostics
+
+  - Client-side file logging (IndexedDB + download)
+  - Server-side structured logging (Winston)
+  - Python service JSON logging (Structlog)
+  - Real-time log viewing/export
+  - Performance monitoring (psutil)
+  - Error tracking and analysis
+
+  ---
+  PROJECT STRUCTURE
+
+  2js/
+  ├── ExpressAPI/                    (Node.js Backend)       
+  │   ├── routes/ (23 files)
+  │   ├── services/ (22+ modules)
+  │   ├── models/
+  │   ├── middleware/
+  │   ├── enums/ (StatusEnums - CRITICAL)
+  │   ├── config/
+  │   ├── db/ (LowDB layer)
+  │   ├── tests/
+  │   └── logs/
+  │
+  ├── ExpressUI/                     (Vanilla JS Frontend)   
+  │   ├── src/
+  │   │   ├── actions/
+  │   │   ├── auth/
+  │   │   ├── profiles/
+  │   │   ├── workflow/ & workflows/
+  │   │   ├── scheduling/
+  │   │   ├── admin/
+  │   │   ├── models/ (shared)
+  │   │   ├── enums/ (StatusEnums)
+  │   │   ├── shared/ (13 utilities)
+  │   │   └── logs/
+  │
+  ├── TauriDesktop/                  (Desktop App)
+  │   └── AutoFlow/
+  │       ├── python-local-api/ (7,862 Python files)
+  │       │   ├── routers/
+  │       │   ├── services/
+  │       │   ├── models/ (20+ Pydantic)
+  │       │   ├── core/ (Browser-use)
+  │       │   ├── cache/ (Redis)
+  │       │   ├── middleware/
+  │       │   ├── tests/
+  │       │   └── utils/
+  │       ├── src-tauri/ (Rust source)
+  │       └── humanizer/
+  │
+  ├── workflow-use/                  (Browser Extension)     
+  │   ├── extension/
+  │   ├── ui/ (React-based)
+  │   └── workflows/ (Python backend)
+  │
+  ├── docs/ (47+ Markdown guides)
+  ├── api-contracts/ (OpenAPI YAML)
+  ├── db/ (LowDB databases)
+  └── scripts/ (Setup/utilities)
+
+  ---
+  DEVELOPMENT WORKFLOW
+
+  Commands
+
+  # Install & Development
+  npm install
+  npm start              # Start API + UI (production mode)  
+  npm run dev            # Development mode
+  npm run dev:test       # Test mode
+
+  # Testing
+  npm test              # All tests
+  npm run test:watch    # Watch mode
+  npm run test:coverage # Coverage report
+  npm run test:contracts # API contract tests
+
+  # Desktop (Tauri)
+  npm run tauri:dev     # Development mode
+  npm run tauri:build   # Production build
+
+  # Python
+  pytest tests/         # Run Python tests
+
+  # OpenAPI & Type Generation
+  npm run generate:types       # Generate TypeScript
+  npm run generate:python      # Generate Python models      
+  npm run generate:openapi     # OpenAPI spec
+  npm run watch:openapi        # Watch OpenAPI changes       
+
+  # Debugging & Logging
+  npm run logs:view     # View logs (tail -f)
+  npm run type-check:python
+
+  Configuration
+
+  - Environment: .env and .env.run files
+  - JWT: 10-hour web, 30-day desktop rolling expiration      
+  - API: Express on port 3000, FastAPI on 8000
+  - Database: LowDB in /db/ directory
+  - Redis: redis://localhost:6379
+  - Logging: Winston (ExpressAPI), Structlog (Python), custom FileLogger (ExpressUI)
+
+  ---
+  INTEGRATION FLOW
+
+  Workflow Execution
+
+  User clicks "Execute" in ExpressUI
+    → ExecutionRequest created
+    → POST /api/workflows/execute-workflow
+    → ExpressAPI WorkflowExecutionService
+    → HTTP POST to Python /execute-workflow
+    → Playwright + Browser-Use initialization
+    → Returns ExecutionResponse
+    → ExpressUI polls /workflow-state every 5s
+    → WorkflowPollingResponse updates in real-time
+
+  Profile Creation
+
+  User creates AI-powered profile
+    → ProfileRequest with AI provider
+    → POST /api/profiles/create-ai-profile
+    → ExpressAPI calls Python /create-profile
+    → LLM generates realistic persona (name, email, location)
+    → Anti-detect provider integration
+    → ProfileResponse returned
+
+  Scheduling
+
+  User sets workflow schedule
+    → ScheduleRequest stored in LowDB
+    → BullMQ job scheduled
+    → At trigger time, Python API polled
+    → Workflow auto-executed
+    → Result persisted and notified
+
+  ---
+  TESTING
+
+  Test Coverage
+
+  - Unit Tests: Service functionality, model validation      
+  - Integration Tests: API endpoint + service interaction    
+  - E2E Tests: Complete workflow execution (UI → API → Python)
+  - Contract Tests: OpenAPI specification compliance
+
+  Test Frameworks
+
+  - JavaScript: Jest 29.7.0 with Supertest
+  - Python: pytest 7.4.0 with pytest-asyncio
+  - Performance: Artillery for load testing
+  - E2E: Playwright for browser testing
+
+  ---
+  DOCUMENTATION
+
+  47+ comprehensive guides covering:
+  - Architecture overviews for each service
+  - Authentication and token management
+  - Workflow system documentation
+  - Testing guides and debugging
+  - Humanizer and browser-use features
+  - Deployment and Windows-specific fixes
+  - Security integration guidelines
+  - Code quality and SOLID principles
+
+  ---
+  NOTABLE CHARACTERISTICS
+
+  Strengths
+
+  ✅ Type-Safe Across Services - Strict typing (JavaScript, Python with Pyright)
+  ✅ Comprehensive Testing - 7,862 Python files include extensive test infrastructure
+  ✅ Production-Ready - Tauri desktop with cryptographic updates, process management
+  ✅ Multi-AI Support - Seamless integration with OpenAI, Claude, Google, Groq, Ollama
+  ✅ Anti-Bot Evasion - Sophisticated humanization + anti-detect provider integration
+  ✅ Excellent Documentation - 47+ guides covering architecture, debugging, features
+  ✅ Service Independence - Loosely coupled, independently deployable services
+  ✅ Strict Architecture - Clear separation of concerns, SOLID principles
+
+  Technical Considerations
+
+  ⚠️ Scalability Limits - LowDB (JSON files) not suitable forr massive scale
+  ⚠️ Enum Synchronization - StatusEnums must be manually keptt in sync across 3 services
+  ⚠️ Single Redis - No clustering/high availability (suitablee for current scale)
+  ⚠️ Python Startup - Desktop app startup overhead due to PyIInstaller
+  ⚠️ Browser Flakiness - Inherent unreliability of browser auutomation (network, crashes)
+  ⚠️ Complexity - 82,646 total files, multiple languages, steeep learning curve
+
+  ---
+  SUMMARY
+
+  AutoFlow (2js) is a sophisticated AI-powered browser automation platform demonstrating:
+
+  - Enterprise-grade architecture with three independent, type-safe services
+  - Cutting-edge automation technology combining Browser-Use + Playwright + Humanization
+  - Advanced AI integration supporting multiple LLM providers with dynamic selection
+  - Production-ready infrastructure with Tauri desktop, cryptographic signing, and comprehensive monitoring
+  - Comprehensive test coverage and excellent documentation  
+  - Clear architectural principles following SOLID and DRY patterns
+  - Extensibility through browser extensions, custom actions, and MCP support
+
+  Ideal for large-scale intelligent web automation with anti-bot evasion, multi-profile orchestration, and real-time monitoring capabilities. 
+  
+  
+  
+  
+  
+  
+  -------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+----------------------------------------------------------------------------
+  
+projects i worked for for companies before key features : 
+
+RM : 
+ Enterprise reservation & ticketing management
+  - Multi-tenant B2B company management
+  - Multiple payment processors (Concardis, Nexi, SparkasseBozen, AxPayment)
+  - Sophisticated PDF/document generation
+  - Real-time communication with SignalR
+  - Comprehensive logging & Azure monitoring
+  - Multi-language support
+  - Desktop terminal application (WPF)
+  - Check-in operations
+  - Advanced RBAC permissionsk
+  
+  
+  B2B POS - Key Features
+
+  Core POS Functionality
+
+  - Point-of-Sale System - Ticket sales and transaction processing
+  - Guest Services Management - Guest requests, check-ins, and account management
+  - Ticket Management - Create, retrieve, encode, and print tickets
+  - Payment Processing - Multi-method payments (cash, card, electronic)
+  - Order Management - Order creation, modification, and fulfillment
+  - Receipt/Ticket Printing - SmartPrinter integration for thermal printing
+
+  Ticket & Inventory
+
+  - Ticket Lifecycle - Create, manage, encode, validate tickets
+  - Tariff Management - Dynamic pricing and tariff configurations
+  - Product Catalog - Tickets, packages, time slots, bundled offerings
+  - Availability Management - Real-time inventory and capacity tracking
+  - QR Code Generation - For tickets and validation purposes 
+  - Ticket Encoding - SmartPad integration for card encoding 
+
+  Hardware Integration (AxBox)
+
+  - SmartPrinter - Thermal receipt and ticket printing       
+  - SmartPad - Card reading and encoding for tickets
+  - Windows Printer Integration - Standard printer support   
+  - Device Communication - Seamless hardware abstraction layer
+
+  Payment & Financial
+
+  - Multi-Currency Support - International payment processing
+  - Payment Method Support - Cash, credit cards, mobile payments, etc.
+  - Transaction History - Complete audit trail and reporting 
+  - Invoice Generation - PDF invoicing capabilities
+  - Financial Reports - Sales analytics and revenue tracking 
+
+  Reporting & Analytics
+
+  - Sales Reports - Daily, weekly, monthly analytics
+  - Revenue Dashboards - Real-time sales metrics
+  - Guest Analytics - Visitor patterns and demographics      
+  - Inventory Reports - Stock and availability tracking      
+  - Performance Metrics - KPI dashboards and analytics       
+
+  User Management & Security
+
+  - Role-Based Access Control - Master User, User Admin, Standard User
+  - JWT Authentication - Secure token-based auth
+  - User Permissions - Granular access control
+  - Audit Logging - Track user actions and changes
+
+  Internationalization (i18n)
+
+  - Multi-Language Support - German (de) and English (en)    
+  - Dynamic Translation - ngx-translate with JSON resources  
+  - Localized Content - All UI text translated
+
+  Data Import/Export
+
+  - Excel Export - Sales data, reports, inventory to Excel/CSV
+  - Chart Visualization - Sales trends and analytics charts  
+  - PDF Reports - Printable report generation
+  - Batch Operations - Bulk data handling
+
+  WTP Integration (External API)
+
+  - Ticket Creation - Through WTP API
+  - Tariff Retrieval - Real-time pricing from WTP
+  - Product Management - Access WTP product catalog
+  - Inventory Sync - Availability updates from WTP
+  - Ticket Validation - WTP-based ticket verification        
+
+  Guest Services
+
+  - Guest Profiles - Guest information and history
+  - Service Requests - Handle guest special requests
+  - Room Management - Guest room assignment
+  - Guest Communication - Notifications and updates
+  - Service History - Track guest interactions
+
+  Responsive Design
+
+  - Mobile-Ready Interface - Works on tablets and touch screens
+  - Responsive Layout - Bootstrap 5 responsive grid
+  - Touch Optimization - POS terminal-friendly UI
+  - PWA Capabilities - Progressive web app features (optional)
+
+  Real-Time Features
+
+  - Live Updates - Real-time inventory and availability      
+  - Instant Notifications - Order and transaction alerts     
+  - Dashboard Refresh - Live metrics and KPI updates
+  - State Synchronization - Angular signals for reactive updates
+
+  Performance & Optimization
+
+  - Lazy Loading - Route-based code splitting
+  - Tree Shaking - Unused code removal
+  - Change Detection - OnPush strategy for performance       
+  - Caching - Smart HTTP caching for API responses
+
+  Testing & Quality
+
+  - Unit Tests - Jasmine test suite
+  - Integration Tests - Service and component testing        
+  - End-to-End Tests - User workflow validation
+  - Code Coverage - Karma coverage reporting
+
+
+
+
+ACP (Accreditation Portal) - TECH STACK & KEY FEATURES     
+
+  ---
+  TECHNOLOGY STACK
+
+  Frontend
+
+  - ASP.NET MVC 5.2.7 (.NET Framework 4.8)
+  - Razor View Engine (139 views)
+  - jQuery 3.5.1 + jQuery.Validation 1.19.3
+  - Bootstrap 5.0.0-beta2
+  - SCSS with node-sass 9.0.0
+  - RestSharp 112.1.0 (HTTP client for API calls)
+
+  Backend API
+
+  - ASP.NET Web API 5.2.7 (.NET Framework 4.8)
+  - JWT Authentication (10.0.2)
+  - API Versioning 5.1.0
+  - Mapster 7.3.0 (object mapping)
+  - Dependency Injection - Microsoft.Extensions
+  - log4net 2.0.15 (logging)
+  - NSwag 13.19.0 (API documentation/Swagger)
+
+  Database
+
+  - Oracle 11g+
+  - Oracle.DataAccess 4.122.1.0 (ODP.NET)
+  - System.Runtime.Caching 7.0.0 (in-memory caching)
+
+  Document & File Processing
+
+  - Rotativa 1.7.3 (PDF generation)
+  - EPPlusFree 4.5.3.8 (Excel export)
+  - ExcelDataReader 3.7.0 (Excel import)
+  - BarcodeLib 2.4.0 (barcode generation)
+  - QRCoder 1.4.3 (QR code generation)
+
+  Real-Time Communication
+
+  - SignalR 2.4.3 (WebSocket-based real-time updates)        
+
+  JSON & Serialization
+
+  - Newtonsoft.Json 13.0.1
+  - System.Text.Json 8.0.4
+
+  Testing
+
+  - xUnit 2.4.1
+  - Moq 4.20.69 (mocking)
+  - FluentAssertions 6.11.0
+  - AutoFixture 4.18.0 (test data generation)
+
+  Utilities
+
+  - Ionic.Zip 1.9.1.8 (ZIP compression)
+  - System.Drawing.Common (graphics support)
+
+  ---
+  KEY FEATURES
+
+  1. Authentication & Authorization
+
+  - JWT token-based authentication
+  - Role-based access control (Master User, User Admin, Standard User)
+  - Password recovery workflows
+  - Session management
+
+  2. Company Management
+
+  - Company registration and profile management
+  - Address management
+  - Document linking and consent tracking
+
+  3. Employee Management
+
+  - Employee CRUD operations
+  - Self-service employee registration
+  - Employee invitations and activation
+  - Document upload and validation
+  - Employee status tracking
+
+  4. Event Accreditation
+
+  - Event creation and management
+  - Multi-phase event workflows
+  - Event-specific accreditation processes
+  - Accreditation status tracking and validation
+
+  5. Document Management
+
+  - Document upload and download
+  - Document type validation
+  - Consent-based document workflows
+  - Rule-based document enforcement
+  - Access control per document
+
+  6. Credential Management
+
+  - QR code generation for credentials
+  - Barcode support
+  - Credential encoding and printing
+
+  7. Scanner Integration
+
+  - Hardware barcode scanner support
+  - Real-time scan processing
+  - Device communication
+
+  8. Reporting & Export
+
+  - PDF report generation
+  - Excel data export
+  - Data visualization and analytics
+
+  9. Multi-Language Support
+
+  - German and English language support
+  - Dynamic language switching
+  - Localized content
+
+  10. Real-Time Communication
+
+  - Live notifications and updates via SignalR
+  - Real-time event processing
+
+  ---
+  SUMMARY
+
+  ACP is an enterprise-grade accreditation management system built on ASP.NET technologies with Oracle backend. It manages complex event accreditation workflows, employee credentials, document validation, and access control for sports stadiums and event venues across Europe. The system emphasizes security (JWT), scalability (multi-environment deployment), and user accessibility (multi-language support).
+  
+  
+  
+  
+   CLICS_NEW - TECH STACK & KEY FEATURES
+
+  ---
+  TECHNOLOGY STACK
+
+  Backend
+
+  - ASP.NET MVC 5 (.NET Framework 4.8)
+  - C#
+  - 303 Controllers
+  - Autofac 4.6.2 (dependency injection)
+  - Castle.Core (AOP/dynamic proxies)
+
+  Database
+
+  - Oracle Database
+  - NHibernate 5.1.1 (ORM)
+  - FluentNHibernate 2.1.2 (Fluent mapping API)
+
+  Frontend
+
+  - Angular 5.2 & Angular 8.2 (specific modules)
+  - TypeScript
+  - RxJS (reactive programming)
+  - Bootstrap 4
+  - jQuery 2.2
+
+  UI & Reporting
+
+  - DevExpress Web Controls v22.1 (grids, charts, reports, scheduling)
+  - DevExpress XtraReports (advanced reporting)
+  - DHTMLX (web components)
+
+  Real-Time Communication
+
+  - SignalR 2.4
+  - OWIN
+
+  Additional Libraries
+
+  - log4net 2.0 (logging)
+  - RestSharp 106 (HTTP client)
+  - QRCoder (QR code generation)
+  - PDFSharp (PDF generation)
+  - CsvHelper (CSV processing)
+  - Devart Oracle Data Provider
+
+  Authentication
+
+  - Custom Axess membership and role providers
+  - Forms-based authentication
+
+  ---
+  KEY FEATURES
+
+  1. Ticketing & WTP Integration
+
+  - Ticket creation, retrieval, and management
+  - WTP (Web Ticketing Platform) integration
+  - Ticket type and tariff configuration
+
+  2. Financial & Accounting
+
+  - Commission configuration and management
+  - Invoice designer with customization
+  - Cash desk and cashier operations
+  - Deferred revenue handling
+  - Financial clearing and reconciliation
+  - Accreditation management
+
+  3. Customer & Access Management
+
+  - Customer account management
+  - Chip card/smart card management
+  - Access control management
+  - Customer profile setup
+
+  4. Retail Operations
+
+  - Retail stock management and counting
+  - Retail reservations and sales
+  - Price tag printing
+
+  5. Rental & Booking
+
+  - Rental item management (types, options, durations)       
+  - Booking system
+
+  6. Hardware Integration
+
+  - AxBox hardware integration
+  - Locker layout management
+  - Device and firmware management
+  - Barcode management
+
+  7. Administrative Functions
+
+  - Role-based access control (RBAC)
+  - Multi-language support
+  - Database task scheduling
+  - Reporting and analytics
+  - Performance monitoring
+  - License provider management
+
+  8. Additional Services
+
+  - SMS center integration
+  - Document management
+  - SQL editor and script execution
+  - WebService configuration
+
+  ---
+  SUMMARY
+
+  CLICS_NEW is a comprehensive enterprise management system with 303 controllers serving ticketing, financial operations, retail, rental, customer management, and hardware integration. Built on ASP.NET MVC with NHibernate ORM and Oracle backend, featuring DevExpress rich UI components and Angular modules for specialized workflows.

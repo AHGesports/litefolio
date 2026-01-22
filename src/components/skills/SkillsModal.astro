@@ -1,0 +1,160 @@
+---
+import { SKILL_CATEGORIES, getSkillCount } from '../../data/skills';
+---
+
+<!-- Modal backdrop -->
+<div
+  id="skills-modal-backdrop"
+  class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden opacity-0 transition-opacity duration-200"
+  aria-hidden="true"
+>
+  <!-- Modal container -->
+  <div
+    id="skills-modal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="skills-modal-title"
+    class="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[90vw] max-w-4xl max-h-[85vh] overflow-y-auto bg-dark-card border border-dark-border rounded-2xl p-6 shadow-2xl scale-95 opacity-0 transition-all duration-200"
+  >
+    <!-- Header -->
+    <div class="flex items-center justify-between mb-6 sticky top-0 bg-dark-card pb-4 border-b border-dark-border z-10">
+      <h2 id="skills-modal-title" class="text-xl md:text-2xl font-medium tracking-tighter bg-clip-text text-transparent bg-gradient-to-br from-background via-background to-secondary">
+        Technical Skills
+      </h2>
+      <button
+        id="skills-modal-close"
+        class="p-2 rounded-lg hover:bg-dark-border transition-colors text-muted-foreground hover:text-background"
+        aria-label="Close modal"
+      >
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Skills Content - Will be populated by JS based on clicked category -->
+    <div id="skills-modal-content" class="space-y-6">
+      {SKILL_CATEGORIES.map((category) => (
+        <section id={`modal-category-${category.id}`} class="hidden" data-category={category.id}>
+          {category.subsections.map((subsection) => (
+            <div class="mb-6">
+              <h3 class="text-xs uppercase tracking-widest text-muted-foreground mb-3 flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-primary/50"></span>
+                {subsection.title}
+              </h3>
+              <div class="flex flex-wrap gap-2">
+                {subsection.skills.map((skill) => (
+                  <div class="group flex items-center gap-2 px-3 py-1.5 bg-white/5 border border-white/10 rounded-full text-sm text-white/90 hover:bg-primary/20 hover:border-primary/30 hover:text-white transition-all duration-200 cursor-default">
+                    <img src={skill.icon || '/logos/default.svg'} alt="" class="w-4 h-4 opacity-80 group-hover:opacity-100 transition-opacity" aria-hidden="true" />
+                    <span>{skill.name}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </section>
+      ))}
+    </div>
+  </div>
+</div>
+
+<script>
+  const backdrop = document.getElementById('skills-modal-backdrop');
+  const modal = document.getElementById('skills-modal');
+  const closeBtn = document.getElementById('skills-modal-close');
+  const modalTitle = document.getElementById('skills-modal-title');
+  const categoryTitles: Record<string, string> = {
+    'languages': 'Languages',
+    'backend': 'Backend',
+    'frontend': 'Frontend',
+    'devops': 'DevOps & Quality',
+    'ai-automation': 'AI & Automation',
+    'specialized': 'Specialized'
+  };
+
+  let currentTrigger: HTMLElement | null = null;
+
+  function openModal(categoryId: string, trigger: HTMLElement) {
+    currentTrigger = trigger;
+
+    // Hide all categories first
+    document.querySelectorAll('[data-category]').forEach((el) => {
+      el.classList.add('hidden');
+    });
+
+    // Show the selected category
+    const categorySection = document.getElementById(`modal-category-${categoryId}`);
+    if (categorySection) {
+      categorySection.classList.remove('hidden');
+    }
+
+    // Update title
+    if (modalTitle) {
+      modalTitle.textContent = categoryTitles[categoryId] || 'Technical Skills';
+    }
+
+    // Show modal
+    backdrop?.classList.remove('hidden');
+    requestAnimationFrame(() => {
+      backdrop?.classList.remove('opacity-0');
+      modal?.classList.remove('scale-95', 'opacity-0');
+      modal?.classList.add('scale-100', 'opacity-100');
+    });
+
+    document.body.style.overflow = 'hidden';
+    closeBtn?.focus();
+  }
+
+  function closeModal() {
+    backdrop?.classList.add('opacity-0');
+    modal?.classList.remove('scale-100', 'opacity-100');
+    modal?.classList.add('scale-95', 'opacity-0');
+
+    setTimeout(() => {
+      backdrop?.classList.add('hidden');
+    }, 200);
+
+    document.body.style.overflow = '';
+    currentTrigger?.focus();
+  }
+
+  // Close button click
+  closeBtn?.addEventListener('click', closeModal);
+
+  // Backdrop click
+  backdrop?.addEventListener('click', (e) => {
+    if (e.target === backdrop) {
+      closeModal();
+    }
+  });
+
+  // Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !backdrop?.classList.contains('hidden')) {
+      closeModal();
+    }
+  });
+
+  // Listen for skill card clicks
+  document.addEventListener('DOMContentLoaded', () => {
+    const skillCards = document.querySelectorAll('[data-skill-category]');
+    skillCards.forEach((card) => {
+      const categoryId = card.getAttribute('data-skill-category');
+
+      card.addEventListener('click', () => {
+        if (categoryId) {
+          openModal(categoryId, card as HTMLElement);
+        }
+      });
+
+      card.addEventListener('keydown', (e) => {
+        if ((e as KeyboardEvent).key === 'Enter' || (e as KeyboardEvent).key === ' ') {
+          e.preventDefault();
+          if (categoryId) {
+            openModal(categoryId, card as HTMLElement);
+          }
+        }
+      });
+    });
+  });
+</script>

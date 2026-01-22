@@ -1,0 +1,349 @@
+LINKEDIN SKILLS - RECRUITER OPTIMIZED (102 Skills)
+===================================================
+
+Copy these exactly as shown - they match LinkedIn's taxonomy.
+
+--------------------------------------------------------------------------------
+PROGRAMMING LANGUAGES (7)
+--------------------------------------------------------------------------------
+C#
+JavaScript
+TypeScript
+Python
+SQL
+PL/SQL
+C (Programming Language)
+
+--------------------------------------------------------------------------------
+BACKEND & FRAMEWORKS (19)
+--------------------------------------------------------------------------------
+.NET Framework
+.NET Core
+ASP.NET Core
+ASP.NET MVC
+ASP.NET Web API
+Entity Framework
+NHibernate
+Node.js
+Express.js
+Fastify
+FastAPI
+REST APIs
+RESTful Web Services
+GraphQL
+gRPC
+SOAP
+Microservices
+API Development
+API Integration
+
+--------------------------------------------------------------------------------
+DATABASES (7)
+--------------------------------------------------------------------------------
+Oracle Database
+PostgreSQL
+MySQL
+Microsoft SQL Server
+Redis
+Database Design
+Dapper
+
+--------------------------------------------------------------------------------
+AUTHENTICATION & SECURITY (5)
+--------------------------------------------------------------------------------
+OAuth 2.0
+JSON Web Token (JWT)
+Single Sign-On (SSO)
+Multi-factor Authentication (MFA)
+Application Security
+
+--------------------------------------------------------------------------------
+API TOOLS (4)
+--------------------------------------------------------------------------------
+Swagger
+OpenAPI
+Postman
+Pydantic
+
+--------------------------------------------------------------------------------
+FRONTEND (15)
+--------------------------------------------------------------------------------
+Angular
+React.js
+React
+Astro
+Blazor
+jQuery
+HTML5
+CSS3
+Tailwind CSS
+Bootstrap
+SCSS
+Sass
+RxJS
+Responsive Web Design
+Single Page Applications (SPA)
+
+--------------------------------------------------------------------------------
+TEMPLATING & RENDERING (2)
+--------------------------------------------------------------------------------
+Razor
+Handlebars.js
+
+--------------------------------------------------------------------------------
+VERSION CONTROL & DEVOPS (13)
+--------------------------------------------------------------------------------
+Git
+GitHub
+GitHub Actions
+GitLab
+Azure DevOps
+Jira
+Docker
+Microsoft Azure
+Linux
+CI/CD
+Agile Methodologies
+Scrum
+Kanban
+
+--------------------------------------------------------------------------------
+TESTING (6)
+--------------------------------------------------------------------------------
+Test-Driven Development (TDD)
+Unit Testing
+Jest
+xUnit
+pytest
+AutoMapper
+
+--------------------------------------------------------------------------------
+AI & MACHINE LEARNING (8)
+--------------------------------------------------------------------------------
+Artificial Intelligence (AI)
+Machine Learning
+OpenAI API
+LangChain
+Prompt Engineering
+Large Language Models (LLM)
+Natural Language Processing (NLP)
+AI Integration
+
+--------------------------------------------------------------------------------
+AUTOMATION & SCRAPING (6)
+--------------------------------------------------------------------------------
+Playwright
+Puppeteer
+Selenium
+Web Scraping
+BeautifulSoup
+Process Automation
+
+--------------------------------------------------------------------------------
+WORKFLOW AUTOMATION (2)
+--------------------------------------------------------------------------------
+n8n
+Workflow Automation
+
+--------------------------------------------------------------------------------
+DESKTOP & CROSS-PLATFORM (3)
+--------------------------------------------------------------------------------
+WPF
+Tauri
+Desktop Application Development
+
+--------------------------------------------------------------------------------
+GAME & 3D (3)
+--------------------------------------------------------------------------------
+Unity
+Unity3D
+Three.js
+
+--------------------------------------------------------------------------------
+GENERAL SKILLS (6)
+--------------------------------------------------------------------------------
+Software Development
+Full-Stack Development
+Backend Development
+Frontend Development
+Software Architecture
+System Design
+
+--------------------------------------------------------------------------------
+
+TOTAL: 106 Skills
+
+================================================================================
+FLAT LIST FOR QUICK COPY-PASTE
+================================================================================
+
+C#
+JavaScript
+TypeScript
+Python
+SQL
+PL/SQL
+C (Programming Language)
+.NET Framework
+.NET Core
+ASP.NET Core
+ASP.NET MVC
+ASP.NET Web API
+Entity Framework
+NHibernate *
+Node.js 
+Express.js
+Fastify * 
+FastAPI
+REST APIs
+RESTful Web Services
+GraphQL (()) ************
+gRPC (())
+SOAP (())
+Microservices
+API Development
+API Integration
+Oracle Database
+PostgreSQL
+MySQL
+Microsoft SQL Server
+Redis
+Database Design
+Dapper
+OAuth 2.0
+JSON Web Token (JWT)
+Single Sign-On (SSO)
+Multi-factor Authentication (MFA)
+Application Security
+Swagger * 
+OpenAPI
+Postman 
+Pydantic *
+Angular
+React.js
+React
+Astro
+Blazor
+jQuery
+HTML5
+CSS3
+Tailwind CSS
+Bootstrap
+SCSS
+Sass
+RxJS * 
+Responsive Web Design
+Single Page Applications (SPA) 
+Razor * 
+Handlebars.js * 
+Git
+MCP +
+GitHub
+GitHub Actions
+GitLab
+Azure DevOps
+Jira
+Docker
+Microsoft Azure
+Linux
+CI/CD
+Agile Methodologies
+Scrum *
+Kanban * 
+Test-Driven Development (TDD)
+Unit Testing
+Jest
+xUnit
+pytest
+AutoMapper * 
+Artificial Intelligence (AI)
+Machine Learning
+OpenAI API
+LangChain
+Prompt Engineering
+Large Language Models (LLM)
+Natural Language Processing (NLP) * 
+AI Integration
+Playwright
+Puppeteer
+Selenium
+Web Scraping
+BeautifulSoup
+Process Automation
+n8n
+Workflow Automation
+WPF
+Tauri
+Desktop Application Development
+Unity
+Unity3D
+Three.js
+Software Development * 
+Full-Stack Development
+Backend Development
+Frontend Development
+Software Architecture
+System Design
+
+================================================================================
+NAMING CONVENTIONS APPLIED
+================================================================================
+
+Used            | Not This        | Reason
+----------------|-----------------|------------------------------------------
+JavaScript      | JS              | Standard LinkedIn database entry
+Node.js         | Node, NodeJS    | Recruiter search convention
+React.js + React| ReactJS         | Include both as synonyms
+PostgreSQL      | Postgres        | Full name matches more searches
+Full-Stack Development | Fullstack | Hyphenated standard
+CI/CD           | CI/CD Pipelines | Shorter form more commonly searched
+
+================================================================================
+SKILLS REMOVED & WHY
+================================================================================
+
+REMOVED - Too Niche/Not in LinkedIn:
+- FluentNHibernate, Uvicorn, Neon.tech, LowDB, BullMQ
+- System.Runtime.Caching, ODP.NET, AJV, ajv-formats
+- RestSharp, httpx, aiohttp, Winston, log4net
+- PrimeNG, SyncFusion, DHTMLX, EJS, Gitea
+- Moq, FluentAssertions, AutoFixture, Mapster
+- jQuery.Validation, Angular Signals
+
+REMOVED - Gray Area (May Raise Red Flags):
+- AdsPower, MoreLogin, GoLogin, Camoufox
+- Undetected Chromedriver, Selenium Stealth
+- Playwright Stealth, Puppeteer Stealth
+- 2Captcha, BrowserBase, Steel Browser
+- Browser-use, Skyvern, Stagehand, La Vague
+- Magnitude, BrowserGym, Apify, FireCrawl, Crawlee
+
+REMOVED - Tools Not Skills:
+- DBeaver, SQL Management Studio, PL/SQL Developer
+
+REMOVED - Too Specific/Hardware:
+- Thermal printers, Barcode scanners, Card readers
+- Access gates, Rotativa, ReportLab, PDFSharp
+- EPPlusFree, ExcelJS, XLSX, ExcelDataReader
+- CsvHelper, JSZip, Archiver, adm-zip, Ionic.Zip
+- BarcodeLib, QRCoder, Pillow, System.Drawing
+- Nodemailer, Resend, Mailgun, FiveSim
+- PyInstaller, NSIS/MSI installers
+
+REMOVED - Concepts Not Searchable:
+- Job Scheduling, RBAC, API Versioning
+- Contract-first development, Nonce-based Auth
+- Custom Enterprise B2B SSO, Better auth
+- Repository pattern, Service layer architecture
+- Multi-tenant B2B systems, POS systems
+- Accreditation management, Browser fingerprinting
+
+ADDED - High Recruiter Search Volume:
+- HTML5, CSS3 (fundamental, highly searched)
+- Responsive Web Design, SPA
+- CI/CD, Agile, Scrum, Kanban
+- Unit Testing, Application Security
+- Prompt Engineering, LLM, NLP, AI Integration
+- Process Automation, Full-Stack Development
+- GitHub Actions (added per request)
+- React (synonym alongside React.js)

@@ -12,12 +12,12 @@ const links = [
 const firstLetter = SITE.TITLE.charAt(0).toUpperCase();
 ---
 
-<header class="fixed top-0 w-full z-[100] pointer-events-none">
+<header id="main-header" class="fixed top-0 w-full z-[100] pointer-events-none transition-colors duration-300">
   <div class="container mx-auto flex items-center justify-between p-4 md:p-6">
     <!-- Logo pill -->
     <a
       href="/"
-      class="pointer-events-auto font-plex font-bold text-2xl md:text-3xl px-4 py-2 rounded-full bg-background/70 backdrop-blur-xl border border-border/50 shadow-lg hover:bg-background/90 transition-all duration-300"
+      class="logo-pill pointer-events-auto font-plex font-bold text-2xl md:text-3xl px-4 py-2 rounded-full bg-background/70 backdrop-blur-xl border border-border/50 shadow-lg hover:bg-background/90 transition-all duration-300"
       >{firstLetter}.</a
     >
 
@@ -81,6 +81,37 @@ const firstLetter = SITE.TITLE.charAt(0).toUpperCase();
     filter: blur(0);
   }
 
+  /* Dark background mode - invert colors */
+  :global(#main-header.header-dark-bg .logo-pill) {
+    color: hsl(var(--background)) !important;
+    border-color: rgba(255, 255, 255, 0.2) !important;
+  }
+
+  :global(#main-header.header-dark-bg .logo-pill:hover) {
+    color: hsl(var(--foreground)) !important;
+  }
+
+  :global(#main-header.header-dark-bg .nav-link) {
+    color: rgba(255, 255, 255, 0.7) !important;
+  }
+
+  :global(#main-header.header-dark-bg .nav-link:hover) {
+    background-color: hsl(var(--background)) !important;
+    color: hsl(var(--foreground)) !important;
+  }
+
+  :global(#main-header.header-dark-bg .nav-container) {
+    border-color: rgba(255, 255, 255, 0.2) !important;
+  }
+
+  :global(#main-header.header-dark-bg .hamburger-line) {
+    background-color: hsl(var(--background)) !important;
+  }
+
+  :global(#main-header.header-dark-bg #menu-toggle) {
+    border-color: rgba(255, 255, 255, 0.2) !important;
+  }
+
   .hamburger {
     gap: 5px;
     cursor: pointer;
@@ -139,5 +170,34 @@ const firstLetter = SITE.TITLE.charAt(0).toUpperCase();
       const expanded = toggle.classList.contains("active");
       toggle.setAttribute("aria-expanded", String(expanded));
     });
+
+    // Dark section detection for navbar
+    const header = document.getElementById("main-header");
+    const darkSections = document.querySelectorAll("#projects, #contact");
+
+    function checkHeaderPosition() {
+      if (!header) return;
+
+      const headerRect = header.getBoundingClientRect();
+      const headerMiddle = headerRect.top + headerRect.height / 2;
+
+      let isOverDark = false;
+
+      darkSections.forEach((section) => {
+        const sectionRect = section.getBoundingClientRect();
+        if (headerMiddle >= sectionRect.top && headerMiddle <= sectionRect.bottom) {
+          isOverDark = true;
+        }
+      });
+
+      if (isOverDark) {
+        header.classList.add("header-dark-bg");
+      } else {
+        header.classList.remove("header-dark-bg");
+      }
+    }
+
+    window.addEventListener("scroll", checkHeaderPosition, { passive: true });
+    checkHeaderPosition(); // Initial check
   });
 </script>

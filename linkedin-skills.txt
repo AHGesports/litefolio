@@ -1,0 +1,413 @@
+COMPLETE SKILLS LIST FOR LINKEDIN
+==================================
+Total: 179 skills
+
+================================================================================
+LANGUAGES (7 skills)
+================================================================================
+
+Expert:
+1. C#
+2. JavaScript (ES2025)
+3. TypeScript
+4. PL/SQL
+5. SQL
+
+Proficient:
+6. Python 3.12+
+7. C
+
+================================================================================
+BACKEND (62 skills)
+================================================================================
+
+.NET Ecosystem:
+8. .NET 8
+9. .NET Framework 4.8
+10. ASP.NET MVC 5
+11. ASP.NET Web API
+12. Entity Framework Core 8
+13. NHibernate
+14. FluentNHibernate
+
+Node.js:
+15. Express.js 4.x
+16. Fastify
+
+Python:
+17. FastAPI
+18. Uvicorn
+
+API Standards:
+19. REST
+20. gRPC
+21. SOAP
+22. GraphQL
+
+Databases:
+23. Oracle 11g+
+24. PostgreSQL
+25. MySQL
+26. MsSql
+27. Neon.tech
+28. LowDB
+29. JSON-based storage
+
+ORM & Data Access:
+30. ODP.NET
+31. Dapper
+
+Database Tools:
+32. DBeaver
+33. SQL Management Studio
+34. PL/SQL Developer
+
+Caching & Queuing:
+35. Redis
+36. System.Runtime.Caching
+37. BullMQ
+38. Job Scheduling
+
+Authentication & Security:
+39. JWT
+40. OAuth 2.0
+41. SSO
+42. RBAC
+43. Multi-factor Authentication
+44. Nonce-based Authentication
+45. Google Auth Library
+46. Custom Enterprise B2B SSO
+47. Better auth
+
+API Development:
+48. Swagger/OpenAPI
+49. NSwag
+50. Postman
+51. API Versioning
+52. Contract-first development
+53. AJV
+54. Pydantic
+
+HTTP Clients:
+55. Axios
+56. RestSharp
+57. httpx
+58. aiohttp
+59. requests
+60. Fetch API
+
+Logging:
+61. Winston
+62. log4net
+
+================================================================================
+FRONTEND (17 skills)
+================================================================================
+
+Frameworks:
+63. Angular 17-18
+64. Astro
+65. React (basic)
+66. Blazor (basic)
+67. Vanilla JS (ES2025)
+68. jQuery 3.5+
+
+State Management:
+69. RxJS
+70. Angular Signals
+
+UI Components:
+71. PrimeNG
+72. SyncFusion
+73. DHTMLX
+
+Styling:
+74. Bootstrap 4-5
+75. Tailwind CSS
+76. SCSS/SASS
+
+Templating:
+77. Razor View Engine
+78. HandlebarsJS
+79. EJS
+
+================================================================================
+DEVOPS (20 skills)
+================================================================================
+
+Version Control:
+80. Git
+81. GitHub
+82. GitLab
+83. Gitea
+
+Project Management:
+84. Azure DevOps
+85. Jira
+
+Containerization:
+86. Docker
+
+Testing:
+87. TDD
+88. Jest
+89. xUnit
+90. pytest
+91. Moq
+92. FluentAssertions
+93. AutoFixture
+
+Validation & Mapping:
+94. AJV
+95. ajv-formats
+96. Pydantic
+97. jQuery.Validation
+98. Mapster
+99. AutoMapper
+
+================================================================================
+AI & AUTOMATION (36 skills)
+================================================================================
+
+LLM Providers:
+100. OpenAI API
+101. Anthropic API
+102. Google Gemini API
+
+AI Frameworks:
+103. Langchain
+104. MCP (Model Context Protocol)
+105. ScrollHelp Documentation AI
+
+Browser Automation:
+106. Playwright
+107. Puppeteer
+108. Selenium
+
+AI Automation Frameworks:
+109. Browser-use
+110. Skyvern
+111. Stagehand
+112. La vague
+113. Magnitude
+114. BrowserGym
+
+Web Scraping:
+115. BeautifulSoup4
+116. Apify
+117. FireCrawl
+118. Crawlee
+
+Browser Infrastructure:
+119. BrowserBase
+120. Steel browser
+
+Anti-Detect:
+121. AdsPower
+122. MoreLogin
+123. GoLogin
+124. Camoufox
+125. Undetected Chromedriver
+126. selenium stealth
+127. playwright stealth
+128. Puppeteer stealth
+
+CAPTCHA:
+129. 2Captcha
+
+Workflow Automation:
+130. n8n
+131. Activepieces
+132. Sim.ai
+133. AutoFlow (custom)
+134. BullMQ
+135. Custom job schedulers
+
+================================================================================
+SPECIALIZED (44 skills)
+================================================================================
+
+Architecture:
+136. SOLID principles
+137. Repository pattern
+138. Service layer architecture
+
+Desktop Development:
+139. WPF (.NET)
+140. Tauri (Rust + WebView2)
+141. PyInstaller
+142. NSIS/MSI installers
+
+Hardware Integration:
+143. Thermal printers
+144. Barcode scanners
+145. Card readers/encoders
+146. Access gates
+
+PDF Processing:
+147. Rotativa
+148. ReportLab
+149. PDFSharp
+150. ng2-pdfjs-viewer
+
+Excel & CSV:
+151. EPPlusFree
+152. ExcelJS
+153. XLSX
+154. ExcelDataReader
+155. CsvHelper
+
+Compression:
+156. JSZip
+157. Archiver
+158. adm-zip
+159. Ionic.Zip
+
+Barcodes & QR:
+160. BarcodeLib
+161. QRCoder
+
+Image Processing:
+162. Pillow
+163. System.Drawing.Common
+
+External Services:
+164. Nodemailer
+165. Resend
+166. Mailgun
+167. FiveSim
+168. SMS providers
+
+Domain Experience:
+169. Multi-tenant B2B systems
+170. POS systems
+171. Enterprise reservation & ticketing
+172. Accreditation management
+173. Anti-bot detection
+174. Browser fingerprinting
+175. Computer-use
+176. Browser-use
+
+Game Development:
+177. Unity
+178. Unity UI
+179. Three.js
+
+================================================================================
+LINKEDIN-FRIENDLY FLAT LIST (copy-paste ready)
+================================================================================
+
+C#
+JavaScript
+TypeScript
+PL/SQL
+SQL
+Python
+C
+.NET
+.NET Framework
+ASP.NET MVC
+ASP.NET Web API
+Entity Framework
+NHibernate
+Express.js
+Fastify
+FastAPI
+Uvicorn
+REST APIs
+gRPC
+SOAP
+GraphQL
+Oracle Database
+PostgreSQL
+MySQL
+Microsoft SQL Server
+Redis
+Dapper
+DBeaver
+SQL Server Management Studio
+JWT
+OAuth 2.0
+Single Sign-On (SSO)
+RBAC
+Multi-factor Authentication
+Swagger
+OpenAPI
+NSwag
+Postman
+API Development
+Axios
+RestSharp
+httpx
+aiohttp
+Requests (Python)
+Fetch API
+Winston
+log4net
+Angular
+Astro
+React.js
+Blazor
+jQuery
+RxJS
+PrimeNG
+Syncfusion
+Bootstrap
+Tailwind CSS
+SCSS
+SASS
+Razor
+Handlebars.js
+EJS
+Git
+GitHub
+GitLab
+Azure DevOps
+Jira
+Docker
+Test-Driven Development (TDD)
+Jest
+xUnit
+pytest
+Moq
+FluentAssertions
+AutoMapper
+Mapster
+OpenAI API
+Anthropic
+Google Gemini
+LangChain
+Playwright
+Puppeteer
+Selenium
+Web Scraping
+BeautifulSoup
+Apify
+Crawlee
+n8n
+SOLID Principles
+Repository Pattern
+WPF
+Tauri
+PyInstaller
+PDF Processing
+ReportLab
+EPPlus
+ExcelJS
+CsvHelper
+Pillow
+Nodemailer
+Resend
+Mailgun
+Unity
+Unity UI
+Three.js
+Browser Automation
+Web Automation
+API Integration
+Microservices
+Backend Development
+Frontend Development
+Full-Stack Development
+Database Design
+Software Architecture

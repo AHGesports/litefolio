@@ -379,7 +379,7 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
           { id: 'n8n', name: 'n8n', icon: '/logos/n8n.svg' },
           { id: 'activepieces', name: 'Activepieces' },
           { id: 'sim-ai', name: 'Sim.ai' },
-          { id: 'autoflow', name: 'AutoFlow (custom)' },
+          { id: 'elyt', name: 'Elyt (custom)' },
           { id: 'bullmq-workflow', name: 'BullMQ', icon: '/logos/nodejs.svg' },
           { id: 'custom-schedulers', name: 'Custom job schedulers' },
         ],

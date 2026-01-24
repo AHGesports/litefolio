@@ -4,7 +4,7 @@ export const SITE = {
   DESCRIPTION:
     "A full-stack developer with a strong focus on building fast, accessible, and maintainable web applications.",
   EMAIL: "arshia.hemati@gmail.com",
-  BIO: "I'm a full-stack developer passionate about building things for the web and sharing my knowledge with others.",
+  BIO: "I'm a 22 year old full-stack developer passionate about building things for the web and sharing my knowledge with others.",
   CONTACT_TEXT: "Active on Dev.to and Linkedin, feel free to read my latest articles there!",
 };
 

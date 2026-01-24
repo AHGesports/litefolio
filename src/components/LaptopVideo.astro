@@ -63,12 +63,12 @@ const { videoSrc, alt = "Demo video", class: className } = Astro.props;
       0 10px 30px rgba(0, 0, 0, 0.4);
 
     /* Responsive sizing in steps */
-    width: 280px;
+    width: 320px;
   }
 
   @media (min-width: 640px) {
     .laptop-screen-frame {
-      width: 320px;
+      width: 400px;
       border-radius: 14px;
       padding: 10px;
     }
@@ -76,13 +76,13 @@ const { videoSrc, alt = "Demo video", class: className } = Astro.props;
 
   @media (min-width: 768px) {
     .laptop-screen-frame {
-      width: 300px;
+      width: 440px;
     }
   }
 
   @media (min-width: 1024px) {
     .laptop-screen-frame {
-      width: 360px;
+      width: 550px;
       border-radius: 16px;
       padding: 12px;
     }
@@ -90,7 +90,7 @@ const { videoSrc, alt = "Demo video", class: className } = Astro.props;
 
   @media (min-width: 1280px) {
     .laptop-screen-frame {
-      width: 420px;
+      width: 650px;
     }
   }
 
@@ -138,7 +138,7 @@ const { videoSrc, alt = "Demo video", class: className } = Astro.props;
     background: #000;
     border-radius: 6px;
     overflow: hidden;
-    aspect-ratio: 16 / 10;
+    aspect-ratio: 673 / 360; /* Matches autoflow-demo.mp4 (1346x720) */
   }
 
   .screen video {

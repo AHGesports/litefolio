@@ -1,6 +1,6 @@
 ---
 import { SITE, SOCIALS } from "../consts";
-const instagramLink = SOCIALS.find(s => s.NAME === "Instagram")?.HREF || "#";
+const linkedinLink = SOCIALS.find(s => s.NAME === "Linkedin")?.HREF || "#";
 ---
 
 <section
@@ -12,9 +12,9 @@ const instagramLink = SOCIALS.find(s => s.NAME === "Instagram")?.HREF || "#";
       class="flex flex-col md:flex-row gap-10 w-full max-w-2xl justify-center items-center"
     >
     <div
-      class="border h-[300px] w-[200px] bg-accent rotate-6 p-4 perfect-shadow"
+      class="border border-neutral-800 h-[300px] w-[200px] bg-neutral-900 rotate-6 p-4 perfect-shadow"
     >
-      <div class="w-full h-[calc(100%-50px)] bg-background"></div>
+      <img src="/assets/mypic/4.jpg" alt="My photo" class="w-full h-[calc(100%-15px)] object-cover" />
     </div>
     <div class="flex flex-1 flex-col gap-3">
       <h2
@@ -29,7 +29,7 @@ const instagramLink = SOCIALS.find(s => s.NAME === "Instagram")?.HREF || "#";
       </p>
       <div class="flex items-center gap-3">
         <a
-          href={instagramLink}
+          href={linkedinLink}
           target="_blank"
           rel="noopener noreferrer"
           class="relative w-fit flex justify-center items-center px-4 py-2 sm:px-6 sm:py-3 sm:text-lg font-medium text-background bg-primary rounded-full perfect-shadow"

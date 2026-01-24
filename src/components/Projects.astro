@@ -49,122 +49,122 @@ import { SKILL_CATEGORIES, getSkillCount } from "../data/skills";
 >
   <div class="container mx-auto flex flex-col justify-center items-center gap-6 sm:gap-10 p-4 sm:p-6 py-16 sm:py-24">
     <h2
-      class="z-10 w-full max-w-xl text-center text-xl sm:text-2xl md:text-4xl font-medium tracking-tighter text-pretty bg-clip-text text-transparent bg-gradient-to-b from-background via-background to-muted-foreground"
+      class="z-10 w-full max-w-xl text-center text-xl sm:text-2xl lg:text-4xl font-medium tracking-tighter text-pretty bg-clip-text text-transparent bg-gradient-to-b from-background via-background to-muted-foreground"
     >
       Every project is a new challenge to overcome.
     </h2>
     <p
-      class="w-full max-w-xl bg-clip-text text-transparent bg-gradient-to-b from-background via-background to-muted-foreground text-center text-base sm:text-lg md:text-xl font-light tracking-tighter text-balance"
+      class="w-full max-w-xl bg-clip-text text-transparent bg-gradient-to-b from-background via-background to-muted-foreground text-center text-base sm:text-lg lg:text-xl font-light tracking-tighter text-balance"
     >
-      Design, Code, Learn, Repeat.
+       
     </p>
-    <div class="z-10 w-full grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-2 sm:gap-3">
-    <!-- AutoFlow - Main Project -->
+    <div class="z-10 w-full grid grid-cols-2 lg:grid-cols-5 gap-2 sm:gap-3">
+    <!-- Elyt - Main Project -->
     <article
-      class="order-1 overflow-hidden relative bg-dark-card col-span-2 md:col-span-4 lg:col-span-3 lg:row-span-2 border min-h-[240px] sm:min-h-[300px] h-auto border-dark-border rounded-[1rem] flex flex-col sm:flex-row sm:gap-3"
+      class="order-1 overflow-hidden relative bg-dark-card col-span-2 lg:col-span-3 lg:row-span-2 border min-h-[300px] sm:min-h-[400px] lg:min-h-[600px] h-auto border-dark-border rounded-[1rem] flex flex-col"
     >
-      <div class="flex flex-col gap-2 w-full sm:w-1/2 items-start p-3 sm:p-4 text-left shrink-0">
+      <div class="flex flex-col gap-2 w-full items-start p-3 sm:p-4 text-left shrink-0">
         <h3
-          class="text-left text-lg sm:text-xl md:text-2xl font-medium tracking-tighter text-pretty bg-clip-text text-transparent bg-gradient-to-br from-background via-background to-secondary"
+          class="text-left text-lg sm:text-xl lg:text-2xl font-medium tracking-tighter text-pretty bg-clip-text text-transparent bg-gradient-to-br from-background via-background to-secondary"
         >
-          AutoFlow
+          Elyt
         </h3>
         <p
-          class="w-full text-muted-foreground text-left text-xs sm:text-sm md:text-base lg:text-lg font-light tracking-tighter text-balance"
+          class="w-full text-muted-foreground text-left text-xs sm:text-sm lg:text-lg font-light tracking-tighter text-balance"
         >
           AI-powered browser automation commercial product with multi-profile orchestration, humanization technology, and multi-provider LLM integration.
         </p>
       </div>
-      <div class="flex-1 flex items-center justify-center p-2 min-h-[150px]">
+      <div class="flex-1 flex items-center justify-center p-2 sm:p-4 min-h-[200px] sm:min-h-[300px] lg:min-h-[450px]">
         <LaptopVideo
           videoSrc="/assets/autoflow-demo.mp4"
-          alt="Autoflow demo"
+          alt="Elyt demo"
         />
       </div>
     </article>
     <!-- Skills -->
     <article
-      class="order-2 overflow-hidden group bg-dark-card col-span-1 md:col-span-2 lg:col-span-2 lg:row-span-2 lg:col-start-4 min-h-[220px] sm:min-h-[280px] md:min-h-[300px] h-auto border border-dark-border rounded-[1rem] p-2 sm:p-4 flex flex-col flex-1 gap-0.5 sm:gap-1 justify-center items-center"
+      class="order-3 lg:order-2 overflow-hidden group bg-dark-card col-span-1 lg:col-span-2 lg:row-span-2 lg:col-start-4 min-h-[200px] sm:min-h-[240px] lg:min-h-[600px] h-auto border border-dark-border rounded-[1rem] p-1.5 sm:p-2 lg:p-6 flex flex-col flex-1 gap-0.5 lg:gap-3 justify-center items-center"
     >
       <div
         role="button"
         tabindex="0"
         data-skill-category="languages"
-        class="w-fit rounded-full bg-background px-3 py-1.5 flex justify-center items-center gap-2 rotate-12 group-hover:rotate-0 border transition-all duration-300 ease-in-out cursor-pointer hover:scale-105 hover:shadow-lg"
+        class="w-fit rounded-full bg-background px-2 py-1 sm:px-2.5 sm:py-1.5 lg:px-5 lg:py-2.5 flex justify-center items-center gap-1 sm:gap-1.5 lg:gap-3 lg:rotate-12 group-hover:rotate-0 border transition-all duration-300 ease-in-out cursor-pointer hover:scale-105 hover:shadow-lg"
       >
-        <span class="text-sm sm:text-base md:text-lg font-light tracking-tighter">Languages</span>
-        <span class="text-xs text-muted-foreground">({getSkillCount(SKILL_CATEGORIES[0])})</span>
-        <svg class="w-3 h-3 text-muted-foreground" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        <span class="text-[11px] sm:text-xs lg:text-xl font-light tracking-tighter">Languages</span>
+        <span class="text-[9px] sm:text-[10px] lg:text-sm text-muted-foreground">({getSkillCount(SKILL_CATEGORIES[0])})</span>
+        <svg class="w-2.5 h-2.5 lg:w-4 lg:h-4 text-muted-foreground hidden sm:block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
       </div>
       <div
         role="button"
         tabindex="0"
         data-skill-category="backend"
-        class="w-fit rounded-full bg-background px-3 py-1.5 flex justify-center items-center gap-2 -rotate-6 group-hover:rotate-0 border transition-all duration-300 ease-in-out cursor-pointer hover:scale-105 hover:shadow-lg"
+        class="w-fit rounded-full bg-background px-2 py-1 sm:px-2.5 sm:py-1.5 lg:px-5 lg:py-2.5 flex justify-center items-center gap-1 sm:gap-1.5 lg:gap-3 lg:-rotate-6 group-hover:rotate-0 border transition-all duration-300 ease-in-out cursor-pointer hover:scale-105 hover:shadow-lg"
       >
-        <span class="text-sm sm:text-base md:text-lg font-light tracking-tighter">Backend</span>
-        <span class="text-xs text-muted-foreground">({getSkillCount(SKILL_CATEGORIES[1])})</span>
-        <svg class="w-3 h-3 text-muted-foreground" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        <span class="text-[11px] sm:text-xs lg:text-xl font-light tracking-tighter">Backend</span>
+        <span class="text-[9px] sm:text-[10px] lg:text-sm text-muted-foreground">({getSkillCount(SKILL_CATEGORIES[1])})</span>
+        <svg class="w-2.5 h-2.5 lg:w-4 lg:h-4 text-muted-foreground hidden sm:block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
       </div>
       <div
         role="button"
         tabindex="0"
         data-skill-category="frontend"
-        class="w-fit rounded-full bg-background px-3 py-1.5 flex justify-center items-center gap-2 border transition-all duration-300 ease-in-out cursor-pointer hover:scale-105 hover:shadow-lg"
+        class="w-fit rounded-full bg-background px-2 py-1 sm:px-2.5 sm:py-1.5 lg:px-5 lg:py-2.5 flex justify-center items-center gap-1 sm:gap-1.5 lg:gap-3 border transition-all duration-300 ease-in-out cursor-pointer hover:scale-105 hover:shadow-lg"
       >
-        <span class="text-sm sm:text-base md:text-lg font-light tracking-tighter">Frontend</span>
-        <span class="text-xs text-muted-foreground">({getSkillCount(SKILL_CATEGORIES[2])})</span>
-        <svg class="w-3 h-3 text-muted-foreground" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        <span class="text-[11px] sm:text-xs lg:text-xl font-light tracking-tighter">Frontend</span>
+        <span class="text-[9px] sm:text-[10px] lg:text-sm text-muted-foreground">({getSkillCount(SKILL_CATEGORIES[2])})</span>
+        <svg class="w-2.5 h-2.5 lg:w-4 lg:h-4 text-muted-foreground hidden sm:block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
       </div>
       <div
         role="button"
         tabindex="0"
         data-skill-category="devops"
-        class="w-fit rounded-full bg-background px-3 py-1.5 flex justify-center items-center gap-2 rotate-6 group-hover:rotate-0 border transition-all duration-300 ease-in-out cursor-pointer hover:scale-105 hover:shadow-lg"
+        class="w-fit rounded-full bg-background px-2 py-1 sm:px-2.5 sm:py-1.5 lg:px-5 lg:py-2.5 flex justify-center items-center gap-1 sm:gap-1.5 lg:gap-3 lg:rotate-6 group-hover:rotate-0 border transition-all duration-300 ease-in-out cursor-pointer hover:scale-105 hover:shadow-lg"
       >
-        <span class="text-sm sm:text-base md:text-lg font-light tracking-tighter">DevOps</span>
-        <span class="text-xs text-muted-foreground">({getSkillCount(SKILL_CATEGORIES[3])})</span>
-        <svg class="w-3 h-3 text-muted-foreground" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        <span class="text-[11px] sm:text-xs lg:text-xl font-light tracking-tighter">DevOps</span>
+        <span class="text-[9px] sm:text-[10px] lg:text-sm text-muted-foreground">({getSkillCount(SKILL_CATEGORIES[3])})</span>
+        <svg class="w-2.5 h-2.5 lg:w-4 lg:h-4 text-muted-foreground hidden sm:block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
       </div>
       <div
         role="button"
         tabindex="0"
         data-skill-category="ai-automation"
-        class="w-fit rounded-full bg-background px-3 py-1.5 flex justify-center items-center gap-2 -rotate-12 group-hover:rotate-0 border transition-all duration-300 ease-in-out cursor-pointer hover:scale-105 hover:shadow-lg"
+        class="w-fit rounded-full bg-background px-2 py-1 sm:px-2.5 sm:py-1.5 lg:px-5 lg:py-2.5 flex justify-center items-center gap-1 sm:gap-1.5 lg:gap-3 lg:-rotate-12 group-hover:rotate-0 border transition-all duration-300 ease-in-out cursor-pointer hover:scale-105 hover:shadow-lg"
       >
-        <span class="text-sm sm:text-base md:text-lg font-light tracking-tighter">AI & Automation</span>
-        <span class="text-xs text-muted-foreground">({getSkillCount(SKILL_CATEGORIES[4])})</span>
-        <svg class="w-3 h-3 text-muted-foreground" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        <span class="text-[11px] sm:text-xs lg:text-xl font-light tracking-tighter">AI & Auto</span>
+        <span class="text-[9px] sm:text-[10px] lg:text-sm text-muted-foreground">({getSkillCount(SKILL_CATEGORIES[4])})</span>
+        <svg class="w-2.5 h-2.5 lg:w-4 lg:h-4 text-muted-foreground hidden sm:block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
       </div>
       <div
         role="button"
         tabindex="0"
         data-skill-category="specialized"
-        class="w-fit rounded-full bg-background px-3 py-1.5 flex justify-center items-center gap-2 rotate-3 group-hover:rotate-0 border transition-all duration-300 ease-in-out cursor-pointer hover:scale-105 hover:shadow-lg"
+        class="w-fit rounded-full bg-background px-2 py-1 sm:px-2.5 sm:py-1.5 lg:px-5 lg:py-2.5 flex justify-center items-center gap-1 sm:gap-1.5 lg:gap-3 lg:rotate-3 group-hover:rotate-0 border transition-all duration-300 ease-in-out cursor-pointer hover:scale-105 hover:shadow-lg"
       >
-        <span class="text-sm sm:text-base md:text-lg font-light tracking-tighter">Specialized</span>
-        <span class="text-xs text-muted-foreground">({getSkillCount(SKILL_CATEGORIES[5])})</span>
-        <svg class="w-3 h-3 text-muted-foreground" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        <span class="text-[11px] sm:text-xs lg:text-xl font-light tracking-tighter">Specialized</span>
+        <span class="text-[9px] sm:text-[10px] lg:text-sm text-muted-foreground">({getSkillCount(SKILL_CATEGORIES[5])})</span>
+        <svg class="w-2.5 h-2.5 lg:w-4 lg:h-4 text-muted-foreground hidden sm:block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
       </div>
     </article>
     <!-- Testimonials -->
     <article
-      class="order-3 overflow-hidden bg-dark-card col-span-1 md:col-span-2 lg:col-span-2 lg:row-span-2 lg:row-start-3 border min-h-[220px] sm:min-h-[280px] md:min-h-[300px] h-auto border-dark-border rounded-[1rem] px-2 sm:px-4 group"
+      class="order-2 lg:order-3 overflow-hidden bg-dark-card col-span-1 lg:col-span-2 lg:row-span-2 lg:row-start-3 border min-h-[200px] sm:min-h-[240px] lg:h-[691px] h-auto border-dark-border rounded-[1rem] px-1 py-1.5 sm:px-1.5 sm:py-2 lg:px-4 lg:py-0 group"
     >
       <div
-        class="w-full h-full max-h-[220px] sm:max-h-[500px] flex flex-col justify-center select-none overflow-hidden"
+        class="w-full h-full max-h-[190px] sm:max-h-[220px] lg:max-h-full flex flex-col justify-center select-none overflow-hidden"
       >
         <div
-          class="w-full h-max flex flex-col justify-center items-center gap-[2rem] sm:gap-[4rem] animate-vertical-slide"
+          class="w-full h-max flex flex-col justify-center items-center gap-[1rem] sm:gap-[1.25rem] lg:gap-[4rem] animate-vertical-slide"
         >
           {
             testimonials.concat(testimonials).map((testimonial) => (
-              <article class="w-full max-w-sm flex flex-col gap-1 sm:gap-2 items-center justify-center h-16 sm:h-20 border border-dark-border bg-background rounded-[0.75rem] sm:rounded-[1rem] px-2 sm:px-4 py-1.5 sm:py-2">
-                <div class="w-full flex items-center justify-start gap-1.5 sm:gap-2">
-                  <span class="w-5 h-5 sm:w-7 sm:h-7 rounded-full bg-gradient-to-r from-primary to-secondary shrink-0" />
-                  <h1 class="text-xs sm:text-sm font-medium truncate">{testimonial.name}</h1>
+              <article class="w-full max-w-[140px] sm:max-w-[160px] lg:max-w-sm flex flex-col gap-0.5 lg:gap-2 items-center justify-center h-10 sm:h-11 lg:h-20 border border-dark-border bg-background rounded-[0.4rem] sm:rounded-[0.5rem] lg:rounded-[1rem] px-1.5 sm:px-2 lg:px-4 py-1 lg:py-2">
+                <div class="w-full flex items-center justify-start gap-1 lg:gap-2">
+                  <span class="w-3 h-3 sm:w-3.5 sm:h-3.5 lg:w-7 lg:h-7 rounded-full bg-gradient-to-r from-primary to-secondary shrink-0" />
+                  <h1 class="text-[8px] sm:text-[9px] lg:text-sm font-medium truncate">{testimonial.name}</h1>
                 </div>
-                <p class="w-full text-left text-muted-foreground text-[10px] sm:text-xs line-clamp-2">
+                <p class="w-full text-left text-muted-foreground text-[7px] sm:text-[8px] lg:text-xs line-clamp-2">
                   {testimonial.testimonial}
                 </p>
               </article>
@@ -173,69 +173,65 @@ import { SKILL_CATEGORIES, getSkillCount } from "../data/skills";
         </div>
       </div>
     </article>
-    <!-- Project 2 - Full width at bottom on mobile -->
+    <!-- Synth - Full width row 3 on mobile/tablet -->
     <article
-      class="order-6 md:order-4 overflow-hidden bg-dark-card col-span-2 md:col-span-2 lg:col-span-3 lg:row-span-2 lg:col-start-3 lg:row-start-3 border min-h-[240px] sm:min-h-[300px] h-auto border-dark-border rounded-[1rem] flex flex-col sm:flex-row sm:gap-3"
+      class="order-4 overflow-hidden bg-dark-card col-span-2 lg:col-span-3 lg:row-span-2 lg:col-start-3 lg:row-start-3 border min-h-[240px] sm:min-h-[300px] h-auto border-dark-border rounded-[1rem] flex flex-col"
     >
-      <div class="flex flex-col gap-2 w-full sm:w-1/2 items-start p-3 sm:p-4 text-left shrink-0">
+      <div class="flex flex-col gap-2 w-full items-start p-3 sm:p-4 text-left shrink-0">
         <h3
-          class="text-left text-lg sm:text-xl md:text-2xl font-medium tracking-tighter text-pretty bg-clip-text text-transparent bg-gradient-to-br from-background via-background to-secondary"
+          class="text-left text-lg sm:text-xl lg:text-2xl font-medium tracking-tighter text-pretty bg-clip-text text-transparent bg-gradient-to-br from-background via-background to-secondary"
         >
-          Your Project Here
+          Synth
         </h3>
         <p
-          class="w-full text-muted-foreground text-left text-xs sm:text-sm md:text-base lg:text-lg font-light tracking-tighter text-balance"
+          class="w-full text-muted-foreground text-left text-xs sm:text-sm lg:text-lg font-light tracking-tighter text-balance"
         >
-          Your project description here.
+          An AI Agent and workflow management powerhouse for the future, made from the experience of Elyt. Harnessing the power of open-source to integrate with over 150+ services, and features database-per-tenant architecture with database branching to give agents their own state and much more still taking shape. My most ambitious commercial project to date.
         </p>
       </div>
       <div class="flex-1 flex items-center justify-center p-2 min-h-[120px]">
-        <Image
-          src="/assets/mockup2.png"
+        <img
+          src="/assets/simNeon.svg"
           alt="Mockup Project"
           loading="lazy"
-          width={1920}
-          height={1080}
-          class="object-contain w-full h-full max-h-[140px] sm:max-h-[180px] md:max-h-full rounded-md"
+          class="object-contain w-full h-full max-h-[140px] sm:max-h-[180px] lg:max-h-full rounded-md"
         />
       </div>
     </article>
-    <!-- Project 3 - Next to CTA on mobile -->
+    <!-- Enterprise Experience - Row 4 left on mobile/tablet -->
     <article
-      class="order-4 md:order-5 overflow-hidden bg-dark-card col-span-1 md:col-span-2 lg:col-span-3 lg:row-span-2 lg:row-start-5 border min-h-[220px] sm:min-h-[300px] h-auto border-dark-border rounded-[1rem] flex flex-col"
+      class="order-5 overflow-hidden bg-dark-card col-span-1 lg:col-span-3 lg:row-span-2 lg:row-start-5 border min-h-[200px] sm:min-h-[280px] h-auto border-dark-border rounded-[1rem] flex flex-col lg:flex-row lg:gap-3"
     >
-      <div class="flex flex-col gap-1 sm:gap-2 w-full items-start p-3 sm:p-4 text-left shrink-0">
+      <div class="flex flex-col gap-1 sm:gap-2 w-full lg:w-1/2 items-start p-3 sm:p-4 text-left shrink-0">
         <h3
-          class="text-left text-lg sm:text-xl md:text-2xl font-medium tracking-tighter text-pretty bg-clip-text text-transparent bg-gradient-to-br from-background via-background to-secondary"
+          class="text-left text-base sm:text-lg lg:text-xl xl:text-2xl font-medium tracking-tighter text-pretty bg-clip-text text-transparent bg-gradient-to-br from-background via-background to-secondary"
         >
-          Your Project Here
+          Enterprise Experience
         </h3>
         <p
-          class="w-full text-muted-foreground text-left text-xs sm:text-sm md:text-base lg:text-lg font-light tracking-tighter text-balance"
+          class="w-full text-muted-foreground text-left text-[10px] sm:text-xs lg:text-sm xl:text-base font-light tracking-tighter text-balance line-clamp-4 lg:line-clamp-none"
         >
-          Your project description here.
+          Years of experience on Enterprise systems taught me scale. Ticketing platforms, reservation systems, and POS solutions processing real transactions for real businesses. Hardware integrations from payment terminals to access control. The work that defined my engineering standards and career.
         </p>
       </div>
-      <div class="flex-1 flex items-center justify-center p-2">
-        <Image
-          src="/assets/mockup1.png"
+      <div class="flex-1 flex items-center justify-center lg:justify-start p-2 lg:pl-[6%] min-h-[80px] lg:min-h-[120px] overflow-hidden">
+        <img
+          src="/assets/mockup3.svg"
           alt="Mockup Project"
           loading="lazy"
-          width={1920}
-          height={1080}
-          class="object-contain w-full h-full max-h-[100px] sm:max-h-[180px] md:max-h-full rounded-md"
+          class="object-contain max-w-[80px] sm:max-w-[100px] lg:max-w-[157px] xl:max-w-[190px] rounded-md"
         />
       </div>
     </article>
-    <!-- CTA - Next to Project 3 on mobile -->
+    <!-- CTA - Row 4 right on mobile/tablet -->
     <article
-      class="order-5 md:order-6 overflow-hidden bg-dark-card col-span-1 md:col-span-2 lg:col-span-2 lg:row-span-2 lg:col-start-4 lg:row-start-5 border min-h-[220px] sm:min-h-[280px] md:min-h-[300px] h-auto border-dark-border rounded-[1rem]"
+      class="order-6 overflow-hidden bg-dark-card col-span-1 lg:col-span-2 lg:row-span-2 lg:col-start-4 lg:row-start-5 border min-h-[220px] sm:min-h-[280px] lg:min-h-[300px] h-auto border-dark-border rounded-[1rem]"
     >
       <div
         class="w-full h-full flex flex-col gap-3 sm:gap-5 justify-center items-center p-3 sm:p-4"
       >
         <h1
-          class="text-base sm:text-xl md:text-2xl font-medium tracking-tighter text-pretty bg-clip-text text-transparent bg-gradient-to-br from-background via-background to-secondary text-center"
+          class="text-base sm:text-xl lg:text-2xl font-medium tracking-tighter text-pretty bg-clip-text text-transparent bg-gradient-to-br from-background via-background to-secondary text-center"
         >
           Let's work together
         </h1>

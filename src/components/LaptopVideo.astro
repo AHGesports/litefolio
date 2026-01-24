@@ -348,17 +348,14 @@ const { videoSrc, alt = "Demo video", class: className } = Astro.props;
 <script>
   import GLightbox from 'glightbox';
 
-  const lightbox = GLightbox({
+  GLightbox({
     selector: '.glightbox',
     touchNavigation: true,
     loop: false,
     autoplayVideos: true,
     plyr: {
-      config: {
-        muted: false,
-        autoplay: true,
-        controls: ['play-large', 'play', 'progress', 'current-time', 'mute', 'volume', 'fullscreen'],
-      }
+      css: 'https://cdn.plyr.io/3.7.8/plyr.css',
+      js: 'https://cdn.plyr.io/3.7.8/plyr.polyfilled.js'
     }
   });
 </script>

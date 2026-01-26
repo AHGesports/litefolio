@@ -4,42 +4,10 @@
   Link: https://shots.so/
 */
 
-const testimonials = [
-  {
-    name: "Alice Smith",
-    testimonial: "Your work is truly outstanding!",
-    src: "/",
-    alt: "Logo",
-  },
-  {
-    name: "Michael Johnson",
-    testimonial: "Exceptional quality and attention to detail.",
-    src: "/",
-    alt: "Logo",
-  },
-  {
-    name: "Emily Davis",
-    testimonial: "Incredible results!",
-    src: "/",
-    alt: "Logo",
-  },
-  {
-    name: "Chris Lee",
-    testimonial: "Your creativity and skill are unmatched.",
-    src: "/",
-    alt: "Logo",
-  },
-  {
-    name: "Sophia Brown",
-    testimonial: "Impressive work and great service.",
-    src: "/",
-    alt: "Logo",
-  },
-];
-
 import Image from "astro/components/Image.astro";
 import SkillsModal from "./skills/SkillsModal.astro";
 import LaptopVideo from "./LaptopVideo.astro";
+import AgentArchitecture from "./AgentArchitecture.astro";
 import { SKILL_CATEGORIES, getSkillCount } from "../data/skills";
 ---
 
@@ -77,7 +45,9 @@ import { SKILL_CATEGORIES, getSkillCount } from "../data/skills";
       </div>
       <div class="flex-1 flex items-center justify-center p-2 sm:p-4 min-h-[200px] sm:min-h-[300px] lg:min-h-[450px]">
         <LaptopVideo
-          videoSrc="/assets/autoflow-demo.mp4"
+          videoSrc="/video/video.mp4"
+          webmSrc="/video/video.webm"
+          posterSrc="/video/poster.webp"
           alt="Elyt demo"
         />
       </div>
@@ -147,31 +117,11 @@ import { SKILL_CATEGORIES, getSkillCount } from "../data/skills";
         <svg class="w-2.5 h-2.5 lg:w-4 lg:h-4 text-muted-foreground hidden sm:block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
       </div>
     </article>
-    <!-- Testimonials -->
+    <!-- Agent Architecture Visualization -->
     <article
-      class="order-2 lg:order-3 overflow-hidden bg-dark-card col-span-1 lg:col-span-2 lg:row-span-2 lg:row-start-3 border min-h-[200px] sm:min-h-[240px] lg:h-[691px] h-auto border-dark-border rounded-[1rem] px-1 py-1.5 sm:px-1.5 sm:py-2 lg:px-4 lg:py-0 group"
+      class="order-2 lg:order-3 overflow-hidden bg-dark-card col-span-1 lg:col-span-2 lg:row-span-2 lg:row-start-3 border min-h-[200px] sm:min-h-[240px] lg:h-[691px] h-auto border-dark-border rounded-[1rem]"
     >
-      <div
-        class="w-full h-full max-h-[190px] sm:max-h-[220px] lg:max-h-full flex flex-col justify-center select-none overflow-hidden"
-      >
-        <div
-          class="w-full h-max flex flex-col justify-center items-center gap-[1rem] sm:gap-[1.25rem] lg:gap-[4rem] animate-vertical-slide"
-        >
-          {
-            testimonials.concat(testimonials).map((testimonial) => (
-              <article class="w-full max-w-[140px] sm:max-w-[160px] lg:max-w-sm flex flex-col gap-0.5 lg:gap-2 items-center justify-center h-10 sm:h-11 lg:h-20 border border-dark-border bg-background rounded-[0.4rem] sm:rounded-[0.5rem] lg:rounded-[1rem] px-1.5 sm:px-2 lg:px-4 py-1 lg:py-2">
-                <div class="w-full flex items-center justify-start gap-1 lg:gap-2">
-                  <span class="w-3 h-3 sm:w-3.5 sm:h-3.5 lg:w-7 lg:h-7 rounded-full bg-gradient-to-r from-primary to-secondary shrink-0" />
-                  <h1 class="text-[8px] sm:text-[9px] lg:text-sm font-medium truncate">{testimonial.name}</h1>
-                </div>
-                <p class="w-full text-left text-muted-foreground text-[7px] sm:text-[8px] lg:text-xs line-clamp-2">
-                  {testimonial.testimonial}
-                </p>
-              </article>
-            ))
-          }
-        </div>
-      </div>
+      <AgentArchitecture />
     </article>
     <!-- Synth - Full width row 3 on mobile/tablet -->
     <article
@@ -265,9 +215,3 @@ import { SKILL_CATEGORIES, getSkillCount } from "../data/skills";
 </section>
 
 <SkillsModal />
-
-<style>
-  .group:hover .animate-vertical-slide {
-    animation-play-state: paused;
-  }
-</style>

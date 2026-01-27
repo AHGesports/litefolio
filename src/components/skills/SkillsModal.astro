@@ -14,10 +14,10 @@ import { SKILL_CATEGORIES, getSkillCount } from '../../data/skills';
     role="dialog"
     aria-modal="true"
     aria-labelledby="skills-modal-title"
-    class="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[90vw] max-w-4xl max-h-[85vh] overflow-y-auto bg-dark-card border border-dark-border rounded-2xl p-6 shadow-2xl scale-95 opacity-0 transition-all duration-200"
+    class="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[90vw] max-w-4xl max-h-[85vh] bg-dark-card border border-dark-border rounded-2xl shadow-2xl scale-95 opacity-0 transition-all duration-200 flex flex-col overflow-hidden"
   >
-    <!-- Header -->
-    <div class="flex items-center justify-between mb-6 sticky top-0 bg-dark-card pb-4 border-b border-dark-border z-10">
+    <!-- Header - Fixed at top -->
+    <div class="flex items-center justify-between p-6 pb-4 border-b border-dark-border shrink-0">
       <h2 id="skills-modal-title" class="text-xl md:text-2xl font-medium tracking-tighter bg-clip-text text-transparent bg-gradient-to-br from-background via-background to-secondary">
         Technical Skills
       </h2>
@@ -32,8 +32,8 @@ import { SKILL_CATEGORIES, getSkillCount } from '../../data/skills';
       </button>
     </div>
 
-    <!-- Skills Content - Will be populated by JS based on clicked category -->
-    <div id="skills-modal-content" class="space-y-6">
+    <!-- Skills Content - Scrollable area -->
+    <div id="skills-modal-content" class="flex-1 overflow-y-auto p-6 pt-4 space-y-6">
       {SKILL_CATEGORIES.map((category) => (
         <section id={`modal-category-${category.id}`} class="hidden" data-category={category.id}>
           {category.subsections.map((subsection) => (

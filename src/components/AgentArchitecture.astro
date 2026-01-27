@@ -1,21 +1,10 @@
 ---
-/**
- * Interactive Agent Architecture Visualization
- *
- * Animation System:
- * - CSS transforms for particle movement (not SVG attributes)
- * - stroke-dasharray/dashoffset for line "drawing" effects
- * - HTML divs for particles (better animation support)
- * - JavaScript for timing and sequencing
- */
+// Agent Architecture Visualization - Interactive flowchart showing data flow
 ---
 
 <div class="arch" id="arch">
-  <!-- Row 1: Trigger -->
   <div class="row">
-    <button class="node trigger" id="trigger" aria-label="Click to trigger full flow">
-      <div class="pulse-ring"></div>
-      <div class="node-glow"></div>
+    <button class="node trigger" id="trigger" aria-label="Start the flow animation">
       <svg class="node-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
       </svg>
@@ -23,18 +12,14 @@
     </button>
   </div>
 
-  <!-- Connection 1: Trigger → Workflow -->
   <div class="conn conn-vertical" id="conn1">
     <div class="conn-track"></div>
     <div class="conn-particle"></div>
   </div>
 
-  <!-- Row 2: Workflow -->
   <div class="row">
-    <button class="node workflow" id="workflow" aria-label="Click to animate workflow">
-      <div class="node-glow"></div>
+    <button class="node workflow" id="workflow" aria-label="Workflow orchestration">
       <svg class="node-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <!-- Workflow/branching icon -->
         <circle cx="12" cy="5" r="2"></circle>
         <circle cx="6" cy="19" r="2"></circle>
         <circle cx="18" cy="19" r="2"></circle>
@@ -44,12 +29,11 @@
     </button>
   </div>
 
-  <!-- Connection 2: Workflow → Agents (branching) -->
   <div class="conn conn-branch" id="conn-branch">
     <svg class="branch-svg" viewBox="0 0 300 60" preserveAspectRatio="none">
-      <path class="branch-line branch-l" d="M150 0 C150 30, 50 30, 50 60" />
-      <path class="branch-line branch-c" d="M150 0 L150 60" />
-      <path class="branch-line branch-r" d="M150 0 C150 30, 250 30, 250 60" />
+      <path class="branch-line" d="M150 0 C150 30, 50 30, 50 60" />
+      <path class="branch-line" d="M150 0 L150 60" />
+      <path class="branch-line" d="M150 0 C150 30, 250 30, 250 60" />
     </svg>
     <div class="branch-particles">
       <div class="branch-particle bp-l"></div>
@@ -58,29 +42,22 @@
     </div>
   </div>
 
-  <!-- Row 3: Agents -->
   <div class="row row-spread">
-    <button class="node agent" data-idx="0" aria-label="Agent 1">
-      <div class="spin-ring"></div>
-      <div class="node-glow"></div>
+    <button class="node agent" data-idx="0" aria-label="AI Agent instance">
       <svg class="node-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <circle cx="12" cy="8" r="4"></circle>
         <path d="M6 20c0-3 3-5 6-5s6 2 6 5"></path>
       </svg>
       <span>Agent</span>
     </button>
-    <button class="node agent" data-idx="1" aria-label="Agent 2">
-      <div class="spin-ring"></div>
-      <div class="node-glow"></div>
+    <button class="node agent" data-idx="1" aria-label="AI Agent instance">
       <svg class="node-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <circle cx="12" cy="8" r="4"></circle>
         <path d="M6 20c0-3 3-5 6-5s6 2 6 5"></path>
       </svg>
       <span>Agent</span>
     </button>
-    <button class="node agent" data-idx="2" aria-label="Agent 3">
-      <div class="spin-ring"></div>
-      <div class="node-glow"></div>
+    <button class="node agent" data-idx="2" aria-label="AI Agent instance">
       <svg class="node-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <circle cx="12" cy="8" r="4"></circle>
         <path d="M6 20c0-3 3-5 6-5s6 2 6 5"></path>
@@ -89,7 +66,6 @@
     </button>
   </div>
 
-  <!-- Connection 3: Agents → DBs (3 vertical lines) -->
   <div class="conn conn-trio" id="conn-trio">
     <svg class="trio-svg" viewBox="0 0 300 30" preserveAspectRatio="none">
       <line class="trio-line" x1="50" y1="0" x2="50" y2="30" />
@@ -103,10 +79,8 @@
     </div>
   </div>
 
-  <!-- Row 4: Isolated DBs -->
   <div class="row row-spread">
-    <button class="node db" data-idx="0" aria-label="Isolated DB 1">
-      <div class="node-glow"></div>
+    <button class="node db" data-idx="0" aria-label="Isolated database">
       <svg class="node-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
         <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
@@ -114,8 +88,7 @@
       </svg>
       <span>Isolated</span>
     </button>
-    <button class="node db" data-idx="1" aria-label="Isolated DB 2">
-      <div class="node-glow"></div>
+    <button class="node db" data-idx="1" aria-label="Isolated database">
       <svg class="node-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
         <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
@@ -123,8 +96,7 @@
       </svg>
       <span>Isolated</span>
     </button>
-    <button class="node db" data-idx="2" aria-label="Isolated DB 3">
-      <div class="node-glow"></div>
+    <button class="node db" data-idx="2" aria-label="Isolated database">
       <svg class="node-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
         <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
@@ -134,19 +106,16 @@
     </button>
   </div>
 
-  <!-- Connection 4: DBs → Shared (merging) -->
   <div class="conn conn-merge" id="conn-merge">
     <svg class="merge-svg" viewBox="0 0 300 50" preserveAspectRatio="none">
-      <path class="merge-line merge-l" d="M50 0 C50 25, 150 25, 150 50" />
-      <path class="merge-line merge-c" d="M150 0 L150 50" />
-      <path class="merge-line merge-r" d="M250 0 C250 25, 150 25, 150 50" />
+      <path class="merge-line" d="M50 0 C50 25, 150 25, 150 50" />
+      <path class="merge-line" d="M150 0 L150 50" />
+      <path class="merge-line" d="M250 0 C250 25, 150 25, 150 50" />
     </svg>
   </div>
 
-  <!-- Row 5: Shared Platform -->
   <div class="row">
-    <button class="node shared" id="shared" aria-label="Synth">
-      <div class="node-glow"></div>
+    <button class="node shared" id="shared" aria-label="Synth platform">
       <svg class="node-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="2" y="3" width="20" height="14" rx="2"></rect>
         <path d="M8 21h8M12 17v4"></path>
@@ -155,8 +124,7 @@
     </button>
   </div>
 
-  <!-- Hint -->
-  <p class="hint">Click any node to see the flow</p>
+  <button type="button" class="hint" id="hint-trigger">click to trigger workflow</button>
 </div>
 
 <style>
@@ -168,17 +136,23 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 16px 12px;
+    padding: 6px 4px;
     gap: 0;
-    --primary: hsl(252 35% 82%);
-    --primary-dim: hsl(252 35% 82% / 0.4);
-    --primary-glow: hsl(252 35% 82% / 0.6);
-    --line-color: hsl(0 0% 22%);
-    --line-active: hsl(252 35% 75% / 0.7);
+    --primary: hsl(0 0% 90%);
+    --line-color: hsl(0 0% 35%);
+    --line-active: hsl(0 0% 55%);
+  }
+
+  @media (min-width: 400px) {
+    .arch { padding: 8px 6px; }
   }
 
   @media (min-width: 640px) {
-    .arch { padding: 20px 16px; }
+    .arch { padding: 12px 10px; }
+  }
+
+  @media (min-width: 768px) {
+    .arch { padding: 16px 14px; }
   }
 
   @media (min-width: 1024px) {
@@ -194,12 +168,20 @@
 
   .row.row-spread {
     justify-content: space-between;
-    width: 85%;
-    max-width: 140px;
+    width: 95%;
+    max-width: 130px;
+  }
+
+  @media (min-width: 400px) {
+    .row.row-spread { max-width: 150px; }
   }
 
   @media (min-width: 640px) {
     .row.row-spread { max-width: 200px; }
+  }
+
+  @media (min-width: 768px) {
+    .row.row-spread { max-width: 280px; }
   }
 
   @media (min-width: 1024px) {
@@ -209,241 +191,181 @@
   /* ===== NODES ===== */
   .node {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    gap: 2px;
-    padding: 4px 6px;
-    background: hsl(0 0% 9%);
-    border: 1px solid hsl(0 0% 18%);
-    border-radius: 6px;
+    justify-content: center;
+    gap: 1px;
+    padding: 2px 4px;
+    background: hsl(0 0% 100%);
+    border: 1px solid hsl(0 0% 80%);
+    border-radius: 9999px;
     cursor: pointer;
     position: relative;
-    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    transition: all 0.3s ease-in-out;
     color: inherit;
     font-family: inherit;
   }
 
+  @media (min-width: 400px) {
+    .node {
+      padding: 3px 5px;
+      gap: 2px;
+    }
+  }
+
   @media (min-width: 640px) {
     .node {
-      padding: 6px 8px;
+      padding: 4px 8px;
       gap: 3px;
-      border-radius: 8px;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .node {
+      padding: 6px 12px;
+      gap: 4px;
     }
   }
 
   @media (min-width: 1024px) {
     .node {
-      padding: 14px 20px;
-      gap: 8px;
-      border-radius: 14px;
+      padding: 10px 18px;
+      gap: 6px;
     }
   }
 
   .node-icon {
-    width: 10px;
-    height: 10px;
-    stroke: hsl(0 0% 45%);
-    transition: stroke 0.2s ease;
+    width: 8px;
+    height: 8px;
+    stroke: hsl(0 0% 40%);
+    transition: all 0.3s ease-in-out;
+    flex-shrink: 0;
+  }
+
+  @media (min-width: 400px) {
+    .node-icon { width: 9px; height: 9px; }
   }
 
   @media (min-width: 640px) {
+    .node-icon { width: 10px; height: 10px; }
+  }
+
+  @media (min-width: 768px) {
     .node-icon { width: 14px; height: 14px; }
   }
 
   @media (min-width: 1024px) {
-    .node-icon { width: 28px; height: 28px; }
+    .node-icon { width: 18px; height: 18px; }
   }
 
   .node span {
     font-size: 6px;
-    font-weight: 600;
-    color: hsl(0 0% 40%);
-    text-transform: uppercase;
-    letter-spacing: 0.02em;
+    font-weight: 300;
+    color: hsl(0 0% 30%);
+    letter-spacing: -0.02em;
+    white-space: nowrap;
+  }
+
+  @media (min-width: 400px) {
+    .node span { font-size: 7px; }
   }
 
   @media (min-width: 640px) {
-    .node span { font-size: 7px; letter-spacing: 0.04em; }
+    .node span { font-size: 8px; }
+  }
+
+  @media (min-width: 768px) {
+    .node span { font-size: 10px; }
   }
 
   @media (min-width: 1024px) {
-    .node span { font-size: 10px; letter-spacing: 0.06em; }
+    .node span { font-size: 13px; }
   }
 
   .node:hover {
-    border-color: var(--primary-dim);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px hsl(252 30% 70% / 0.2);
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px hsl(0 0% 0% / 0.12);
   }
 
   .node:hover .node-icon {
-    stroke: hsl(0 0% 80%);
+    stroke: hsl(0 0% 20%);
   }
 
   .node:active {
-    transform: translateY(0) scale(0.97);
+    transform: scale(0.98);
   }
 
-  /* Node glow effect */
-  .node-glow {
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    background: var(--primary);
-    opacity: 0;
-    transition: opacity 0.15s ease;
-    pointer-events: none;
-  }
-
-  .node.active .node-glow {
-    animation: glow-pulse 0.4s ease-out;
-  }
-
-  @keyframes glow-pulse {
-    0% { opacity: 0.3; transform: scale(1); }
-    100% { opacity: 0; transform: scale(1.15); }
+  .node.active {
+    box-shadow: 0 4px 15px hsl(0 0% 0% / 0.12);
   }
 
   /* ===== TRIGGER ===== */
   .node.trigger {
-    background: hsl(252 20% 14%);
-    border-color: var(--primary-dim);
+    background: hsl(0 0% 100%);
+    border-color: hsl(0 0% 75%);
   }
 
   .node.trigger .node-icon {
-    stroke: var(--primary);
-    filter: drop-shadow(0 0 6px var(--primary-glow));
-  }
-
-  .pulse-ring {
-    position: absolute;
-    inset: -4px;
-    border: 2px solid var(--primary-dim);
-    border-radius: inherit;
-    animation: pulse 2.5s ease-out infinite;
-    pointer-events: none;
-  }
-
-  @keyframes pulse {
-    0% { transform: scale(1); opacity: 0.6; }
-    100% { transform: scale(1.25); opacity: 0; }
+    stroke: hsl(0 0% 30%);
   }
 
   .node.trigger.firing {
-    animation: trigger-fire 0.3s ease-out;
+    animation: trigger-fire 0.25s ease-out;
   }
 
   @keyframes trigger-fire {
-    0% { transform: scale(1); box-shadow: 0 0 0 var(--primary-glow); }
-    50% { transform: scale(1.08); box-shadow: 0 0 30px var(--primary-glow); }
-    100% { transform: scale(1); box-shadow: 0 0 0 var(--primary-glow); }
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); box-shadow: 0 6px 20px hsl(0 0% 0% / 0.15); }
+    100% { transform: scale(1); }
   }
 
   /* ===== WORKFLOW ===== */
   .node.workflow .node-icon {
-    stroke: hsl(0 0% 55%);
+    stroke: hsl(0 0% 35%);
   }
 
   .node.workflow:hover .node-icon,
   .node.workflow.active .node-icon {
-    stroke: var(--primary);
+    stroke: hsl(0 0% 20%);
   }
 
   /* ===== AGENTS ===== */
   .node.agent .node-icon {
-    stroke: hsl(252 30% 70%);
+    stroke: hsl(0 0% 40%);
   }
 
-  /* Agent processing animation - ripple pulse */
-  .spin-ring {
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    pointer-events: none;
-    opacity: 0;
-  }
-
-  .spin-ring::before,
-  .spin-ring::after {
-    content: '';
-    position: absolute;
-    inset: -4px;
-    border: 2px solid var(--primary);
-    border-radius: inherit;
-    opacity: 0;
-  }
-
-  .node.agent.processing .spin-ring::before {
-    animation: ripple-out 0.6s ease-out forwards;
-  }
-
-  .node.agent.processing .spin-ring::after {
-    animation: ripple-out 0.6s ease-out 0.15s forwards;
-  }
-
-  @keyframes ripple-out {
-    0% {
-      transform: scale(1);
-      opacity: 0.8;
-    }
-    100% {
-      transform: scale(1.3);
-      opacity: 0;
-    }
-  }
-
-  /* Agent processing state - icon pulse */
   .node.agent.processing {
-    animation: agent-pulse 0.5s ease-out;
-  }
-
-  .node.agent.processing .node-icon {
-    animation: icon-glow 0.5s ease-out;
+    animation: agent-pulse 0.4s ease-out;
+    box-shadow: 0 4px 15px hsl(0 0% 0% / 0.12);
   }
 
   @keyframes agent-pulse {
     0% { transform: scale(1); }
-    30% { transform: scale(1.05); }
+    40% { transform: scale(1.08); }
     100% { transform: scale(1); }
-  }
-
-  @keyframes icon-glow {
-    0% { filter: drop-shadow(0 0 0 var(--primary)); }
-    30% { filter: drop-shadow(0 0 12px var(--primary)); stroke: var(--primary); }
-    100% { filter: drop-shadow(0 0 4px var(--primary-glow)); }
   }
 
   /* ===== DATABASES ===== */
   .node.db {
-    background: hsl(252 15% 12%);
-    border-color: hsl(252 30% 70% / 0.25);
+    background: hsl(0 0% 100%);
+    border-color: hsl(0 0% 80%);
   }
 
   .node.db .node-icon {
-    stroke: hsl(252 30% 70%);
+    stroke: hsl(0 0% 40%);
   }
 
   .node.db.active {
-    border-color: var(--primary-dim);
-    box-shadow: 0 0 20px hsl(252 30% 75% / 0.25);
+    box-shadow: 0 4px 15px hsl(0 0% 0% / 0.12);
   }
 
   /* ===== SHARED ===== */
   .node.shared {
-    padding: 4px 8px;
-  }
-
-  @media (min-width: 640px) {
-    .node.shared { padding: 6px 10px; }
-  }
-
-  @media (min-width: 1024px) {
-    .node.shared { padding: 14px 24px; }
+    background: hsl(0 0% 100%);
+    border-color: hsl(0 0% 75%);
   }
 
   .node.shared.active {
-    border-color: var(--primary-dim);
-    box-shadow: 0 0 25px hsl(252 30% 75% / 0.3);
+    box-shadow: 0 4px 15px hsl(0 0% 0% / 0.12);
   }
 
   /* ===== CONNECTIONS ===== */
@@ -451,14 +373,22 @@
   /* Vertical connection */
   .conn-vertical {
     width: 2px;
-    height: 10px;
+    height: 5px;
     position: relative;
     display: flex;
     justify-content: center;
   }
 
+  @media (min-width: 400px) {
+    .conn-vertical { height: 7px; }
+  }
+
   @media (min-width: 640px) {
-    .conn-vertical { height: 16px; }
+    .conn-vertical { height: 10px; }
+  }
+
+  @media (min-width: 768px) {
+    .conn-vertical { height: 20px; }
   }
 
   @media (min-width: 1024px) {
@@ -474,39 +404,34 @@
 
   .conn-particle {
     position: absolute;
-    width: 4px;
-    height: 4px;
-    background: var(--primary);
+    width: 2px;
+    height: 2px;
+    background: hsl(0 0% 50%);
     border-radius: 50%;
     top: 0;
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
     opacity: 0;
-    box-shadow: 0 0 4px var(--primary);
     pointer-events: none;
   }
 
+  @media (min-width: 400px) {
+    .conn-particle { width: 3px; height: 3px; }
+  }
+
   @media (min-width: 640px) {
-    .conn-particle { width: 5px; height: 5px; box-shadow: 0 0 6px var(--primary); }
+    .conn-particle { width: 4px; height: 4px; }
+  }
+
+  @media (min-width: 768px) {
+    .conn-particle { width: 6px; height: 6px; }
   }
 
   @media (min-width: 1024px) {
-    .conn-particle { width: 8px; height: 8px; box-shadow: 0 0 10px var(--primary); }
+    .conn-particle { width: 8px; height: 8px; }
   }
 
-  /* Idle animation - particle travels down */
-  .conn-vertical .conn-particle {
-    animation: particle-idle 2.5s ease-in-out infinite;
-  }
-
-  @keyframes particle-idle {
-    0%, 100% { top: 0%; opacity: 0; }
-    10% { opacity: 1; }
-    85% { opacity: 1; }
-    95% { top: 100%; opacity: 0; }
-  }
-
-  /* Active flow animation */
+  /* Active flow animation - only on click */
   .conn-vertical.flowing .conn-particle {
     animation: particle-flow 0.4s ease-out forwards;
   }
@@ -518,14 +443,22 @@
 
   /* ===== BRANCH CONNECTION ===== */
   .conn-branch {
-    width: 85%;
-    max-width: 140px;
-    height: 24px;
+    width: 95%;
+    max-width: 130px;
+    height: 12px;
     position: relative;
   }
 
+  @media (min-width: 400px) {
+    .conn-branch { max-width: 150px; height: 16px; }
+  }
+
   @media (min-width: 640px) {
-    .conn-branch { max-width: 200px; height: 32px; }
+    .conn-branch { max-width: 200px; height: 24px; }
+  }
+
+  @media (min-width: 768px) {
+    .conn-branch { max-width: 280px; height: 40px; }
   }
 
   @media (min-width: 1024px) {
@@ -571,20 +504,27 @@
 
   .branch-particle {
     position: absolute;
-    width: 4px;
-    height: 4px;
-    background: var(--primary);
+    width: 2px;
+    height: 2px;
+    background: hsl(0 0% 50%);
     border-radius: 50%;
     opacity: 0;
-    box-shadow: 0 0 4px var(--primary);
+  }
+
+  @media (min-width: 400px) {
+    .branch-particle { width: 3px; height: 3px; }
   }
 
   @media (min-width: 640px) {
-    .branch-particle { width: 5px; height: 5px; box-shadow: 0 0 6px var(--primary); }
+    .branch-particle { width: 4px; height: 4px; }
+  }
+
+  @media (min-width: 768px) {
+    .branch-particle { width: 6px; height: 6px; }
   }
 
   @media (min-width: 1024px) {
-    .branch-particle { width: 8px; height: 8px; box-shadow: 0 0 10px var(--primary); }
+    .branch-particle { width: 8px; height: 8px; }
   }
 
   .bp-l { left: 50%; top: 0; }
@@ -618,14 +558,22 @@
 
   /* ===== TRIO CONNECTION (Agents → DBs) ===== */
   .conn-trio {
-    width: 85%;
-    max-width: 140px;
-    height: 10px;
+    width: 95%;
+    max-width: 130px;
+    height: 4px;
     position: relative;
   }
 
+  @media (min-width: 400px) {
+    .conn-trio { max-width: 150px; height: 6px; }
+  }
+
   @media (min-width: 640px) {
-    .conn-trio { max-width: 200px; height: 14px; }
+    .conn-trio { max-width: 200px; height: 10px; }
+  }
+
+  @media (min-width: 768px) {
+    .conn-trio { max-width: 280px; height: 18px; }
   }
 
   @media (min-width: 1024px) {
@@ -658,21 +606,24 @@
 
   .trio-particle {
     position: absolute;
-    width: 4px;
-    height: 4px;
-    background: var(--primary);
+    width: 3px;
+    height: 3px;
+    background: hsl(0 0% 50%);
     border-radius: 50%;
     opacity: 0;
-    box-shadow: 0 0 4px var(--primary);
     transform: translate(-50%, -50%);
   }
 
   @media (min-width: 640px) {
-    .trio-particle { width: 5px; height: 5px; box-shadow: 0 0 6px var(--primary); }
+    .trio-particle { width: 4px; height: 4px; }
+  }
+
+  @media (min-width: 768px) {
+    .trio-particle { width: 6px; height: 6px; }
   }
 
   @media (min-width: 1024px) {
-    .trio-particle { width: 8px; height: 8px; box-shadow: 0 0 10px var(--primary); }
+    .trio-particle { width: 8px; height: 8px; }
   }
 
   .tp-l { left: 16.67%; top: 0; }
@@ -696,14 +647,22 @@
 
   /* ===== MERGE CONNECTION ===== */
   .conn-merge {
-    width: 85%;
-    max-width: 140px;
-    height: 18px;
+    width: 95%;
+    max-width: 130px;
+    height: 8px;
     position: relative;
   }
 
+  @media (min-width: 400px) {
+    .conn-merge { max-width: 150px; height: 10px; }
+  }
+
   @media (min-width: 640px) {
-    .conn-merge { max-width: 200px; height: 24px; }
+    .conn-merge { max-width: 200px; height: 16px; }
+  }
+
+  @media (min-width: 768px) {
+    .conn-merge { max-width: 280px; height: 30px; }
   }
 
   @media (min-width: 1024px) {
@@ -737,37 +696,49 @@
 
   /* ===== HINT ===== */
   .hint {
-    margin-top: 6px;
-    font-size: 6px;
-    color: hsl(0 0% 35%);
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    opacity: 0.6;
-    transition: opacity 0.3s ease;
+    margin-top: 3px;
+    font-size: 5px;
+    color: hsl(0 0% 50%);
+    font-weight: 300;
+    letter-spacing: -0.01em;
+    cursor: pointer;
+    transition: color 0.2s ease;
+    border: none;
+    background: none;
+    padding: 2px 4px;
+    font-family: inherit;
+  }
+
+  .hint:hover {
+    color: hsl(0 0% 30%);
+  }
+
+  @media (min-width: 400px) {
+    .hint { margin-top: 4px; font-size: 6px; }
   }
 
   @media (min-width: 640px) {
-    .hint { margin-top: 10px; font-size: 8px; }
+    .hint { margin-top: 6px; font-size: 7px; }
+  }
+
+  @media (min-width: 768px) {
+    .hint { margin-top: 10px; font-size: 9px; }
   }
 
   @media (min-width: 1024px) {
-    .hint { margin-top: 20px; font-size: 11px; }
-  }
-
-  .arch:hover .hint {
-    opacity: 0.9;
+    .hint { margin-top: 16px; font-size: 11px; }
   }
 
   /* ===== REDUCED MOTION ===== */
   @media (prefers-reduced-motion: reduce) {
-    .pulse-ring,
     .conn-particle,
     .branch-particle,
-    .spin-ring {
+    .trio-particle,
+    .node {
       animation: none !important;
     }
-    .node, .conn-track, .branch-line, .merge-line {
-      transition: none !important;
+    * {
+      transition-duration: 0.01ms !important;
     }
   }
 </style>
@@ -782,6 +753,7 @@
     const connTrio = document.getElementById('conn-trio');
     const connMerge = document.getElementById('conn-merge');
     const shared = document.getElementById('shared');
+    const hintTrigger = document.getElementById('hint-trigger');
     const agents = document.querySelectorAll('.node.agent');
     const dbs = document.querySelectorAll('.node.db');
 
@@ -792,8 +764,8 @@
       setTimeout(() => el.classList.remove(className), duration);
     }
 
-    // TRIGGER: Full cascade animation
-    trigger?.addEventListener('click', () => {
+    // Full cascade animation function
+    function runFullAnimation() {
       flash(trigger, 'firing', 300);
 
       // Step 1: Connection to workflow
@@ -825,7 +797,13 @@
 
       // Step 7: Shared receives
       setTimeout(() => flash(shared, 'active', 600), 2050);
-    });
+    }
+
+    // TRIGGER: Full cascade animation
+    trigger?.addEventListener('click', runFullAnimation);
+
+    // HINT: Also triggers full animation
+    hintTrigger?.addEventListener('click', runFullAnimation);
 
     // WORKFLOW: Branch animation
     workflow?.addEventListener('click', () => {

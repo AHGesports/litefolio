@@ -43,7 +43,77 @@ const { title } = Astro.props;
   <body
     class="relative flex flex-col w-full min-h-dvh bg-background"
   >
+    <!-- Custom Cursor -->
+    <div id="cursor" class="cursor" aria-hidden="true"></div>
+
     <slot />
+
+    <!-- Cursor Script -->
+    <script>
+      const cursor = document.getElementById('cursor');
+      if (cursor) {
+        let mouseX = 0, mouseY = 0;
+        let cursorX = 0, cursorY = 0;
+        let magnetX = 0, magnetY = 0;
+        let isVisible = false;
+
+        // Show cursor on first mouse move
+        document.addEventListener('mousemove', (e) => {
+          mouseX = e.clientX;
+          mouseY = e.clientY;
+
+          if (!isVisible) {
+            cursor.style.opacity = '1';
+            isVisible = true;
+          }
+        });
+
+        // Hide cursor when mouse leaves window
+        document.addEventListener('mouseleave', () => {
+          cursor.style.opacity = '0';
+          isVisible = false;
+        });
+
+        // Animation loop - smooth follow
+        function animate() {
+          const targetX = mouseX + magnetX;
+          const targetY = mouseY + magnetY;
+
+          cursorX += (targetX - cursorX) * 0.15;
+          cursorY += (targetY - cursorY) * 0.15;
+
+          cursor.style.left = cursorX + 'px';
+          cursor.style.top = cursorY + 'px';
+
+          requestAnimationFrame(animate);
+        }
+        animate();
+
+        // Magnetic effect for interactive elements
+        const magnets = document.querySelectorAll('a, button, [data-cursor="magnetic"]');
+        magnets.forEach(el => {
+          el.addEventListener('mouseenter', () => cursor.classList.add('hovering'));
+          el.addEventListener('mouseleave', () => {
+            cursor.classList.remove('hovering');
+            magnetX = 0;
+            magnetY = 0;
+          });
+          el.addEventListener('mousemove', (e: MouseEvent) => {
+            const rect = (el as HTMLElement).getBoundingClientRect();
+            const centerX = rect.left + rect.width / 2;
+            const centerY = rect.top + rect.height / 2;
+
+            magnetX = (centerX - e.clientX) * 0.25;
+            magnetY = (centerY - e.clientY) * 0.25;
+          });
+        });
+
+        // Hide on touch devices
+        if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
+          cursor.style.display = 'none';
+        }
+      }
+    </script>
   </body>
 </html>
 
@@ -94,5 +164,51 @@ const { title } = Astro.props;
   }
   .font-plex {
     font-family: "IBM Plex Mono", monospace;
+  }
+
+  /* Custom Cursor Styles */
+  @media (hover: hover) and (pointer: fine) {
+    * {
+      cursor: none !important;
+    }
+  }
+
+  .cursor {
+    position: fixed;
+    width: 24px;
+    height: 24px;
+    pointer-events: none;
+    z-index: 9999;
+    mix-blend-mode: difference;
+    opacity: 0;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.3s ease, width 0.2s ease, height 0.2s ease;
+    background: radial-gradient(circle, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.4) 40%, transparent 70%);
+    filter: blur(8px);
+    border-radius: 50%;
+  }
+
+  /* Hovering interactive elements */
+  .cursor.hovering {
+    width: 50px;
+    height: 50px;
+    filter: blur(12px);
+  }
+
+  /* Hide cursor on touch devices */
+  @media (hover: none), (pointer: coarse) {
+    .cursor {
+      display: none !important;
+    }
+    * {
+      cursor: auto !important;
+    }
+  }
+
+  /* Respect reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .cursor {
+      transition: opacity 0.3s ease;
+    }
   }
 </style>

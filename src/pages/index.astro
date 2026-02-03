@@ -23,16 +23,55 @@ import Footer from "@/components/Footer.astro";
 
 <style>
   .pattern {
+    --mouse-x: 50%;
+    --mouse-y: 0px;
+
     background-color: #ffffff;
-    background-image: radial-gradient(circle at top center, #f5fdff 70px, white),
+    background-image: radial-gradient(circle at var(--mouse-x) var(--mouse-y), #f5fdff 70px, white),
       repeating-radial-gradient(
-        circle at top center,
+        circle at var(--mouse-x) var(--mouse-y),
         #ffffff,
         #ffffff,
-        200px,
+        278px,
         transparent 0,
-        #eaeaea 201px
+        #eaeaea 280px
       );
     background-blend-mode: multiply;
+    background-size: 100% 100%;
   }
 </style>
+
+<script>
+  const pattern = document.querySelector('.pattern');
+
+  if (pattern) {
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (!prefersReducedMotion) {
+      let targetX = 50;
+      let targetY = 0;
+      let currentX = 50;
+      let currentY = 0;
+      const ease = 0.08; // Lower = smoother, higher = snappier
+
+      // Track mouse position
+      document.addEventListener('mousemove', (e) => {
+        targetX = 50 + ((e.clientX / window.innerWidth) - 0.5) * 20;
+        targetY = ((e.clientY / window.innerHeight) - 0.5) * 100;
+      });
+
+      // Smooth animation loop
+      function animate() {
+        currentX += (targetX - currentX) * ease;
+        currentY += (targetY - currentY) * ease;
+
+        pattern.style.setProperty('--mouse-x', `${currentX}%`);
+        pattern.style.setProperty('--mouse-y', `${currentY}px`);
+
+        requestAnimationFrame(animate);
+      }
+
+      animate();
+    }
+  }
+</script>

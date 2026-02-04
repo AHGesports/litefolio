@@ -114,8 +114,9 @@ const { title } = Astro.props;
 
     <!-- Cursor Script -->
     <script>
-      const cursor = document.getElementById('cursor');
-      if (cursor) {
+      const cursorEl = document.getElementById('cursor');
+      if (cursorEl) {
+        const cursor = cursorEl;
         let mouseX = 0, mouseY = 0;
         let cursorX = 0, cursorY = 0;
         let isVisible = false;

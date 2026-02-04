@@ -23,7 +23,7 @@ import { CONTACT } from '../consts';
       </h2>
       <button
         id="contact-modal-close"
-        class="p-2 rounded-lg hover:bg-dark-border transition-colors text-muted-foreground hover:text-background"
+        class="p-2 rounded-lg hover:bg-dark-border transition-colors text-[hsl(0,0%,60%)] hover:text-background"
         aria-label="Close modal"
       >
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -44,7 +44,7 @@ import { CONTACT } from '../consts';
 
         <!-- Name -->
         <div class="space-y-2">
-          <label for="contact-name" class="text-xs uppercase tracking-widest text-muted-foreground">
+          <label for="contact-name" class="text-xs uppercase tracking-widest text-[hsl(0,0%,60%)]">
             Name <span class="text-red-400">*</span>
           </label>
           <input
@@ -59,7 +59,7 @@ import { CONTACT } from '../consts';
 
         <!-- Email -->
         <div class="space-y-2">
-          <label for="contact-email" class="text-xs uppercase tracking-widest text-muted-foreground">
+          <label for="contact-email" class="text-xs uppercase tracking-widest text-[hsl(0,0%,60%)]">
             Email <span class="text-red-400">*</span>
           </label>
           <input
@@ -74,7 +74,7 @@ import { CONTACT } from '../consts';
 
         <!-- Company (optional) -->
         <div class="space-y-2">
-          <label for="contact-company" class="text-xs uppercase tracking-widest text-muted-foreground">
+          <label for="contact-company" class="text-xs uppercase tracking-widest text-[hsl(0,0%,60%)]">
             Company <span class="text-white/30">(optional)</span>
           </label>
           <input
@@ -88,7 +88,7 @@ import { CONTACT } from '../consts';
 
         <!-- Message -->
         <div class="space-y-2">
-          <label for="contact-message" class="text-xs uppercase tracking-widest text-muted-foreground">
+          <label for="contact-message" class="text-xs uppercase tracking-widest text-[hsl(0,0%,60%)]">
             Message <span class="text-red-400">*</span>
           </label>
           <textarea
@@ -96,7 +96,7 @@ import { CONTACT } from '../consts';
             name="message"
             required
             rows="4"
-            placeholder="Tell me about your project..."
+            placeholder="Tell me about yourself"
             class="w-full bg-transparent border-b border-white/20 focus:border-white/60 px-0 py-2 text-white placeholder:text-white/30 outline-none transition-colors resize-none"
           ></textarea>
         </div>
@@ -104,7 +104,7 @@ import { CONTACT } from '../consts';
         <!-- Result message -->
         <div id="contact-result" class="hidden text-sm py-2"></div>
 
-        <!-- Submit button -->
+        <!-- Action button -->
         <button
           type="submit"
           id="contact-submit"

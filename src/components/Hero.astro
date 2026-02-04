@@ -1,5 +1,7 @@
 ---
-import { SITE, CONTACT } from "../consts";
+import { SITE, CONTACT, SOCIALS } from "../consts";
+
+const linkedinUrl = SOCIALS.find(s => s.NAME === "Linkedin")?.HREF || "#";
 ---
 
 <section
@@ -14,10 +16,12 @@ import { SITE, CONTACT } from "../consts";
     Gaps: Proportional to element sizes
   -->
   <div class="grid grid-cols-1 lg:grid-cols-2 items-end gap-9 sm:gap-14 lg:gap-16 w-full">
-    <h1 class="font-plex font-bold text-[clamp(5rem,22vw,5.9rem)] sm:text-[clamp(7.9rem,20vw,9.6rem)] lg:text-[clamp(7.2rem,9vw,10.4rem)] uppercase leading-[0.9] tracking-[-0.02em] flex flex-col">
-      <span>Arshia</span>
-      <span>Hemati</span>
-    </h1>
+    <a href={linkedinUrl} target="_blank" rel="noopener noreferrer" class="block">
+      <h1 class="font-plex font-bold text-[clamp(5rem,22vw,5.9rem)] sm:text-[clamp(7.9rem,20vw,9.6rem)] lg:text-[clamp(7.2rem,9vw,10.4rem)] uppercase leading-[0.9] tracking-[-0.02em] flex flex-col">
+        <span>Arshia</span>
+        <span>Hemati</span>
+      </h1>
+    </a>
 
     <!-- CTA aligned with title baseline -->
     <!-- Gap ratio: CTA text × 1.5 -->

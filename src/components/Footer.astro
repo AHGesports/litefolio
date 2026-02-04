@@ -1,13 +1,7 @@
 ---
-import { SITE, SOCIALS } from "../consts";
+import { SITE, SOCIALS, CONTACT } from "../consts";
 
 const socials = [
-  {
-    network: "Instagram",
-    label: "Instagram",
-    username: "_.a_he._",
-    url: "https://instagram.com/_.a_he._",
-  },
   {
     network: "Dev.to",
     label: "Dev.to",
@@ -15,10 +9,16 @@ const socials = [
     url: "https://dev.to/ah_eac46906b0e0291ee4aa34",
   },
   {
-    network: "GitHub",
-    label: "GitHub",
-    username: "AHGesports",
-    url: "https://github.com/AHGesports",
+    network: "Medium",
+    label: "Medium",
+    username: "arshia.hemati",
+    url: "https://medium.com/@arshia.hemati",
+  },
+  {
+    network: "Substack",
+    label: "Substack",
+    username: "arshiahemati",
+    url: "https://substack.com/@arshiahemati",
   },
   {
     network: "LinkedIn",
@@ -42,22 +42,14 @@ const socials = [
   id="contact"
   class="w-full bg-foreground"
 >
-  <div class="container mx-auto p-6 pt-20 flex flex-col gap-10 justify-between items-center">
+  <div class="container mx-auto p-6 pt-20 flex flex-col gap-8 justify-between items-center">
     <span
-      class="text-white text-sm font-medium leading-none peer-disabled:cursor-not-allowed
-    peer-disabled:opacity-70 flex items-center gap-2"
+      class="text-white text-sm font-medium leading-none flex items-center gap-2"
     >
       {SITE.CONTACT_TEXT}
     </span>
 
-    <!-- Contact Button -->
-    <button
-      data-contact-modal
-      class="px-6 py-3 bg-white text-foreground font-medium rounded-full hover:bg-white/90 transition-colors"
-    >
-      Send a Message
-    </button>
-
+    <!-- Social Platforms -->
     <div
       class="flex flex-wrap gap-5 h-full items-center justify-center pointer-events-auto"
     >
@@ -67,7 +59,7 @@ const socials = [
             href={social.url}
             target="_blank"
             rel="noopener noreferrer"
-            class="group flex items-center text-muted-foreground text-sm font-medium leading-none hover:text-white transition-all duration-300 ease-in-out"
+            class="group flex items-center text-[hsl(0,0%,60%)] text-sm font-medium leading-none hover:text-white transition-all duration-300 ease-in-out"
           >
             {social.label}
             <svg
@@ -89,6 +81,8 @@ const socials = [
         ))
       }
     </div>
+
+    <!-- CONTACT Heading - Visual Anchor -->
     <div class="w-full text-center pb-10">
       <h2 class="font-plex font-bold text-[clamp(3rem,15vw,8rem)] text-white uppercase leading-none tracking-tight">
         CONTACT

@@ -124,12 +124,15 @@
     </button>
   </div>
 
-  <button type="button" class="hint" id="hint-trigger">click to trigger workflow</button>
+  <button type="button" class="hint" id="hint-trigger">
+    click to trigger workflow <i class="hint-icon">↗</i>
+  </button>
 </div>
 
 <style>
   /* ===== LAYOUT ===== */
   .arch {
+    position: relative;
     width: 100%;
     height: 100%;
     display: flex;
@@ -696,7 +699,9 @@
 
   /* ===== HINT ===== */
   .hint {
-    margin-top: 3px;
+    position: absolute;
+    bottom: 6px;
+    left: 8px;
     font-size: 5px;
     color: hsl(0 0% 50%);
     font-weight: 300;
@@ -707,26 +712,46 @@
     background: none;
     padding: 2px 4px;
     font-family: inherit;
+    white-space: nowrap;
   }
 
   .hint:hover {
     color: hsl(0 0% 30%);
   }
 
-  @media (min-width: 400px) {
-    .hint { margin-top: 4px; font-size: 6px; }
-  }
-
-  @media (min-width: 640px) {
-    .hint { margin-top: 6px; font-size: 7px; }
+  .hint-icon {
+    font-style: normal;
+    display: inline-block;
+    transition: transform 0.2s ease;
+    vertical-align: middle;
+    position: relative;
+    top: -0.05em;
   }
 
   @media (min-width: 768px) {
-    .hint { margin-top: 10px; font-size: 9px; }
+    .hint-icon {
+      top: 0;
+    }
+  }
+
+  .hint:hover .hint-icon {
+    transform: translate(0.1em, -0.1em);
+  }
+
+  @media (min-width: 400px) {
+    .hint { bottom: 8px; left: 10px; font-size: 6px; }
+  }
+
+  @media (min-width: 640px) {
+    .hint { bottom: 10px; left: 12px; font-size: 7px; }
+  }
+
+  @media (min-width: 768px) {
+    .hint { bottom: 12px; left: 16px; font-size: 9px; }
   }
 
   @media (min-width: 1024px) {
-    .hint { margin-top: 16px; font-size: 11px; }
+    .hint { bottom: 16px; left: 20px; font-size: 11px; }
   }
 
   /* ===== REDUCED MOTION ===== */

@@ -6,6 +6,7 @@ import Stack from "@/components/Stack.astro";
 import Projects from "@/components/Projects.astro";
 import About from "@/components/About.astro";
 import Footer from "@/components/Footer.astro";
+import ContactModal from "@/components/ContactModal.astro";
 ---
 
 <Layout title="Arshia Hemati - Portfolio">
@@ -19,6 +20,9 @@ import Footer from "@/components/Footer.astro";
     <About />
     <Footer />
   </main>
+
+  <!-- Contact Modal -->
+  <ContactModal />
 </Layout>
 
 <style>
@@ -48,20 +52,38 @@ import Footer from "@/components/Footer.astro";
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     if (!prefersReducedMotion) {
-      let targetX = 50;
-      let targetY = 0;
+      let mouseX = 50;
+      let mouseY = 0;
       let currentX = 50;
       let currentY = 0;
-      const ease = 0.08; // Lower = smoother, higher = snappier
+      const ease = 0.08;
+
+      // Orbit settings (independent drift)
+      const orbitSpeedX = 0.006; // ~17 second cycle
+      const orbitSpeedY = 0.0045; // ~23 second cycle
+      const orbitRadiusX = 12; // Horizontal drift (%)
+      const orbitRadiusY = 60; // Vertical drift (px)
+      let time = 0;
 
       // Track mouse position
       document.addEventListener('mousemove', (e) => {
-        targetX = 50 + ((e.clientX / window.innerWidth) - 0.5) * 20;
-        targetY = ((e.clientY / window.innerHeight) - 0.5) * 100;
+        mouseX = 50 + ((e.clientX / window.innerWidth) - 0.5) * 20;
+        mouseY = ((e.clientY / window.innerHeight) - 0.5) * 100;
       });
 
       // Smooth animation loop
       function animate() {
+        time++;
+
+        // Autonomous orbit (continuous drift)
+        const orbitX = Math.sin(time * orbitSpeedX) * orbitRadiusX;
+        const orbitY = Math.cos(time * orbitSpeedY) * orbitRadiusY;
+
+        // Combine mouse + orbit
+        const targetX = mouseX + orbitX;
+        const targetY = mouseY + orbitY;
+
+        // Ease toward target
         currentX += (targetX - currentX) * ease;
         currentY += (targetY - currentY) * ease;
 

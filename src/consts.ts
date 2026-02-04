@@ -5,7 +5,14 @@ export const SITE = {
     "A full-stack developer with a strong focus on building fast, accessible, and maintainable web applications.",
   EMAIL: "arshia.hemati@gmail.com",
   BIO: "I'm a 22 year old full-stack developer passionate about building things for the web and sharing my knowledge with others.",
-  CONTACT_TEXT: "Active on Dev.to and Linkedin, feel free to read my latest articles there!",
+  CONTACT_TEXT: "Want to work together? Book a call or send me a message!",
+};
+
+export const CONTACT = {
+  WEB3FORMS_KEY: "30adb779-125d-4ce6-b9ab-004cd31725bd",
+  CAL_LINK: "ah-0hlpuc/30min",
+  FORM_SUBJECT: "New Contact from Portfolio",
+  FROM_NAME: "Arshia Hemati Portfolio",
 };
 
 export const SOCIALS = [

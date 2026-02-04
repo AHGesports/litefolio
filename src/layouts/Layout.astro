@@ -39,6 +39,41 @@ const { title } = Astro.props;
     />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+
+    <!-- OverlayScrollbars -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.10.1/styles/overlayscrollbars.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.10.1/browser/overlayscrollbars.browser.es6.min.js" defer></script>
+
+    <!-- Cal.com Embed -->
+    <script is:inline>
+      (function (C, A, L) {
+        let p = function (a, ar) { a.q.push(ar); };
+        let d = C.document;
+        C.Cal = C.Cal || function () {
+          let cal = C.Cal;
+          let ar = arguments;
+          if (!cal.loaded) {
+            cal.ns = {}; cal.q = cal.q || [];
+            d.head.appendChild(d.createElement("script")).src = A;
+            cal.loaded = true;
+          }
+          if (ar[0] === L) {
+            const api = function () { p(api, arguments); };
+            const namespace = ar[1];
+            api.q = api.q || [];
+            if (typeof namespace === "string") {
+              cal.ns[namespace] = api;
+              p(api, ar);
+            } else {
+              p(cal, ar);
+            }
+            return;
+          }
+          p(cal, ar);
+        };
+      })(window, "https://app.cal.com/embed/embed.js", "init");
+      Cal("init", { origin: "https://cal.com" });
+    </script>
   </head>
   <body
     class="relative flex flex-col w-full min-h-dvh bg-background"
@@ -47,6 +82,35 @@ const { title } = Astro.props;
     <div id="cursor" class="cursor" aria-hidden="true"></div>
 
     <slot />
+
+    <!-- OverlayScrollbars Init -->
+    <script is:inline>
+      document.addEventListener('DOMContentLoaded', function() {
+        if (typeof OverlayScrollbarsGlobal !== 'undefined') {
+          const { OverlayScrollbars } = OverlayScrollbarsGlobal;
+
+          // Initialize on body for main page scroll
+          OverlayScrollbars(document.body, {
+            scrollbars: {
+              theme: 'os-theme-minimal',
+              autoHide: 'leave',
+              autoHideDelay: 400
+            }
+          });
+
+          // Initialize on any scrollable modals
+          document.querySelectorAll('.overflow-y-auto, .overflow-auto').forEach(el => {
+            OverlayScrollbars(el, {
+              scrollbars: {
+                theme: 'os-theme-minimal',
+                autoHide: 'leave',
+                autoHideDelay: 400
+              }
+            });
+          });
+        }
+      });
+    </script>
 
     <!-- Cursor Script -->
     <script>
@@ -168,6 +232,48 @@ const { title } = Astro.props;
       @apply bg-background text-foreground;
     }
   }
+
+  /* OverlayScrollbars - Custom minimal styling */
+  .os-scrollbar {
+    --os-size: 8px;
+    --os-padding-perpendicular: 2px;
+    --os-padding-axis: 2px;
+    --os-handle-border-radius: 10px;
+    transition: opacity 0.2s ease;
+  }
+
+  .os-scrollbar-track {
+    background: transparent !important;
+  }
+
+  .os-scrollbar-handle {
+    background: hsl(0, 0%, 70%) !important;
+    border-radius: 10px !important;
+  }
+
+  .os-scrollbar-handle:hover {
+    background: hsl(0, 0%, 55%) !important;
+  }
+
+  /* Dark background scrollbars (modals) */
+  .bg-dark-card .os-scrollbar-handle {
+    background: hsl(0, 0%, 35%) !important;
+  }
+
+  .bg-dark-card .os-scrollbar-handle:hover {
+    background: hsl(0, 0%, 50%) !important;
+  }
+
+  /* Hide native scrollbars */
+  html, body {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  html::-webkit-scrollbar,
+  body::-webkit-scrollbar {
+    display: none;
+  }
+
   .perfect-shadow {
     box-shadow: var(--perfect-shadow);
     --base: hsl(214 80% 27% / 4%);

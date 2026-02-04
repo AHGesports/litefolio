@@ -3,42 +3,50 @@ import { SITE, CONTACT } from "../consts";
 ---
 
 <section
-  class="container mx-auto min-h-[85vh] sm:min-h-screen p-4 sm:p-6 pt-16 sm:pt-20 lg:pt-24 flex items-center"
+  class="container mx-auto h-screen min-h-[100dvh] p-4 sm:p-6 pt-20 sm:pt-20 lg:pt-24 flex items-center"
 >
-  <div class="grid grid-cols-1 lg:grid-cols-2 items-end gap-4 sm:gap-6 lg:gap-16 w-full">
-    <h1 class="font-plex font-bold text-[clamp(3.5rem,18vw,5.5rem)] sm:text-[clamp(5rem,16vw,8rem)] lg:text-[clamp(6rem,12vw,12.5rem)] uppercase leading-[0.85] sm:leading-[0.9] lg:leading-none tracking-[-0.02em] flex flex-col">
-      <span>Arshia</span>
-      <span>Hemati</span>
+  <!--
+    Sizing based on 30% of hero height principle.
+    See HERO_SIZING_ANALYSIS.md for full calculations.
+
+    Header: 30% of hero height (width-constrained on mobile/tablet)
+    CTA: Header ÷ 7 ratio
+    Gaps: Proportional to element sizes
+  -->
+  <div class="grid grid-cols-1 lg:grid-cols-2 items-end gap-9 sm:gap-14 lg:gap-16 w-full">
+    <h1 class="font-plex font-bold text-[clamp(5rem,22vw,5.9rem)] sm:text-[clamp(7.9rem,20vw,9.6rem)] lg:text-[clamp(7.2rem,9vw,10.4rem)] uppercase leading-[0.9] tracking-[-0.02em] flex flex-col">
+      <span>Testia</span>
+      <span>Testai</span>
     </h1>
 
     <!-- CTA aligned with title baseline -->
-    <div class="flex flex-col sm:flex-row flex-wrap items-start sm:items-center gap-2 sm:gap-4 lg:gap-8 lg:justify-end pb-2 sm:pb-4">
+    <!-- Gap ratio: CTA text × 1.5 -->
+    <div class="flex flex-row flex-nowrap items-center gap-4 sm:gap-7 lg:gap-9 lg:justify-end pb-1 sm:pb-4">
       <!-- Available For Work badge -->
-      <div class="flex items-center gap-1.5 sm:gap-3">
-        <span class="relative flex h-1.5 w-1.5 sm:h-2 sm:w-2 lg:h-2.5 lg:w-2.5">
+      <!-- Badge gap ratio: CTA text × 0.75 -->
+      <div class="flex items-center gap-2 sm:gap-3.5 lg:gap-4 shrink-0">
+        <!-- Dot size ratio: CTA text × 0.5 -->
+        <span class="relative flex h-1.5 w-1.5 sm:h-2.5 sm:w-2.5 lg:h-3 lg:w-3">
           <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-foreground opacity-75"></span>
-          <span class="relative inline-flex rounded-full h-1.5 w-1.5 sm:h-2 sm:w-2 lg:h-2.5 lg:w-2.5 bg-foreground"></span>
+          <span class="relative inline-flex rounded-full h-1.5 w-1.5 sm:h-2.5 sm:w-2.5 lg:h-3 lg:w-3 bg-foreground"></span>
         </span>
-        <span class="text-xs sm:text-sm lg:text-base text-muted-foreground uppercase tracking-widest">Available For Work</span>
+        <span class="text-xs sm:text-[1.125rem] lg:text-[1.5rem] text-muted-foreground uppercase tracking-widest whitespace-nowrap">Available For Work</span>
       </div>
 
-      <span class="hidden sm:block text-muted-foreground/30 text-xl">|</span>
+      <span class="text-muted-foreground/30 text-xs sm:text-[1.125rem] lg:text-[1.5rem]">|</span>
 
       <!-- Links -->
-      <div class="flex items-center gap-3 sm:gap-4 lg:gap-8">
+      <!-- Links gap ratio: CTA text × 1.5 -->
+      <div class="flex items-center gap-4 sm:gap-7 lg:gap-9 shrink-0">
         <button
           data-cal-link={CONTACT.CAL_LINK}
           data-cal-config='{"theme":"light"}'
-          class="text-xs sm:text-sm lg:text-base text-foreground border-b border-foreground pb-0.5 hover:text-muted-foreground hover:border-muted-foreground transition-colors"
+          class="text-xs sm:text-[1.125rem] lg:text-[1.5rem] text-foreground font-medium underline underline-offset-4 decoration-1 hover:text-muted-foreground transition-colors whitespace-nowrap"
         >Book a call</button>
         <button
           data-contact-modal
-          class="text-xs sm:text-sm lg:text-base text-muted-foreground hover:text-foreground transition-colors"
+          class="text-xs sm:text-[1.125rem] lg:text-[1.5rem] text-muted-foreground hover:text-foreground transition-colors whitespace-nowrap"
         >Inquire via email</button>
-        <a
-          class="text-xs sm:text-sm lg:text-base text-muted-foreground hover:text-foreground transition-colors"
-          href="#projects">View recent work</a
-        >
       </div>
     </div>
   </div>

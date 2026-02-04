@@ -52,7 +52,7 @@ const firstLetter = SITE.TITLE.charAt(0).toUpperCase();
   <!-- Mobile menu -->
   <div
     id="menu-mobile"
-    class="hidden md:hidden pointer-events-auto mx-4 mt-2 p-4 rounded-2xl bg-background/90 backdrop-blur-xl border border-border/50 shadow-xl"
+    class="hidden md:hidden pointer-events-auto mx-4 mt-2 p-4 rounded-2xl bg-background border border-border/50 shadow-xl"
   >
     <nav class="nav-container flex flex-col gap-2">
       {
@@ -110,6 +110,20 @@ const firstLetter = SITE.TITLE.charAt(0).toUpperCase();
 
   :global(#main-header.header-dark-bg #menu-toggle) {
     border-color: rgba(255, 255, 255, 0.2) !important;
+  }
+
+  :global(#main-header.header-dark-bg #menu-mobile) {
+    background-color: hsl(var(--foreground)) !important;
+    border-color: rgba(255, 255, 255, 0.2) !important;
+  }
+
+  :global(#main-header.header-dark-bg #menu-mobile .nav-link) {
+    color: hsl(var(--background)) !important;
+  }
+
+  :global(#main-header.header-dark-bg #menu-mobile .nav-link:hover) {
+    background-color: hsl(var(--background)) !important;
+    color: hsl(var(--foreground)) !important;
   }
 
   .hamburger {

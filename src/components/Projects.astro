@@ -9,6 +9,7 @@ import SkillsModal from "./skills/SkillsModal.astro";
 import LaptopVideo from "./LaptopVideo.astro";
 import AgentArchitecture from "./AgentArchitecture.astro";
 import { SKILL_CATEGORIES, getSkillCount } from "../data/skills";
+import { CONTACT } from "../consts";
 ---
 
 <section
@@ -42,6 +43,25 @@ import { SKILL_CATEGORIES, getSkillCount } from "../data/skills";
         >
           AI-powered browser automation commercial product with multi-profile orchestration, humanization technology, and multi-provider LLM integration.
         </p>
+        <p
+          class="w-full text-[hsl(0,0%,45%)] text-left text-[10px] sm:text-xs lg:text-sm font-light tracking-tighter text-balance mt-0.5 sm:mt-1"
+        >
+          Elyt is currently available exclusively to enterprise customers. Interested in what Elyt can do for your business?
+        </p>
+        <div class="flex items-center gap-2 sm:gap-3 mt-1.5 sm:mt-2 lg:mt-3">
+          <button
+            data-cal-link={CONTACT.CAL_LINK}
+            data-cal-config='{"theme":"light"}'
+            class="relative z-10 group inline-flex items-center gap-1 sm:gap-1.5 lg:gap-2 px-2.5 py-0.5 sm:px-3 sm:py-1 lg:px-4 lg:py-1.5 text-[10px] sm:text-[11px] lg:text-sm font-medium text-white/80 bg-transparent border border-white/20 rounded-full transition-all duration-200 hover:bg-white/10 hover:border-white/40 hover:text-white focus:outline-none focus:ring-2 focus:ring-white/25 focus:ring-offset-1 focus:ring-offset-transparent active:scale-[0.98] cursor-pointer"
+          >
+            <span class="pointer-events-none whitespace-nowrap">Book a Demo</span>
+            <svg class="w-2.5 h-2.5 sm:w-3 sm:h-3 lg:w-3.5 lg:h-3.5 flex-shrink-0 transition-transform duration-200 group-hover:translate-x-0.5 pointer-events-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </button>
+          <span class="live-tag inline-flex items-center gap-1 sm:gap-1.5 px-1.5 py-0.5 sm:px-2 sm:py-0.5 lg:px-2.5 lg:py-1 rounded-full">
+            <svg class="live-tag-icon w-2 h-2 sm:w-2.5 sm:h-2.5 lg:w-3 lg:h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <span class="live-tag-text text-[8px] sm:text-[9px] lg:text-xs font-medium uppercase tracking-wider">Live</span>
+          </span>
+        </div>
       </div>
       <div class="flex-1 flex items-center justify-center p-2 sm:p-4 min-h-[200px] sm:min-h-[300px] lg:min-h-[450px]">
         <LaptopVideo
@@ -119,13 +139,13 @@ import { SKILL_CATEGORIES, getSkillCount } from "../data/skills";
     </article>
     <!-- Agent Architecture Visualization -->
     <article
-      class="order-2 lg:order-3 overflow-hidden bg-dark-card col-span-1 lg:col-span-2 lg:row-span-2 lg:row-start-3 border min-h-[180px] max-h-[260px] sm:min-h-[220px] sm:max-h-[300px] lg:min-h-[580px] lg:max-h-[680px] h-auto border-dark-border rounded-[1rem]"
+      class="order-2 lg:order-3 overflow-hidden bg-dark-card col-span-1 lg:col-span-2 lg:row-span-2 lg:row-start-3 border min-h-[320px] max-h-[540px] sm:min-h-[400px] sm:max-h-[620px] lg:min-h-[640px] lg:max-h-[780px] h-auto border-dark-border rounded-[1rem]"
     >
       <AgentArchitecture />
     </article>
     <!-- Synth - Full width row 3 on mobile/tablet -->
     <article
-      class="order-4 overflow-hidden bg-dark-card col-span-2 lg:col-span-3 lg:row-span-2 lg:col-start-3 lg:row-start-3 border min-h-[320px] max-h-[440px] sm:min-h-[400px] sm:max-h-[520px] lg:min-h-[580px] lg:max-h-[680px] h-auto border-dark-border rounded-[1rem] flex flex-col"
+      class="order-4 overflow-hidden bg-dark-card col-span-2 lg:col-span-3 lg:row-span-2 lg:col-start-3 lg:row-start-3 border min-h-[320px] max-h-[540px] sm:min-h-[400px] sm:max-h-[620px] lg:min-h-[640px] lg:max-h-[780px] h-auto border-dark-border rounded-[1rem] flex flex-col"
     >
       <div class="flex flex-col gap-2 w-full items-start p-3 sm:p-4 text-left shrink-0">
         <h3
@@ -136,8 +156,29 @@ import { SKILL_CATEGORIES, getSkillCount } from "../data/skills";
         <p
           class="w-full text-[hsl(0,0%,60%)] text-left text-xs sm:text-sm lg:text-lg font-light tracking-tighter text-balance"
         >
-          An AI Agent and workflow management powerhouse for the future, made from the experience of Elyt. Harnessing the power of open-source to integrate with over 150+ services, and features database-per-tenant architecture with database branching to give agents their own state and much more still taking shape. My most ambitious commercial project to date.
+          An AI Agent and workflow management web application for the future, made from the experience of Elyt. Synth harnesses the power of open-source to integrate with over 150+ locally or cloud-hosted services. It features a database-per-tenant architecture with database branching technology to give agents their own state and memory like never done before.
         </p>
+        <p
+          class="w-full text-[hsl(0,0%,45%)] text-left text-[10px] sm:text-xs lg:text-sm font-light tracking-tighter text-balance mt-0.5 sm:mt-1"
+        >
+          Interested in getting involved with the development or sponsoring the agentic framework of the future?
+        </p>
+        <div class="flex items-center gap-2 sm:gap-3 mt-1.5 sm:mt-2 lg:mt-3">
+          <button
+            data-contact-modal
+            class="relative z-10 group inline-flex items-center gap-1 sm:gap-1.5 lg:gap-2 px-2.5 py-0.5 sm:px-3 sm:py-1 lg:px-4 lg:py-1.5 text-[10px] sm:text-[11px] lg:text-sm font-medium text-white/80 bg-transparent border border-white/20 rounded-full transition-all duration-200 hover:bg-white/10 hover:border-white/40 hover:text-white focus:outline-none focus:ring-2 focus:ring-white/25 focus:ring-offset-1 focus:ring-offset-transparent active:scale-[0.98] cursor-pointer"
+          >
+            <span class="pointer-events-none whitespace-nowrap">Get in Touch</span>
+            <svg class="w-2.5 h-2.5 sm:w-3 sm:h-3 lg:w-3.5 lg:h-3.5 flex-shrink-0 transition-transform duration-200 group-hover:translate-x-0.5 pointer-events-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          </button>
+          <span class="dev-tag inline-flex items-center gap-1 sm:gap-1.5 px-1.5 py-0.5 sm:px-2 sm:py-0.5 lg:px-2.5 lg:py-1 rounded-full">
+            <span class="relative flex h-1 w-1 sm:h-1.5 sm:w-1.5 lg:h-2 lg:w-2">
+              <span class="dev-tag-dot animate-ping absolute inline-flex h-full w-full rounded-full opacity-60"></span>
+              <span class="dev-tag-dot relative inline-flex rounded-full h-1 w-1 sm:h-1.5 sm:w-1.5 lg:h-2 lg:w-2"></span>
+            </span>
+            <span class="dev-tag-text text-[8px] sm:text-[9px] lg:text-xs font-medium uppercase tracking-wider">In Development</span>
+          </span>
+        </div>
       </div>
       <div class="flex-1 flex items-center justify-center p-2">
         <img
@@ -215,3 +256,33 @@ import { SKILL_CATEGORIES, getSkillCount } from "../data/skills";
 </section>
 
 <SkillsModal />
+
+<style>
+  /* In Development tag - Synth */
+  .dev-tag {
+    background: hsla(var(--secondary), 0.06);
+    border: 1px solid hsla(var(--secondary), 0.15);
+  }
+
+  .dev-tag-dot {
+    background: hsla(var(--secondary), 0.7);
+  }
+
+  .dev-tag-text {
+    color: hsla(var(--secondary), 0.8);
+  }
+
+  /* Live/Production tag - Elyt */
+  .live-tag {
+    background: hsla(var(--secondary), 0.06);
+    border: 1px solid hsla(var(--secondary), 0.15);
+  }
+
+  .live-tag-icon {
+    color: hsla(var(--secondary), 0.8);
+  }
+
+  .live-tag-text {
+    color: hsla(var(--secondary), 0.8);
+  }
+</style>

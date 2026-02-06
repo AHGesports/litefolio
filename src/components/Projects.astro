@@ -18,19 +18,32 @@ import { CONTACT } from "../consts";
 >
   <div class="container mx-auto flex flex-col justify-center items-center gap-6 sm:gap-10 p-4 sm:p-6 py-16 sm:py-24">
     <h2
-      class="z-10 w-full max-w-xl text-center text-xl sm:text-2xl lg:text-4xl font-medium tracking-tighter text-pretty bg-clip-text text-transparent bg-gradient-to-b from-background via-background to-muted-foreground"
+      class="z-10 w-full max-w-2xl text-center text-2xl sm:text-3xl lg:text-5xl font-medium tracking-tighter bg-clip-text text-transparent bg-gradient-to-b from-background via-background to-muted-foreground"
     >
-      Every project is a new challenge to overcome.
+      <span class="whitespace-nowrap">Products born from problems</span><br />worth solving.
     </h2>
     <p
       class="w-full max-w-xl bg-clip-text text-transparent bg-gradient-to-b from-background via-background to-muted-foreground text-center text-base sm:text-lg lg:text-xl font-light tracking-tighter text-balance"
     >
        
     </p>
+    <!--
+      GRID LAYOUT:
+      Mobile/Tablet (2 cols):          Desktop lg (5 cols):
+      ┌─────────────────┐              ┌───────────┬───────┐
+      │      Elyt       │              │   Elyt    │Skills │
+      ├────────┬────────┤              │  (1-3)    │ (4-5) │
+      │Diagram │ Skills │              ├─────┬─────┴───────┤
+      ├────────┴────────┤              │Diag │    Synth    │
+      │      Synth      │              │(1-2)│    (3-5)    │
+      └─────────────────┘              └─────┴─────────────┘
+
+      Height sync: Diagram ↔ Skills (mobile/sm), Diagram ↔ Synth (lg)
+    -->
     <div class="z-10 w-full grid grid-cols-2 lg:grid-cols-5 gap-2 sm:gap-3">
-    <!-- Elyt - Main Project -->
+    <!-- Elyt: full-width row 1 (mobile) | cols 1-3, rows 1-2 (lg) -->
     <article
-      class="order-1 overflow-hidden relative bg-dark-card col-span-2 lg:col-span-3 lg:row-span-2 border min-h-[320px] max-h-[440px] sm:min-h-[400px] sm:max-h-[520px] lg:min-h-[580px] lg:max-h-[680px] h-auto border-dark-border rounded-[1rem] flex flex-col"
+      class="order-1 overflow-hidden relative bg-dark-card col-span-2 lg:col-span-3 lg:row-span-2 border min-h-[320px] max-h-[528px] sm:min-h-[400px] sm:max-h-[520px] lg:min-h-[580px] lg:max-h-[680px] h-auto border-dark-border rounded-[1rem] flex flex-col"
     >
       <div class="flex flex-col gap-2 w-full items-start p-3 sm:p-4 text-left shrink-0">
         <h3
@@ -72,80 +85,81 @@ import { CONTACT } from "../consts";
         />
       </div>
     </article>
-    <!-- Skills -->
+    <!-- Skills: right of Diagram row 2 (mobile/sm) | cols 4-5, rows 1-2 (lg) -->
     <article
-      class="order-3 lg:order-2 overflow-hidden group bg-dark-card col-span-1 lg:col-span-2 lg:row-span-2 lg:col-start-4 min-h-[180px] max-h-[260px] sm:min-h-[220px] sm:max-h-[300px] lg:min-h-[580px] lg:max-h-[680px] h-auto border border-dark-border rounded-[1rem] p-1.5 sm:p-2 lg:p-6 flex flex-col flex-1 gap-0.5 lg:gap-3 justify-center items-center"
+      class="order-3 lg:order-2 overflow-hidden group bg-dark-card col-span-1 lg:col-span-2 lg:row-span-2 lg:col-start-4 min-h-[320px] max-h-[648px] sm:min-h-[400px] sm:max-h-[620px] lg:min-h-[580px] lg:max-h-[680px] h-auto border border-dark-border rounded-[1rem] p-2 sm:p-2 lg:p-6 flex flex-col flex-1 gap-1 sm:gap-1.5 lg:gap-3 justify-center items-center"
     >
       <div
         role="button"
         tabindex="0"
         data-skill-category="languages"
-        class="w-fit rounded-full bg-background px-1.5 py-0.5 sm:px-2.5 sm:py-1.5 lg:px-5 lg:py-2.5 flex justify-center items-center gap-1 sm:gap-1.5 lg:gap-3 lg:rotate-12 group-hover:rotate-0 border transition-all duration-300 ease-in-out cursor-pointer hover:scale-105 hover:shadow-lg"
+        class="w-fit rounded-full bg-background px-3 py-1.5 sm:px-4 sm:py-2.5 lg:px-5 lg:py-2.5 flex justify-center items-center gap-1 sm:gap-1.5 lg:gap-3 rotate-12 group-hover:rotate-0 border transition-all duration-300 ease-in-out cursor-pointer hover:scale-105 hover:shadow-lg"
       >
-        <span class="text-[9px] sm:text-xs lg:text-xl font-light tracking-tighter">Languages</span>
-        <span class="text-[7px] sm:text-[10px] lg:text-sm text-muted-foreground">({getSkillCount(SKILL_CATEGORIES[0])})</span>
+        <span class="text-[9px] sm:text-[13px] lg:text-xl font-light tracking-tighter">Languages</span>
+        <span class="text-[7px] sm:text-[11px] lg:text-sm text-muted-foreground">({getSkillCount(SKILL_CATEGORIES[0])})</span>
         <svg class="w-2.5 h-2.5 lg:w-4 lg:h-4 text-muted-foreground hidden sm:block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
       </div>
       <div
         role="button"
         tabindex="0"
         data-skill-category="backend"
-        class="w-fit rounded-full bg-background px-1.5 py-0.5 sm:px-2.5 sm:py-1.5 lg:px-5 lg:py-2.5 flex justify-center items-center gap-1 sm:gap-1.5 lg:gap-3 lg:-rotate-6 group-hover:rotate-0 border transition-all duration-300 ease-in-out cursor-pointer hover:scale-105 hover:shadow-lg"
+        class="w-fit rounded-full bg-background px-3 py-1.5 sm:px-4 sm:py-2.5 lg:px-5 lg:py-2.5 flex justify-center items-center gap-1 sm:gap-1.5 lg:gap-3 -rotate-6 group-hover:rotate-0 border transition-all duration-300 ease-in-out cursor-pointer hover:scale-105 hover:shadow-lg"
       >
-        <span class="text-[9px] sm:text-xs lg:text-xl font-light tracking-tighter">Backend</span>
-        <span class="text-[7px] sm:text-[10px] lg:text-sm text-muted-foreground">({getSkillCount(SKILL_CATEGORIES[1])})</span>
+        <span class="text-[9px] sm:text-[13px] lg:text-xl font-light tracking-tighter">Backend</span>
+        <span class="text-[7px] sm:text-[11px] lg:text-sm text-muted-foreground">({getSkillCount(SKILL_CATEGORIES[1])})</span>
         <svg class="w-2.5 h-2.5 lg:w-4 lg:h-4 text-muted-foreground hidden sm:block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
       </div>
       <div
         role="button"
         tabindex="0"
         data-skill-category="frontend"
-        class="w-fit rounded-full bg-background px-1.5 py-0.5 sm:px-2.5 sm:py-1.5 lg:px-5 lg:py-2.5 flex justify-center items-center gap-1 sm:gap-1.5 lg:gap-3 border transition-all duration-300 ease-in-out cursor-pointer hover:scale-105 hover:shadow-lg"
+        class="w-fit rounded-full bg-background px-3 py-1.5 sm:px-4 sm:py-2.5 lg:px-5 lg:py-2.5 flex justify-center items-center gap-1 sm:gap-1.5 lg:gap-3 border transition-all duration-300 ease-in-out cursor-pointer hover:scale-105 hover:shadow-lg"
       >
-        <span class="text-[9px] sm:text-xs lg:text-xl font-light tracking-tighter">Frontend</span>
-        <span class="text-[7px] sm:text-[10px] lg:text-sm text-muted-foreground">({getSkillCount(SKILL_CATEGORIES[2])})</span>
+        <span class="text-[9px] sm:text-[13px] lg:text-xl font-light tracking-tighter">Frontend</span>
+        <span class="text-[7px] sm:text-[11px] lg:text-sm text-muted-foreground">({getSkillCount(SKILL_CATEGORIES[2])})</span>
         <svg class="w-2.5 h-2.5 lg:w-4 lg:h-4 text-muted-foreground hidden sm:block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
       </div>
       <div
         role="button"
         tabindex="0"
         data-skill-category="devops"
-        class="w-fit rounded-full bg-background px-1.5 py-0.5 sm:px-2.5 sm:py-1.5 lg:px-5 lg:py-2.5 flex justify-center items-center gap-1 sm:gap-1.5 lg:gap-3 lg:rotate-6 group-hover:rotate-0 border transition-all duration-300 ease-in-out cursor-pointer hover:scale-105 hover:shadow-lg"
+        class="w-fit rounded-full bg-background px-3 py-1.5 sm:px-4 sm:py-2.5 lg:px-5 lg:py-2.5 flex justify-center items-center gap-1 sm:gap-1.5 lg:gap-3 rotate-6 group-hover:rotate-0 border transition-all duration-300 ease-in-out cursor-pointer hover:scale-105 hover:shadow-lg"
       >
-        <span class="text-[9px] sm:text-xs lg:text-xl font-light tracking-tighter">DevOps</span>
-        <span class="text-[7px] sm:text-[10px] lg:text-sm text-muted-foreground">({getSkillCount(SKILL_CATEGORIES[3])})</span>
+        <span class="text-[9px] sm:text-[13px] lg:text-xl font-light tracking-tighter">DevOps</span>
+        <span class="text-[7px] sm:text-[11px] lg:text-sm text-muted-foreground">({getSkillCount(SKILL_CATEGORIES[3])})</span>
         <svg class="w-2.5 h-2.5 lg:w-4 lg:h-4 text-muted-foreground hidden sm:block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
       </div>
       <div
         role="button"
         tabindex="0"
         data-skill-category="ai-automation"
-        class="w-fit rounded-full bg-background px-1.5 py-0.5 sm:px-2.5 sm:py-1.5 lg:px-5 lg:py-2.5 flex justify-center items-center gap-1 sm:gap-1.5 lg:gap-3 lg:-rotate-12 group-hover:rotate-0 border transition-all duration-300 ease-in-out cursor-pointer hover:scale-105 hover:shadow-lg"
+        class="w-fit rounded-full bg-background px-3 py-1.5 sm:px-4 sm:py-2.5 lg:px-5 lg:py-2.5 flex justify-center items-center gap-1 sm:gap-1.5 lg:gap-3 -rotate-12 group-hover:rotate-0 border transition-all duration-300 ease-in-out cursor-pointer hover:scale-105 hover:shadow-lg"
       >
-        <span class="text-[9px] sm:text-xs lg:text-xl font-light tracking-tighter">AI & Auto</span>
-        <span class="text-[7px] sm:text-[10px] lg:text-sm text-muted-foreground">({getSkillCount(SKILL_CATEGORIES[4])})</span>
+        <span class="text-[9px] sm:text-[13px] lg:text-xl font-light tracking-tighter">AI & Auto</span>
+        <span class="text-[7px] sm:text-[11px] lg:text-sm text-muted-foreground">({getSkillCount(SKILL_CATEGORIES[4])})</span>
         <svg class="w-2.5 h-2.5 lg:w-4 lg:h-4 text-muted-foreground hidden sm:block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
       </div>
       <div
         role="button"
         tabindex="0"
         data-skill-category="specialized"
-        class="w-fit rounded-full bg-background px-1.5 py-0.5 sm:px-2.5 sm:py-1.5 lg:px-5 lg:py-2.5 flex justify-center items-center gap-1 sm:gap-1.5 lg:gap-3 lg:rotate-3 group-hover:rotate-0 border transition-all duration-300 ease-in-out cursor-pointer hover:scale-105 hover:shadow-lg"
+        class="w-fit rounded-full bg-background px-3 py-1.5 sm:px-4 sm:py-2.5 lg:px-5 lg:py-2.5 flex justify-center items-center gap-1 sm:gap-1.5 lg:gap-3 rotate-3 group-hover:rotate-0 border transition-all duration-300 ease-in-out cursor-pointer hover:scale-105 hover:shadow-lg"
       >
-        <span class="text-[9px] sm:text-xs lg:text-xl font-light tracking-tighter">Specialized</span>
-        <span class="text-[7px] sm:text-[10px] lg:text-sm text-muted-foreground">({getSkillCount(SKILL_CATEGORIES[5])})</span>
+        <span class="text-[9px] sm:text-[13px] lg:text-xl font-light tracking-tighter">Specialized</span>
+        <span class="text-[7px] sm:text-[11px] lg:text-sm text-muted-foreground">({getSkillCount(SKILL_CATEGORIES[5])})</span>
         <svg class="w-2.5 h-2.5 lg:w-4 lg:h-4 text-muted-foreground hidden sm:block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
       </div>
     </article>
-    <!-- Agent Architecture Visualization -->
+    <!-- Diagram: left of Skills row 2 (mobile/sm) | cols 1-2, rows 3-4 (lg) -->
     <article
-      class="order-2 lg:order-3 overflow-hidden bg-dark-card col-span-1 lg:col-span-2 lg:row-span-2 lg:row-start-3 border min-h-[320px] max-h-[540px] sm:min-h-[400px] sm:max-h-[620px] lg:min-h-[640px] lg:max-h-[780px] h-auto border-dark-border rounded-[1rem]"
+      style="container-type: inline-size;"
+      class="order-2 lg:order-3 overflow-hidden bg-dark-card col-span-1 lg:col-span-2 lg:row-span-2 lg:row-start-3 border min-h-[320px] max-h-[648px] sm:min-h-[400px] sm:max-h-[620px] lg:min-h-[640px] lg:max-h-[780px] h-auto border-dark-border rounded-[1rem]"
     >
       <AgentArchitecture />
     </article>
-    <!-- Synth - Full width row 3 on mobile/tablet -->
+    <!-- Synth: full-width row 3 (mobile/sm) | cols 3-5, rows 3-4 (lg) -->
     <article
-      class="order-4 overflow-hidden bg-dark-card col-span-2 lg:col-span-3 lg:row-span-2 lg:col-start-3 lg:row-start-3 border min-h-[320px] max-h-[540px] sm:min-h-[400px] sm:max-h-[620px] lg:min-h-[640px] lg:max-h-[780px] h-auto border-dark-border rounded-[1rem] flex flex-col"
+      class="order-4 overflow-hidden bg-dark-card col-span-2 lg:col-span-3 lg:row-span-2 lg:col-start-3 lg:row-start-3 border min-h-[320px] max-h-[648px] sm:min-h-[400px] sm:max-h-[620px] lg:min-h-[640px] lg:max-h-[780px] h-auto border-dark-border rounded-[1rem] flex flex-col"
     >
       <div class="flex flex-col gap-2 w-full items-start p-3 sm:p-4 text-left shrink-0">
         <h3
@@ -189,18 +203,23 @@ import { CONTACT } from "../consts";
         />
       </div>
     </article>
-    <!-- Enterprise Experience - Row 4 left on mobile/tablet -->
+    <!-- Enterprise Experience - Full width row on mobile/tablet -->
     <article
-      class="order-5 overflow-hidden bg-dark-card col-span-1 lg:col-span-3 lg:row-span-2 lg:row-start-5 border min-h-[180px] max-h-[340px] sm:min-h-[220px] sm:max-h-[340px] lg:min-h-[260px] lg:max-h-[340px] h-auto border-dark-border rounded-[1rem] flex flex-col lg:flex-row"
+      class="order-5 overflow-hidden bg-dark-card col-span-2 lg:col-span-3 lg:row-span-2 lg:row-start-5 border min-h-[110px] max-h-[160px] sm:min-h-[140px] sm:max-h-[220px] lg:min-h-[260px] lg:max-h-[340px] h-auto border-dark-border rounded-[1rem] flex flex-row"
     >
-      <div class="flex flex-col gap-1 sm:gap-2 w-full lg:w-1/2 items-start p-3 sm:p-4 text-left shrink-0">
+      <div class="flex flex-col gap-1 sm:gap-2 w-1/2 lg:w-1/2 items-start p-3 sm:p-4 text-left shrink-0">
         <h3
           class="text-left text-base sm:text-lg lg:text-xl xl:text-2xl font-medium tracking-tighter text-pretty bg-clip-text text-transparent bg-gradient-to-br from-background via-background to-secondary"
         >
           Enterprise Experience
         </h3>
         <p
-          class="w-full text-[hsl(0,0%,60%)] text-left text-[10px] sm:text-xs lg:text-sm xl:text-base font-light tracking-tighter text-balance"
+          class="w-full text-[hsl(0,0%,60%)] text-left text-[10px] font-light tracking-tighter text-balance sm:hidden"
+        >
+          4 years building enterprise systems—ticketing, POS, and hardware integrations. The foundation of my engineering standards.
+        </p>
+        <p
+          class="w-full text-[hsl(0,0%,60%)] text-left hidden sm:block sm:text-xs lg:text-sm xl:text-base font-light tracking-tighter text-balance"
         >
           4 years of enterprise experience on large-scale systems taught me scale. Ticketing platforms, reservation systems, and POS solutions processing real transactions for real businesses. Hardware integrations from payment terminals to access control. The work that defined my engineering standards and career.
         </p>
@@ -210,13 +229,13 @@ import { CONTACT } from "../consts";
           src="/assets/mockup3.svg"
           alt="Mockup Project"
           loading="lazy"
-          class="object-contain max-w-[80px] sm:max-w-[100px] lg:max-w-[157px] xl:max-w-[190px]"
+          class="object-contain max-w-[70px] sm:max-w-[90px] lg:max-w-[157px] xl:max-w-[190px]"
         />
       </div>
     </article>
-    <!-- CTA - Row 4 right on mobile/tablet -->
+    <!-- CTA - Full width row on mobile/tablet -->
     <article
-      class="order-6 overflow-hidden bg-dark-card col-span-1 lg:col-span-2 lg:row-span-2 lg:col-start-4 lg:row-start-5 border min-h-[180px] max-h-[340px] sm:min-h-[220px] sm:max-h-[340px] lg:min-h-[260px] lg:max-h-[340px] h-auto border-dark-border rounded-[1rem]"
+      class="order-6 overflow-hidden bg-dark-card col-span-2 lg:col-span-2 lg:row-span-2 lg:col-start-4 lg:row-start-5 border min-h-[120px] max-h-[200px] sm:min-h-[140px] sm:max-h-[220px] lg:min-h-[260px] lg:max-h-[340px] h-auto border-dark-border rounded-[1rem]"
     >
       <div
         class="w-full h-full flex flex-col gap-3 sm:gap-5 justify-center items-center p-3 sm:p-4"

@@ -139,26 +139,26 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 6px 4px;
+    padding: 8px 4px;
     gap: 0;
     --primary: hsl(0 0% 90%);
     --line-color: hsl(0 0% 35%);
     --line-active: hsl(0 0% 55%);
   }
 
-  @media (min-width: 400px) {
-    .arch { padding: 8px 6px; }
+  @container (min-width: 150px) {
+    .arch { padding: 10px 6px; }
   }
 
-  @media (min-width: 640px) {
-    .arch { padding: 12px 10px; }
+  @container (min-width: 190px) {
+    .arch { padding: 12px 8px; }
   }
 
-  @media (min-width: 768px) {
+  @container (min-width: 280px) {
     .arch { padding: 16px 14px; }
   }
 
-  @media (min-width: 1024px) {
+  @container (min-width: 420px) {
     .arch { padding: 32px 24px; }
   }
 
@@ -171,24 +171,24 @@
 
   .row.row-spread {
     justify-content: space-between;
-    width: 95%;
-    max-width: 130px;
+    width: 92%;
+    max-width: 140px;
   }
 
-  @media (min-width: 400px) {
-    .row.row-spread { max-width: 150px; }
+  @container (min-width: 150px) {
+    .row.row-spread { max-width: 155px; }
   }
 
-  @media (min-width: 640px) {
-    .row.row-spread { max-width: 200px; }
+  @container (min-width: 190px) {
+    .row.row-spread { max-width: 185px; }
   }
 
-  @media (min-width: 768px) {
-    .row.row-spread { max-width: 280px; }
+  @container (min-width: 280px) {
+    .row.row-spread { max-width: 260px; }
   }
 
-  @media (min-width: 1024px) {
-    .row.row-spread { max-width: 400px; }
+  @container (min-width: 420px) {
+    .row.row-spread { max-width: 380px; }
   }
 
   /* ===== NODES ===== */
@@ -197,7 +197,7 @@
     align-items: center;
     justify-content: center;
     gap: 1px;
-    padding: 2px 4px;
+    padding: 3px 5px;
     background: hsl(0 0% 100%);
     border: 1px solid hsl(0 0% 80%);
     border-radius: 9999px;
@@ -208,28 +208,28 @@
     font-family: inherit;
   }
 
-  @media (min-width: 400px) {
+  @container (min-width: 150px) {
     .node {
-      padding: 3px 5px;
+      padding: 4px 7px;
       gap: 2px;
     }
   }
 
-  @media (min-width: 640px) {
+  @container (min-width: 190px) {
     .node {
-      padding: 4px 8px;
-      gap: 3px;
+      padding: 5px 9px;
+      gap: 2px;
     }
   }
 
-  @media (min-width: 768px) {
+  @container (min-width: 280px) {
     .node {
       padding: 6px 12px;
       gap: 4px;
     }
   }
 
-  @media (min-width: 1024px) {
+  @container (min-width: 420px) {
     .node {
       padding: 10px 18px;
       gap: 6px;
@@ -237,51 +237,51 @@
   }
 
   .node-icon {
-    width: 8px;
-    height: 8px;
+    width: 9px;
+    height: 9px;
     stroke: hsl(0 0% 40%);
     transition: all 0.3s ease-in-out;
     flex-shrink: 0;
   }
 
-  @media (min-width: 400px) {
-    .node-icon { width: 9px; height: 9px; }
-  }
-
-  @media (min-width: 640px) {
+  @container (min-width: 150px) {
     .node-icon { width: 10px; height: 10px; }
   }
 
-  @media (min-width: 768px) {
+  @container (min-width: 190px) {
+    .node-icon { width: 12px; height: 12px; }
+  }
+
+  @container (min-width: 280px) {
     .node-icon { width: 14px; height: 14px; }
   }
 
-  @media (min-width: 1024px) {
+  @container (min-width: 420px) {
     .node-icon { width: 18px; height: 18px; }
   }
 
   .node span {
-    font-size: 6px;
+    font-size: 5px;
     font-weight: 300;
     color: hsl(0 0% 30%);
     letter-spacing: -0.02em;
     white-space: nowrap;
   }
 
-  @media (min-width: 400px) {
+  @container (min-width: 150px) {
+    .node span { font-size: 6px; }
+  }
+
+  @container (min-width: 190px) {
     .node span { font-size: 7px; }
   }
 
-  @media (min-width: 640px) {
-    .node span { font-size: 8px; }
+  @container (min-width: 280px) {
+    .node span { font-size: 11px; }
   }
 
-  @media (min-width: 768px) {
-    .node span { font-size: 10px; }
-  }
-
-  @media (min-width: 1024px) {
-    .node span { font-size: 13px; }
+  @container (min-width: 420px) {
+    .node span { font-size: 14px; }
   }
 
   .node:hover {
@@ -376,26 +376,26 @@
   /* Vertical connection */
   .conn-vertical {
     width: 2px;
-    height: 5px;
+    height: 14px;
     position: relative;
     display: flex;
     justify-content: center;
   }
 
-  @media (min-width: 400px) {
-    .conn-vertical { height: 7px; }
+  @container (min-width: 150px) {
+    .conn-vertical { height: 16px; }
   }
 
-  @media (min-width: 640px) {
-    .conn-vertical { height: 10px; }
-  }
-
-  @media (min-width: 768px) {
+  @container (min-width: 190px) {
     .conn-vertical { height: 20px; }
   }
 
-  @media (min-width: 1024px) {
-    .conn-vertical { height: 36px; }
+  @container (min-width: 280px) {
+    .conn-vertical { height: 28px; }
+  }
+
+  @container (min-width: 420px) {
+    .conn-vertical { height: 44px; }
   }
 
   .conn-track {
@@ -418,20 +418,16 @@
     pointer-events: none;
   }
 
-  @media (min-width: 400px) {
+  @container (min-width: 150px) {
+    .conn-particle { width: 2px; height: 2px; }
+  }
+
+  @container (min-width: 190px) {
     .conn-particle { width: 3px; height: 3px; }
   }
 
-  @media (min-width: 640px) {
-    .conn-particle { width: 4px; height: 4px; }
-  }
-
-  @media (min-width: 768px) {
-    .conn-particle { width: 6px; height: 6px; }
-  }
-
-  @media (min-width: 1024px) {
-    .conn-particle { width: 8px; height: 8px; }
+  @container (min-width: 280px) {
+    .conn-particle { width: 5px; height: 5px; }
   }
 
   /* Active flow animation - only on click */
@@ -446,26 +442,26 @@
 
   /* ===== BRANCH CONNECTION ===== */
   .conn-branch {
-    width: 95%;
-    max-width: 130px;
-    height: 12px;
+    width: 92%;
+    max-width: 140px;
+    height: 22px;
     position: relative;
   }
 
-  @media (min-width: 400px) {
-    .conn-branch { max-width: 150px; height: 16px; }
+  @container (min-width: 150px) {
+    .conn-branch { max-width: 155px; height: 26px; }
   }
 
-  @media (min-width: 640px) {
-    .conn-branch { max-width: 200px; height: 24px; }
+  @container (min-width: 190px) {
+    .conn-branch { max-width: 185px; height: 32px; }
   }
 
-  @media (min-width: 768px) {
-    .conn-branch { max-width: 280px; height: 40px; }
+  @container (min-width: 280px) {
+    .conn-branch { max-width: 260px; height: 45px; }
   }
 
-  @media (min-width: 1024px) {
-    .conn-branch { max-width: 400px; height: 65px; }
+  @container (min-width: 420px) {
+    .conn-branch { max-width: 380px; height: 70px; }
   }
 
   .branch-svg {
@@ -514,20 +510,12 @@
     opacity: 0;
   }
 
-  @media (min-width: 400px) {
+  @container (min-width: 190px) {
     .branch-particle { width: 3px; height: 3px; }
   }
 
-  @media (min-width: 640px) {
-    .branch-particle { width: 4px; height: 4px; }
-  }
-
-  @media (min-width: 768px) {
-    .branch-particle { width: 6px; height: 6px; }
-  }
-
-  @media (min-width: 1024px) {
-    .branch-particle { width: 8px; height: 8px; }
+  @container (min-width: 280px) {
+    .branch-particle { width: 5px; height: 5px; }
   }
 
   .bp-l { left: 50%; top: 0; }
@@ -561,26 +549,26 @@
 
   /* ===== TRIO CONNECTION (Agents → DBs) ===== */
   .conn-trio {
-    width: 95%;
-    max-width: 130px;
-    height: 4px;
+    width: 92%;
+    max-width: 140px;
+    height: 12px;
     position: relative;
   }
 
-  @media (min-width: 400px) {
-    .conn-trio { max-width: 150px; height: 6px; }
+  @container (min-width: 150px) {
+    .conn-trio { max-width: 155px; height: 14px; }
   }
 
-  @media (min-width: 640px) {
-    .conn-trio { max-width: 200px; height: 10px; }
+  @container (min-width: 190px) {
+    .conn-trio { max-width: 185px; height: 18px; }
   }
 
-  @media (min-width: 768px) {
-    .conn-trio { max-width: 280px; height: 18px; }
+  @container (min-width: 280px) {
+    .conn-trio { max-width: 260px; height: 24px; }
   }
 
-  @media (min-width: 1024px) {
-    .conn-trio { max-width: 400px; height: 30px; }
+  @container (min-width: 420px) {
+    .conn-trio { max-width: 380px; height: 36px; }
   }
 
   .trio-svg {
@@ -609,24 +597,20 @@
 
   .trio-particle {
     position: absolute;
-    width: 3px;
-    height: 3px;
+    width: 2px;
+    height: 2px;
     background: hsl(0 0% 50%);
     border-radius: 50%;
     opacity: 0;
     transform: translate(-50%, -50%);
   }
 
-  @media (min-width: 640px) {
-    .trio-particle { width: 4px; height: 4px; }
+  @container (min-width: 190px) {
+    .trio-particle { width: 3px; height: 3px; }
   }
 
-  @media (min-width: 768px) {
-    .trio-particle { width: 6px; height: 6px; }
-  }
-
-  @media (min-width: 1024px) {
-    .trio-particle { width: 8px; height: 8px; }
+  @container (min-width: 280px) {
+    .trio-particle { width: 5px; height: 5px; }
   }
 
   .tp-l { left: 16.67%; top: 0; }
@@ -650,26 +634,26 @@
 
   /* ===== MERGE CONNECTION ===== */
   .conn-merge {
-    width: 95%;
-    max-width: 130px;
-    height: 8px;
+    width: 92%;
+    max-width: 140px;
+    height: 16px;
     position: relative;
   }
 
-  @media (min-width: 400px) {
-    .conn-merge { max-width: 150px; height: 10px; }
+  @container (min-width: 150px) {
+    .conn-merge { max-width: 155px; height: 20px; }
   }
 
-  @media (min-width: 640px) {
-    .conn-merge { max-width: 200px; height: 16px; }
+  @container (min-width: 190px) {
+    .conn-merge { max-width: 185px; height: 26px; }
   }
 
-  @media (min-width: 768px) {
-    .conn-merge { max-width: 280px; height: 30px; }
+  @container (min-width: 280px) {
+    .conn-merge { max-width: 260px; height: 35px; }
   }
 
-  @media (min-width: 1024px) {
-    .conn-merge { max-width: 400px; height: 50px; }
+  @container (min-width: 420px) {
+    .conn-merge { max-width: 380px; height: 55px; }
   }
 
   .merge-svg {
@@ -728,7 +712,7 @@
     top: -0.05em;
   }
 
-  @media (min-width: 768px) {
+  @container (min-width: 280px) {
     .hint-icon {
       top: 0;
     }
@@ -738,19 +722,19 @@
     transform: translate(0.1em, -0.1em);
   }
 
-  @media (min-width: 400px) {
+  @container (min-width: 150px) {
     .hint { bottom: 8px; left: 10px; font-size: 6px; }
   }
 
-  @media (min-width: 640px) {
+  @container (min-width: 190px) {
     .hint { bottom: 10px; left: 12px; font-size: 7px; }
   }
 
-  @media (min-width: 768px) {
+  @container (min-width: 280px) {
     .hint { bottom: 12px; left: 16px; font-size: 9px; }
   }
 
-  @media (min-width: 1024px) {
+  @container (min-width: 420px) {
     .hint { bottom: 16px; left: 20px; font-size: 11px; }
   }
 

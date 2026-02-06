@@ -2,7 +2,7 @@
 import { SITE } from "../consts";
 
 const links = [
-  { name: "Home", href: "/", target: "_self" },
+  { name: "Home", href: "#top", target: "_self" },
   { name: "Work", href: "#projects", target: "_self" },
   { name: "About", href: "#about", target: "_self" },
   { name: "Contact", href: "#contact", target: "_self" },
@@ -16,7 +16,7 @@ const firstLetter = SITE.TITLE.charAt(0).toUpperCase();
   <div class="container mx-auto flex items-center justify-between p-4 md:p-6">
     <!-- Logo pill -->
     <a
-      href="/"
+      href="#top"
       class="logo-pill pointer-events-auto font-plex font-bold text-2xl md:text-3xl px-4 py-2 rounded-full bg-background/70 backdrop-blur-xl border border-border/50 shadow-lg hover:bg-background/90 transition-all duration-300"
       >{firstLetter}.</a
     >
@@ -183,6 +183,31 @@ const firstLetter = SITE.TITLE.charAt(0).toUpperCase();
       toggle.classList.toggle("active");
       const expanded = toggle.classList.contains("active");
       toggle.setAttribute("aria-expanded", String(expanded));
+    });
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+      anchor.addEventListener("click", (e) => {
+        const href = anchor.getAttribute("href");
+        if (!href || href === "#") return;
+
+        e.preventDefault();
+
+        if (href === "#top") {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        } else {
+          const target = document.querySelector(href);
+          if (target) {
+            target.scrollIntoView({ behavior: "smooth" });
+          }
+        }
+
+        // Close mobile menu if open
+        if (menuMobile && !menuMobile.classList.contains("hidden")) {
+          menuMobile.classList.add("hidden");
+          toggle?.classList.remove("active");
+        }
+      });
     });
 
     // Dark section detection for navbar

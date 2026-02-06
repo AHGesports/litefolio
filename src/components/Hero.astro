@@ -1,7 +1,5 @@
 ---
-import { SITE, CONTACT, SOCIALS } from "../consts";
-
-const linkedinUrl = SOCIALS.find(s => s.NAME === "Linkedin")?.HREF || "#";
+import { CONTACT } from "../consts";
 ---
 
 <section
@@ -16,16 +14,14 @@ const linkedinUrl = SOCIALS.find(s => s.NAME === "Linkedin")?.HREF || "#";
     Gaps: Proportional to element sizes
   -->
   <div class="grid grid-cols-1 lg:grid-cols-2 items-end gap-9 sm:gap-14 lg:gap-16 w-full">
-    <a href={linkedinUrl} target="_blank" rel="noopener noreferrer" class="block">
-      <h1 class="font-plex font-bold text-[clamp(5rem,22vw,5.9rem)] sm:text-[clamp(7.9rem,20vw,9.6rem)] lg:text-[clamp(7.2rem,9vw,10.4rem)] uppercase leading-[0.9] tracking-[-0.02em] flex flex-col">
-        <span>Arshia</span>
-        <span>Hemati</span>
-      </h1>
-    </a>
+    <h1 class="font-plex font-bold text-[clamp(5rem,22vw,5.9rem)] sm:text-[clamp(7.9rem,20vw,9.6rem)] lg:text-[clamp(7.2rem,9vw,10.4rem)] uppercase leading-[0.9] tracking-[-0.02em] flex flex-col">
+      <span>Arshia</span>
+      <span>Hemati</span>
+    </h1>
 
     <!-- CTA aligned with title baseline -->
     <!-- Gap ratio: CTA text × 1.5 -->
-    <div class="flex flex-row flex-nowrap items-center gap-4 sm:gap-7 lg:gap-9 lg:justify-end pb-1 sm:pb-4">
+    <div class="flex flex-col items-start gap-3 sm:gap-4 lg:gap-5 lg:justify-end pb-1 sm:pb-4">
       <!-- Available For Work badge -->
       <!-- Badge gap ratio: CTA text × 0.75 -->
       <div class="flex items-center gap-2 sm:gap-3.5 lg:gap-4 shrink-0">
@@ -34,10 +30,8 @@ const linkedinUrl = SOCIALS.find(s => s.NAME === "Linkedin")?.HREF || "#";
           <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-foreground opacity-75"></span>
           <span class="relative inline-flex rounded-full h-1.5 w-1.5 sm:h-2.5 sm:w-2.5 lg:h-3 lg:w-3 bg-foreground"></span>
         </span>
-        <span class="text-xs sm:text-[1.125rem] lg:text-[1.5rem] text-muted-foreground uppercase tracking-widest whitespace-nowrap">Available For Work</span>
+        <span class="text-[10px] sm:text-[1rem] lg:text-[1.25rem] text-muted-foreground uppercase tracking-widest whitespace-nowrap">Available for Work & Partnerships</span>
       </div>
-
-      <span class="text-muted-foreground/30 text-xs sm:text-[1.125rem] lg:text-[1.5rem]">|</span>
 
       <!-- Links -->
       <!-- Links gap ratio: CTA text × 1.5 -->

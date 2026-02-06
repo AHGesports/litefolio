@@ -1,6 +1,6 @@
 COMPLETE SKILLS LIST FOR LINKEDIN
 ==================================
-Total: 179 skills
+Total: 193 skills
 
 ================================================================================
 LANGUAGES (7 skills)
@@ -18,280 +18,295 @@ Proficient:
 7. C
 
 ================================================================================
-BACKEND (62 skills)
+BACKEND (65 skills)
 ================================================================================
 
 .NET Ecosystem:
 8. .NET 8
 9. .NET Framework 4.8
-10. ASP.NET MVC 5
-11. ASP.NET Web API
-12. Entity Framework Core 8
-13. NHibernate
-14. FluentNHibernate
+10. ASP.NET Core
+11. ASP.NET MVC 5
+12. ASP.NET Web API
+13. Entity Framework Core 8
+14. NHibernate
+15. FluentNHibernate
 
 Node.js:
-15. Express.js 4.x
-16. Fastify
+16. Express.js 4.x
+17. Fastify
 
 Python:
-17. FastAPI
-18. Uvicorn
+18. FastAPI
+19. Uvicorn
 
 API Standards:
-19. REST
-20. gRPC
-21. SOAP
-22. GraphQL
+20. REST
+21. gRPC
+22. SOAP
+23. GraphQL
 
 Databases:
-23. Oracle 11g+
-24. PostgreSQL
-25. MySQL
-26. MsSql
-27. Neon.tech
-28. LowDB
-29. JSON-based storage
+24. Oracle 11g+
+25. PostgreSQL
+26. MySQL
+27. MsSql
+28. Neon.tech
+29. LowDB
+30. JSON-based storage
 
 ORM & Data Access:
-30. ODP.NET
-31. Dapper
+31. ODP.NET
+32. Dapper
 
 Database Tools:
-32. DBeaver
-33. SQL Management Studio
-34. PL/SQL Developer
+33. DBeaver
+34. SQL Server Management Studio
+35. pgAdmin
+36. MySQL Workbench
+37. PL/SQL Developer
 
 Caching & Queuing:
-35. Redis
-36. System.Runtime.Caching
-37. BullMQ
-38. Job Scheduling
+38. Redis
+39. System.Runtime.Caching
+40. BullMQ
+41. Job Scheduling
 
 Authentication & Security:
-39. JWT
-40. OAuth 2.0
-41. SSO
-42. RBAC
-43. Multi-factor Authentication
-44. Nonce-based Authentication
-45. Google Auth Library
-46. Custom Enterprise B2B SSO
-47. Better auth
+42. JWT
+43. OAuth 2.0
+44. SSO
+45. RBAC
+46. Multi-factor Authentication
+47. Nonce-based Authentication
+48. Google Auth Library
+49. Custom Enterprise B2B SSO
+50. Better auth
 
 API Development:
-48. Swagger/OpenAPI
-49. NSwag
-50. Postman
-51. API Versioning
-52. Contract-first development
-53. AJV
-54. Pydantic
+51. Swagger/OpenAPI
+52. NSwag
+53. Postman
+54. API Versioning
+55. Contract-first development
+56. AJV
+57. Pydantic
 
 HTTP Clients:
-55. Axios
-56. RestSharp
-57. httpx
-58. aiohttp
-59. requests
-60. Fetch API
+58. Axios
+59. RestSharp
+60. httpx
+61. aiohttp
+62. requests
+63. Fetch API
 
 Logging:
-61. Winston
-62. log4net
+64. Winston
+65. log4net
 
 ================================================================================
 FRONTEND (17 skills)
 ================================================================================
 
 Frameworks:
-63. Angular 17-18
-64. Astro
-65. React (basic)
-66. Blazor (basic)
-67. Vanilla JS (ES2025)
-68. jQuery 3.5+
+66. Angular 17-18
+67. Astro
+68. React (basic)
+69. Blazor (basic)
+70. Vanilla JS (ES2025)
+71. jQuery 3.5+
 
 State Management:
-69. RxJS
-70. Angular Signals
+72. RxJS
+73. Angular Signals
 
 UI Components:
-71. PrimeNG
-72. SyncFusion
-73. DHTMLX
+74. PrimeNG
+75. SyncFusion
+76. DHTMLX
 
 Styling:
-74. Bootstrap 4-5
-75. Tailwind CSS
-76. SCSS/SASS
+77. Bootstrap 4-5
+78. Tailwind CSS
+79. SCSS/SASS
 
 Templating:
-77. Razor View Engine
-78. HandlebarsJS
-79. EJS
+80. Razor View Engine
+81. HandlebarsJS
+82. EJS
 
 ================================================================================
-DEVOPS (20 skills)
+DEVOPS (28 skills)
 ================================================================================
 
 Version Control:
-80. Git
-81. GitHub
-82. GitLab
-83. Gitea
+83. Git
+84. GitHub
+85. GitHub Actions
+86. GitLab
+87. Gitea
 
 Project Management:
-84. Azure DevOps
-85. Jira
+88. Azure DevOps
+89. Jira
 
-Containerization:
-86. Docker
+Containerization & Cloud:
+90. Docker
+91. Microsoft Azure
+92. Vercel
+93. Linux
+
+Development Tools:
+94. VS Code
+95. Visual Studio
+96. WebStorm
+97. Vim
 
 Testing:
-87. TDD
-88. Jest
-89. xUnit
-90. pytest
-91. Moq
-92. FluentAssertions
-93. AutoFixture
+98. TDD
+99. Jest
+100. xUnit
+101. pytest
+102. Moq
+103. FluentAssertions
+104. AutoFixture
 
 Validation & Mapping:
-94. AJV
-95. ajv-formats
-96. Pydantic
-97. jQuery.Validation
-98. Mapster
-99. AutoMapper
+105. AJV
+106. ajv-formats
+107. Pydantic
+108. jQuery.Validation
+109. Mapster
+110. AutoMapper
 
 ================================================================================
-AI & AUTOMATION (36 skills)
+AI & AUTOMATION (37 skills)
 ================================================================================
 
 LLM Providers:
-100. OpenAI API
-101. Anthropic API
-102. Google Gemini API
+111. OpenAI API
+112. Anthropic API
+113. Google Gemini API
 
 AI Frameworks:
-103. Langchain
-104. MCP (Model Context Protocol)
-105. ScrollHelp Documentation AI
+114. Langchain
+115. MCP (Model Context Protocol)
+116. Prompt Engineering
+117. ScrollHelp Documentation AI
 
 Browser Automation:
-106. Playwright
-107. Puppeteer
-108. Selenium
+118. Playwright
+119. Puppeteer
+120. Selenium
 
 AI Automation Frameworks:
-109. Browser-use
-110. Skyvern
-111. Stagehand
-112. La vague
-113. Magnitude
-114. BrowserGym
+121. Browser-use
+122. Skyvern
+123. Stagehand
+124. La vague
+125. Magnitude
+126. BrowserGym
 
 Web Scraping:
-115. BeautifulSoup4
-116. Apify
-117. FireCrawl
-118. Crawlee
+127. BeautifulSoup4
+128. Apify
+129. FireCrawl
+130. Crawlee
 
 Browser Infrastructure:
-119. BrowserBase
-120. Steel browser
+131. BrowserBase
+132. Steel browser
 
 Anti-Detect:
-121. AdsPower
-122. MoreLogin
-123. GoLogin
-124. Camoufox
-125. Undetected Chromedriver
-126. selenium stealth
-127. playwright stealth
-128. Puppeteer stealth
+133. AdsPower
+134. MoreLogin
+135. GoLogin
+136. Camoufox
+137. Undetected Chromedriver
+138. selenium stealth
+139. playwright stealth
+140. Puppeteer stealth
 
 CAPTCHA:
-129. 2Captcha
+141. 2Captcha
 
 Workflow Automation:
-130. n8n
-131. Activepieces
-132. Sim.ai
-133. AutoFlow (custom)
-134. BullMQ
-135. Custom job schedulers
+142. n8n
+143. Activepieces
+144. Sim.ai
+145. Elyt (custom)
+146. BullMQ
+147. Custom job schedulers
 
 ================================================================================
-SPECIALIZED (44 skills)
+SPECIALIZED (45 skills)
 ================================================================================
 
 Architecture:
-136. SOLID principles
-137. Repository pattern
-138. Service layer architecture
+148. SOLID principles
+149. System Design
+150. Repository pattern
+151. Service layer architecture
 
 Desktop Development:
-139. WPF (.NET)
-140. Tauri (Rust + WebView2)
-141. PyInstaller
-142. NSIS/MSI installers
+152. WPF (.NET)
+153. Tauri (Rust + WebView2)
+154. PyInstaller
+155. NSIS/MSI installers
 
 Hardware Integration:
-143. Thermal printers
-144. Barcode scanners
-145. Card readers/encoders
-146. Access gates
+156. Thermal printers
+157. Barcode scanners
+158. Card readers/encoders
+159. Access gates
 
 PDF Processing:
-147. Rotativa
-148. ReportLab
-149. PDFSharp
-150. ng2-pdfjs-viewer
+160. Rotativa
+161. ReportLab
+162. PDFSharp
+163. ng2-pdfjs-viewer
 
 Excel & CSV:
-151. EPPlusFree
-152. ExcelJS
-153. XLSX
-154. ExcelDataReader
-155. CsvHelper
+164. EPPlusFree
+165. ExcelJS
+166. XLSX
+167. ExcelDataReader
+168. CsvHelper
 
 Compression:
-156. JSZip
-157. Archiver
-158. adm-zip
-159. Ionic.Zip
+169. JSZip
+170. Archiver
+171. adm-zip
+172. Ionic.Zip
 
 Barcodes & QR:
-160. BarcodeLib
-161. QRCoder
+173. BarcodeLib
+174. QRCoder
 
 Image Processing:
-162. Pillow
-163. System.Drawing.Common
+175. Pillow
+176. System.Drawing.Common
 
 External Services:
-164. Nodemailer
-165. Resend
-166. Mailgun
-167. FiveSim
-168. SMS providers
+177. Nodemailer
+178. Resend
+179. Mailgun
+180. FiveSim
+181. SMS providers
 
 Domain Experience:
-169. Multi-tenant B2B systems
-170. POS systems
-171. Enterprise reservation & ticketing
-172. Accreditation management
-173. Anti-bot detection
-174. Browser fingerprinting
-175. Computer-use
-176. Browser-use
+182. Multi-tenant B2B systems
+183. POS systems
+184. Enterprise reservation & ticketing
+185. Accreditation management
+186. Anti-bot detection
+187. Browser fingerprinting
+188. Computer-use
+189. Browser-use
 
 Game Development:
-177. Unity
-178. Unity UI
-179. Three.js
+190. Unity
+191. Unity UI
+192. Three.js
 
 ================================================================================
 LINKEDIN-FRIENDLY FLAT LIST (copy-paste ready)
@@ -306,6 +321,7 @@ Python
 C
 .NET
 .NET Framework
+ASP.NET Core
 ASP.NET MVC
 ASP.NET Web API
 Entity Framework
@@ -326,6 +342,8 @@ Redis
 Dapper
 DBeaver
 SQL Server Management Studio
+pgAdmin
+MySQL Workbench
 JWT
 OAuth 2.0
 Single Sign-On (SSO)
@@ -361,10 +379,18 @@ Handlebars.js
 EJS
 Git
 GitHub
+GitHub Actions
 GitLab
 Azure DevOps
 Jira
 Docker
+Microsoft Azure
+Vercel
+Linux
+VS Code
+Visual Studio
+WebStorm
+Vim
 Test-Driven Development (TDD)
 Jest
 xUnit
@@ -377,6 +403,7 @@ OpenAI API
 Anthropic
 Google Gemini
 LangChain
+Prompt Engineering
 Playwright
 Puppeteer
 Selenium
@@ -411,3 +438,4 @@ Frontend Development
 Full-Stack Development
 Database Design
 Software Architecture
+System Design

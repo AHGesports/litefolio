@@ -24,7 +24,7 @@ import { CONTACT } from "../consts";
     <p
       class="w-full max-w-xl bg-clip-text text-transparent bg-gradient-to-b from-background via-background to-muted-foreground text-center text-base sm:text-lg lg:text-xl font-light tracking-tighter text-balance"
     >
-       
+
     </p>
     <!--
       GRID LAYOUT:
@@ -84,6 +84,7 @@ import { CONTACT } from "../consts";
       </div>
     </article>
     <!-- Skills: right of Diagram row 2 (mobile/sm) | cols 4-5, rows 1-2 (lg) -->
+    <!-- PERF FIX: Changed transition-all to transition-[transform,box-shadow] on all pills -->
     <article
       class="order-3 lg:order-2 overflow-hidden group bg-dark-card col-span-1 lg:col-span-2 lg:row-span-2 lg:col-start-4 min-h-[320px] max-h-[648px] sm:min-h-[400px] sm:max-h-[620px] lg:min-h-[580px] lg:max-h-[680px] h-auto border border-dark-border rounded-[1rem] p-2 sm:p-2 lg:p-6 flex flex-col flex-1 gap-1 sm:gap-1.5 lg:gap-3 justify-center items-center"
     >
@@ -91,7 +92,7 @@ import { CONTACT } from "../consts";
         role="button"
         tabindex="0"
         data-skill-category="languages"
-        class="w-fit rounded-full bg-background px-3 py-1.5 sm:px-4 sm:py-2.5 lg:px-5 lg:py-2.5 flex justify-center items-center gap-1 sm:gap-1.5 lg:gap-3 rotate-12 group-hover:rotate-0 border transition-all duration-300 ease-in-out cursor-pointer hover:scale-105 hover:shadow-lg"
+        class="w-fit rounded-full bg-background px-3 py-1.5 sm:px-4 sm:py-2.5 lg:px-5 lg:py-2.5 flex justify-center items-center gap-1 sm:gap-1.5 lg:gap-3 rotate-12 group-hover:rotate-0 border transition-[transform,box-shadow] duration-300 ease-in-out cursor-pointer hover:scale-105 hover:shadow-lg"
       >
         <span class="text-[9px] sm:text-[13px] lg:text-xl font-light tracking-tighter">Languages</span>
         <span class="text-[7px] sm:text-[11px] lg:text-sm text-muted-foreground">({getSkillCount(SKILL_CATEGORIES[0])})</span>
@@ -101,7 +102,7 @@ import { CONTACT } from "../consts";
         role="button"
         tabindex="0"
         data-skill-category="backend"
-        class="w-fit rounded-full bg-background px-3 py-1.5 sm:px-4 sm:py-2.5 lg:px-5 lg:py-2.5 flex justify-center items-center gap-1 sm:gap-1.5 lg:gap-3 -rotate-6 group-hover:rotate-0 border transition-all duration-300 ease-in-out cursor-pointer hover:scale-105 hover:shadow-lg"
+        class="w-fit rounded-full bg-background px-3 py-1.5 sm:px-4 sm:py-2.5 lg:px-5 lg:py-2.5 flex justify-center items-center gap-1 sm:gap-1.5 lg:gap-3 -rotate-6 group-hover:rotate-0 border transition-[transform,box-shadow] duration-300 ease-in-out cursor-pointer hover:scale-105 hover:shadow-lg"
       >
         <span class="text-[9px] sm:text-[13px] lg:text-xl font-light tracking-tighter">Backend</span>
         <span class="text-[7px] sm:text-[11px] lg:text-sm text-muted-foreground">({getSkillCount(SKILL_CATEGORIES[1])})</span>
@@ -111,7 +112,7 @@ import { CONTACT } from "../consts";
         role="button"
         tabindex="0"
         data-skill-category="frontend"
-        class="w-fit rounded-full bg-background px-3 py-1.5 sm:px-4 sm:py-2.5 lg:px-5 lg:py-2.5 flex justify-center items-center gap-1 sm:gap-1.5 lg:gap-3 border transition-all duration-300 ease-in-out cursor-pointer hover:scale-105 hover:shadow-lg"
+        class="w-fit rounded-full bg-background px-3 py-1.5 sm:px-4 sm:py-2.5 lg:px-5 lg:py-2.5 flex justify-center items-center gap-1 sm:gap-1.5 lg:gap-3 border transition-[transform,box-shadow] duration-300 ease-in-out cursor-pointer hover:scale-105 hover:shadow-lg"
       >
         <span class="text-[9px] sm:text-[13px] lg:text-xl font-light tracking-tighter">Frontend</span>
         <span class="text-[7px] sm:text-[11px] lg:text-sm text-muted-foreground">({getSkillCount(SKILL_CATEGORIES[2])})</span>
@@ -121,7 +122,7 @@ import { CONTACT } from "../consts";
         role="button"
         tabindex="0"
         data-skill-category="devops"
-        class="w-fit rounded-full bg-background px-3 py-1.5 sm:px-4 sm:py-2.5 lg:px-5 lg:py-2.5 flex justify-center items-center gap-1 sm:gap-1.5 lg:gap-3 rotate-6 group-hover:rotate-0 border transition-all duration-300 ease-in-out cursor-pointer hover:scale-105 hover:shadow-lg"
+        class="w-fit rounded-full bg-background px-3 py-1.5 sm:px-4 sm:py-2.5 lg:px-5 lg:py-2.5 flex justify-center items-center gap-1 sm:gap-1.5 lg:gap-3 rotate-6 group-hover:rotate-0 border transition-[transform,box-shadow] duration-300 ease-in-out cursor-pointer hover:scale-105 hover:shadow-lg"
       >
         <span class="text-[9px] sm:text-[13px] lg:text-xl font-light tracking-tighter">DevOps</span>
         <span class="text-[7px] sm:text-[11px] lg:text-sm text-muted-foreground">({getSkillCount(SKILL_CATEGORIES[3])})</span>
@@ -131,7 +132,7 @@ import { CONTACT } from "../consts";
         role="button"
         tabindex="0"
         data-skill-category="ai-automation"
-        class="w-fit rounded-full bg-background px-3 py-1.5 sm:px-4 sm:py-2.5 lg:px-5 lg:py-2.5 flex justify-center items-center gap-1 sm:gap-1.5 lg:gap-3 -rotate-12 group-hover:rotate-0 border transition-all duration-300 ease-in-out cursor-pointer hover:scale-105 hover:shadow-lg"
+        class="w-fit rounded-full bg-background px-3 py-1.5 sm:px-4 sm:py-2.5 lg:px-5 lg:py-2.5 flex justify-center items-center gap-1 sm:gap-1.5 lg:gap-3 -rotate-12 group-hover:rotate-0 border transition-[transform,box-shadow] duration-300 ease-in-out cursor-pointer hover:scale-105 hover:shadow-lg"
       >
         <span class="text-[9px] sm:text-[13px] lg:text-xl font-light tracking-tighter">AI & Auto</span>
         <span class="text-[7px] sm:text-[11px] lg:text-sm text-muted-foreground">({getSkillCount(SKILL_CATEGORIES[4])})</span>
@@ -141,7 +142,7 @@ import { CONTACT } from "../consts";
         role="button"
         tabindex="0"
         data-skill-category="specialized"
-        class="w-fit rounded-full bg-background px-3 py-1.5 sm:px-4 sm:py-2.5 lg:px-5 lg:py-2.5 flex justify-center items-center gap-1 sm:gap-1.5 lg:gap-3 rotate-3 group-hover:rotate-0 border transition-all duration-300 ease-in-out cursor-pointer hover:scale-105 hover:shadow-lg"
+        class="w-fit rounded-full bg-background px-3 py-1.5 sm:px-4 sm:py-2.5 lg:px-5 lg:py-2.5 flex justify-center items-center gap-1 sm:gap-1.5 lg:gap-3 rotate-3 group-hover:rotate-0 border transition-[transform,box-shadow] duration-300 ease-in-out cursor-pointer hover:scale-105 hover:shadow-lg"
       >
         <span class="text-[9px] sm:text-[13px] lg:text-xl font-light tracking-tighter">Specialized</span>
         <span class="text-[7px] sm:text-[11px] lg:text-sm text-muted-foreground">({getSkillCount(SKILL_CATEGORIES[5])})</span>
@@ -156,7 +157,9 @@ import { CONTACT } from "../consts";
       <AgentArchitecture />
     </article>
     <!-- Synth: full-width row 3 (mobile/sm) | cols 3-5, rows 3-4 (lg) -->
+    <!-- PERF FIX: Added id="synth-section" for IntersectionObserver, ping dot pauses when not visible -->
     <article
+      id="synth-section"
       class="order-4 overflow-hidden bg-dark-card col-span-2 lg:col-span-3 lg:row-span-2 lg:col-start-3 lg:row-start-3 border min-h-[320px] max-h-[648px] sm:min-h-[400px] sm:max-h-[620px] lg:min-h-[640px] lg:max-h-[780px] h-auto border-dark-border rounded-[1rem] flex flex-col"
     >
       <div class="flex flex-col gap-2 w-full items-start p-3 sm:p-4 text-left shrink-0">
@@ -176,16 +179,18 @@ import { CONTACT } from "../consts";
           Interested in getting involved with the development or sponsoring the agentic framework of the future?
         </p>
         <div class="flex items-center gap-2 sm:gap-3 mt-1.5 sm:mt-2 lg:mt-3">
+          <!-- PERF FIX: Changed transition-all to transition-[background-color,border-color,color] -->
           <button
             data-contact-modal
-            class="relative z-10 group inline-flex items-center gap-1 sm:gap-1.5 lg:gap-2 px-2.5 py-0.5 sm:px-3 sm:py-1 lg:px-4 lg:py-1.5 text-[10px] sm:text-[11px] lg:text-sm font-medium text-white/80 bg-transparent border border-white/20 rounded-full transition-all duration-200 hover:bg-white/10 hover:border-white/40 hover:text-white focus:outline-none focus:ring-2 focus:ring-white/25 focus:ring-offset-1 focus:ring-offset-transparent active:scale-[0.98] cursor-pointer"
+            class="relative z-10 group inline-flex items-center gap-1 sm:gap-1.5 lg:gap-2 px-2.5 py-0.5 sm:px-3 sm:py-1 lg:px-4 lg:py-1.5 text-[10px] sm:text-[11px] lg:text-sm font-medium text-white/80 bg-transparent border border-white/20 rounded-full transition-[background-color,border-color,color] duration-200 hover:bg-white/10 hover:border-white/40 hover:text-white focus:outline-none focus:ring-2 focus:ring-white/25 focus:ring-offset-1 focus:ring-offset-transparent active:scale-[0.98] cursor-pointer"
           >
             <span class="pointer-events-none whitespace-nowrap">Get in Touch</span>
             <svg class="w-2.5 h-2.5 sm:w-3 sm:h-3 lg:w-3.5 lg:h-3.5 flex-shrink-0 transition-transform duration-200 group-hover:translate-x-0.5 pointer-events-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
           </button>
           <span class="dev-tag inline-flex items-center gap-1 sm:gap-1.5 px-1.5 py-0.5 sm:px-2 sm:py-0.5 lg:px-2.5 lg:py-1 rounded-full">
             <span class="relative flex h-1 w-1 sm:h-1.5 sm:w-1.5 lg:h-2 lg:w-2">
-              <span class="dev-tag-dot animate-ping absolute inline-flex h-full w-full rounded-full opacity-60"></span>
+              <!-- PERF FIX: Added id for IntersectionObserver to pause when not visible -->
+              <span id="dev-ping-dot" class="dev-tag-dot animate-ping absolute inline-flex h-full w-full rounded-full opacity-60"></span>
               <span class="dev-tag-dot relative inline-flex rounded-full h-1 w-1 sm:h-1.5 sm:w-1.5 lg:h-2 lg:w-2"></span>
             </span>
             <span class="dev-tag-text text-[8px] sm:text-[9px] lg:text-xs font-medium uppercase tracking-wider">In Development</span>
@@ -304,4 +309,25 @@ import { CONTACT } from "../consts";
   .live-tag-text {
     color: hsla(var(--secondary), 0.8);
   }
+
+  /* PERF FIX: Pause animate-ping by default, JS enables when visible */
+  #dev-ping-dot {
+    animation-play-state: paused;
+  }
 </style>
+
+<script>
+  // PERF FIX: Pause animate-ping when Synth section is not visible
+  const synthSection = document.getElementById('synth-section');
+  const pingDot = document.getElementById('dev-ping-dot');
+
+  if (synthSection && pingDot) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        pingDot.style.animationPlayState = entries[0].isIntersecting ? 'running' : 'paused';
+      },
+      { threshold: 0 }
+    );
+    observer.observe(synthSection);
+  }
+</script>

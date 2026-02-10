@@ -38,9 +38,8 @@ const { title } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
 
-    <!-- OverlayScrollbars CSS (self-hosted, non-blocking) -->
-    <link rel="preload" href="/vendor/overlayscrollbars.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
-    <noscript><link rel="stylesheet" href="/vendor/overlayscrollbars.min.css" /></noscript>
+    <!-- OverlayScrollbars CSS -->
+    <link rel="stylesheet" href="/vendor/overlayscrollbars.min.css" />
   </head>
   <body
     class="relative flex flex-col w-full min-h-dvh bg-background"
@@ -50,34 +49,6 @@ const { title } = Astro.props;
 
     <slot />
 
-    <!-- OverlayScrollbars Init -->
-    <script is:inline>
-      document.addEventListener('DOMContentLoaded', function() {
-        if (typeof OverlayScrollbarsGlobal !== 'undefined') {
-          const { OverlayScrollbars } = OverlayScrollbarsGlobal;
-
-          // Initialize on body for main page scroll
-          OverlayScrollbars(document.body, {
-            scrollbars: {
-              theme: 'os-theme-minimal',
-              autoHide: 'leave',
-              autoHideDelay: 400
-            }
-          });
-
-          // Initialize on any scrollable modals
-          document.querySelectorAll('.overflow-y-auto, .overflow-auto').forEach(el => {
-            OverlayScrollbars(el, {
-              scrollbars: {
-                theme: 'os-theme-minimal',
-                autoHide: 'leave',
-                autoHideDelay: 400
-              }
-            });
-          });
-        }
-      });
-    </script>
 
     <!-- Cursor Script -->
     <script>
@@ -293,8 +264,48 @@ const { title } = Astro.props;
       }
     </script>
 
-    <!-- OverlayScrollbars JS (self-hosted, deferred) -->
-    <script is:inline src="/vendor/overlayscrollbars.min.js" defer></script>
+    <!-- OverlayScrollbars -->
+    <script is:inline src="/vendor/overlayscrollbars.min.js"></script>
+    <script is:inline>
+      var OS = OverlayScrollbarsGlobal.OverlayScrollbars;
+      // Initialize on body
+      OS(document.body, {});
+      // Initialize on modal content areas
+      document.querySelectorAll('#skills-modal-content, #contact-modal .overflow-y-auto').forEach(function(el) {
+        OS(el, {});
+      });
+
+      // Context-aware scrollbar color (like navbar)
+      (function() {
+        var darkSections = document.querySelectorAll('#projects, #contact');
+        var viewportHeight = window.innerHeight;
+
+        function checkScrollbarColor() {
+          var scrollY = window.scrollY;
+          var viewportMiddle = scrollY + viewportHeight / 2;
+          var isOverDark = false;
+
+          darkSections.forEach(function(section) {
+            var rect = section.getBoundingClientRect();
+            var sectionTop = scrollY + rect.top;
+            var sectionBottom = sectionTop + rect.height;
+            if (viewportMiddle >= sectionTop && viewportMiddle <= sectionBottom) {
+              isOverDark = true;
+            }
+          });
+
+          if (isOverDark) {
+            document.body.classList.add('scrollbar-dark-bg');
+          } else {
+            document.body.classList.remove('scrollbar-dark-bg');
+          }
+        }
+
+        window.addEventListener('scroll', checkScrollbarColor, { passive: true });
+        window.addEventListener('resize', function() { viewportHeight = window.innerHeight; }, { passive: true });
+        checkScrollbarColor();
+      })();
+    </script>
 
     <!-- Cal.com Embed (deferred) -->
     <script is:inline>
@@ -387,37 +398,6 @@ const { title } = Astro.props;
       font-family: "Geist", system-ui, sans-serif;
       @apply bg-background text-foreground;
     }
-  }
-
-  /* OverlayScrollbars - Custom minimal styling */
-  .os-scrollbar {
-    --os-size: 8px;
-    --os-padding-perpendicular: 2px;
-    --os-padding-axis: 2px;
-    --os-handle-border-radius: 10px;
-    transition: opacity 0.2s ease;
-  }
-
-  .os-scrollbar-track {
-    background: transparent !important;
-  }
-
-  .os-scrollbar-handle {
-    background: hsl(0, 0%, 70%) !important;
-    border-radius: 10px !important;
-  }
-
-  .os-scrollbar-handle:hover {
-    background: hsl(0, 0%, 55%) !important;
-  }
-
-  /* Dark background scrollbars (modals) */
-  .bg-dark-card .os-scrollbar-handle {
-    background: hsl(0, 0%, 35%) !important;
-  }
-
-  .bg-dark-card .os-scrollbar-handle:hover {
-    background: hsl(0, 0%, 50%) !important;
   }
 
   /* Hide native scrollbars */

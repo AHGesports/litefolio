@@ -1,8 +1,7 @@
 ---
 import { Image } from "astro:assets";
-import { SITE, SOCIALS, CONTACT } from "../consts";
+import { SITE, CONTACT } from "../consts";
 import logoImage from "../assets/logo.jpg";
-const linkedinLink = SOCIALS.find(s => s.NAME === "Linkedin")?.HREF || "#";
 ---
 
 <section
@@ -41,7 +40,7 @@ const linkedinLink = SOCIALS.find(s => s.NAME === "Linkedin")?.HREF || "#";
           width={200}
           height={200}
           class="w-full h-full object-cover"
-          loading="eager"
+          loading="lazy"
         />
       </div>
     </div>

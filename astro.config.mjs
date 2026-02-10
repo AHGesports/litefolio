@@ -7,4 +7,6 @@ export default defineConfig({
     enabled: false,
   },
   integrations: [tailwind()],
+  // Use 'out' instead of 'dist' to avoid OneDrive file locking issues
+  outDir: './out',
 });

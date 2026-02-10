@@ -3,11 +3,10 @@ interface Props {
   videoSrc: string;
   webmSrc?: string;
   posterSrc?: string;
-  alt?: string;
   class?: string;
 }
 
-const { videoSrc, webmSrc, posterSrc, alt = "Demo video", class: className } = Astro.props;
+const { videoSrc, webmSrc, posterSrc, class: className } = Astro.props;
 ---
 
 <div class:list={["laptop-wrapper", className]}>

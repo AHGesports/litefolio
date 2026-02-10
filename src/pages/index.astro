@@ -65,6 +65,8 @@ import ContactModal from "@/components/ContactModal.astro";
       const orbitRadiusX = 12; // Horizontal drift (%)
       const orbitRadiusY = 60; // Vertical drift (px)
       let time = 0;
+      let animationId: number | null = null;
+      let isPageVisible = true;
 
       // Track mouse position
       document.addEventListener('mousemove', (e) => {
@@ -74,6 +76,11 @@ import ContactModal from "@/components/ContactModal.astro";
 
       // Smooth animation loop
       function animate() {
+        if (!isPageVisible) {
+          animationId = null;
+          return;
+        }
+
         time++;
 
         // Autonomous orbit (continuous drift)
@@ -91,8 +98,16 @@ import ContactModal from "@/components/ContactModal.astro";
         pattern.style.setProperty('--mouse-x', `${currentX}%`);
         pattern.style.setProperty('--mouse-y', `${currentY}px`);
 
-        requestAnimationFrame(animate);
+        animationId = requestAnimationFrame(animate);
       }
+
+      // Visibility API: pause animation when tab is hidden
+      document.addEventListener('visibilitychange', () => {
+        isPageVisible = !document.hidden;
+        if (isPageVisible && !animationId) {
+          animate();
+        }
+      });
 
       animate();
     }

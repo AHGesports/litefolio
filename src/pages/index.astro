@@ -67,6 +67,7 @@ import ContactModal from "@/components/ContactModal.astro";
       let time = 0;
       let animationId: number | null = null;
       let isPageVisible = true;
+      let isPatternVisible = true; // PERF: Track if pattern is in viewport
 
       // Track mouse position
       document.addEventListener('mousemove', (e) => {
@@ -76,7 +77,8 @@ import ContactModal from "@/components/ContactModal.astro";
 
       // Smooth animation loop
       function animate() {
-        if (!isPageVisible) {
+        // PERF: Stop animation when pattern is not visible (scrolled away)
+        if (!isPageVisible || !isPatternVisible) {
           animationId = null;
           return;
         }
@@ -104,10 +106,26 @@ import ContactModal from "@/components/ContactModal.astro";
       // Visibility API: pause animation when tab is hidden
       document.addEventListener('visibilitychange', () => {
         isPageVisible = !document.hidden;
-        if (isPageVisible && !animationId) {
+        if (isPageVisible && isPatternVisible && !animationId) {
           animate();
         }
       });
+
+      // PERF: IntersectionObserver to pause animation when scrolled away from hero
+      const heroSection = pattern.closest('section') || document.getElementById('hero');
+      if (heroSection) {
+        const patternObserver = new IntersectionObserver(
+          (entries) => {
+            isPatternVisible = entries[0].isIntersecting;
+            // Resume animation if visible and not already running
+            if (isPatternVisible && isPageVisible && !animationId) {
+              animate();
+            }
+          },
+          { threshold: 0, rootMargin: '100px' } // Small margin for smooth transition
+        );
+        patternObserver.observe(heroSection);
+      }
 
       animate();
     }

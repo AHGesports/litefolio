@@ -210,33 +210,6 @@ const firstLetter = SITE.TITLE.charAt(0).toUpperCase();
       });
     });
 
-    // Dark section detection for navbar
-    const header = document.getElementById("main-header");
-    const darkSections = document.querySelectorAll("#projects, #contact");
-
-    function checkHeaderPosition() {
-      if (!header) return;
-
-      const headerRect = header.getBoundingClientRect();
-      const headerMiddle = headerRect.top + headerRect.height / 2;
-
-      let isOverDark = false;
-
-      darkSections.forEach((section) => {
-        const sectionRect = section.getBoundingClientRect();
-        if (headerMiddle >= sectionRect.top && headerMiddle <= sectionRect.bottom) {
-          isOverDark = true;
-        }
-      });
-
-      if (isOverDark) {
-        header.classList.add("header-dark-bg");
-      } else {
-        header.classList.remove("header-dark-bg");
-      }
-    }
-
-    window.addEventListener("scroll", checkHeaderPosition, { passive: true });
-    checkHeaderPosition(); // Initial check
+    // Dark section detection moved to Layout.astro for consolidated scroll handling
   });
 </script>

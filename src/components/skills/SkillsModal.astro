@@ -39,10 +39,12 @@ import { SKILL_CATEGORIES } from '../../data/skills';
   </div>
 </div>
 
-<!-- Override OverlayScrollbars flex-flow: row !important -->
+<!-- Override OverlayScrollbars flex-direction that breaks modal layout -->
 <style>
-  #skills-modal-content {
+  #skills-modal-content,
+  #skills-modal-content [data-overlayscrollbars-viewport] {
     flex-direction: column !important;
+    gap: 2.5rem !important; /* Increased spacing between subsections */
   }
 </style>
 
@@ -90,6 +92,10 @@ import { SKILL_CATEGORIES } from '../../data/skills';
   };
 
   let currentTrigger: HTMLElement | null = null;
+  let modalScrollbarInstance: any = null;
+
+  // Get OverlayScrollbars from global (must be called at runtime, not at script load)
+  const getOS = () => (window as any).OverlayScrollbarsGlobal?.OverlayScrollbars;
 
   // PERF FIX: Build skill item DOM element using createElement (safe, no XSS)
   function createSkillItem(skill: Skill): HTMLDivElement {
@@ -113,9 +119,9 @@ import { SKILL_CATEGORIES } from '../../data/skills';
   }
 
   // PERF FIX: Build subsection DOM element
-  function createSubsection(subsection: SkillSubsection): HTMLDivElement {
+  function createSubsection(subsection: SkillSubsection, isLast: boolean = false): HTMLDivElement {
     const container = document.createElement('div');
-    container.className = 'w-full';
+    container.className = isLast ? 'w-full' : 'w-full mb-8';
 
     // Subsection title
     const title = document.createElement('h3');
@@ -163,8 +169,9 @@ import { SKILL_CATEGORIES } from '../../data/skills';
     if (!category) return;
 
     // Build and append subsections
-    category.subsections.forEach(subsection => {
-      modalContent.appendChild(createSubsection(subsection));
+    const lastIndex = category.subsections.length - 1;
+    category.subsections.forEach((subsection, index) => {
+      modalContent.appendChild(createSubsection(subsection, index === lastIndex));
     });
   }
 
@@ -178,6 +185,22 @@ import { SKILL_CATEGORIES } from '../../data/skills';
 
     // PERF FIX: Render content lazily (only when modal opens)
     renderCategoryContent(categoryId);
+
+    // Initialize OverlayScrollbars on modal content for consistent scrollbar styling
+    const OS = getOS();
+    if (OS && modalContent) {
+      // Check for existing instance from body's OverlayScrollbars
+      const existingInstance = OS(modalContent);
+      if (existingInstance) {
+        // Destroy existing instance that has wrong settings
+        existingInstance.destroy();
+      }
+      // Create fresh instance with correct overflow settings
+      modalScrollbarInstance = OS(modalContent, {
+        overflow: { x: 'hidden', y: 'scroll' },
+        scrollbars: { clickScroll: true }
+      });
+    }
 
     // Show modal
     backdrop?.classList.remove('hidden');
@@ -198,6 +221,11 @@ import { SKILL_CATEGORIES } from '../../data/skills';
 
     setTimeout(() => {
       backdrop?.classList.add('hidden');
+      // Destroy OverlayScrollbars instance before clearing content
+      if (modalScrollbarInstance) {
+        modalScrollbarInstance.destroy();
+        modalScrollbarInstance = null;
+      }
       // PERF FIX: Clear content when modal closes to free up DOM
       if (modalContent) {
         clearChildren(modalContent);

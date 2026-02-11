@@ -44,13 +44,14 @@ const { title } = Astro.props;
   <body
     class="relative flex flex-col w-full min-h-dvh bg-background"
   >
-    <!-- Custom Cursor -->
+    <!-- Custom Cursor (DISABLED)
     <div id="cursor" class="cursor" aria-hidden="true"></div>
+    -->
 
     <slot />
 
 
-    <!-- Cursor Script -->
+    <!-- Cursor Script (DISABLED)
     <script>
       const cursorEl = document.getElementById('cursor');
       if (cursorEl) {
@@ -362,6 +363,7 @@ const { title } = Astro.props;
         }
       }
     </script>
+    -->
 
     <!-- OverlayScrollbars -->
     <script is:inline src="/vendor/overlayscrollbars.min.js"></script>
@@ -581,7 +583,7 @@ const { title } = Astro.props;
     font-family: "IBM Plex Mono", monospace;
   }
 
-  /* Custom Cursor Styles */
+  /* Custom Cursor Styles (DISABLED)
   @media (hover: hover) and (pointer: fine) {
     * {
       cursor: none !important;
@@ -599,22 +601,17 @@ const { title } = Astro.props;
     z-index: 9999;
     opacity: 0;
 
-    /* PERF: Only opacity transitions via CSS; scale is JS-animated */
     transition: opacity 0.2s ease;
 
-    /* GPU acceleration hints - will-change managed dynamically via JS for idle optimization */
     backface-visibility: hidden;
     transform-origin: center center;
 
-    /* PERF: Isolate paint/layout to this element only; size containment safe since dimensions are fixed at 32x32 */
     contain: layout style paint size;
     isolation: isolate;
 
-    /* Glass lens - reduced blur radius (4px vs 6px = ~45% less GPU work) */
     backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(4px);
 
-    /* Glass effect - simplified 2-stop gradient */
     background: linear-gradient(
       135deg,
       rgba(255, 255, 255, 0.12) 0%,
@@ -622,20 +619,17 @@ const { title } = Astro.props;
     );
     border: 1px solid rgba(128, 128, 128, 0.3);
 
-    /* Reduced to 2 shadows (outer + inset highlight) */
     box-shadow:
       0 2px 12px rgba(0, 0, 0, 0.12),
       inset 0 1px 1px rgba(255, 255, 255, 0.25);
   }
 
-  /* Fallback for browsers without backdrop-filter support */
   @supports not (backdrop-filter: blur(1px)) {
     .cursor {
       background: rgba(200, 200, 200, 0.35);
     }
   }
 
-  /* Low-performance mode: disable expensive effects */
   .cursor.low-performance {
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
@@ -644,7 +638,6 @@ const { title } = Astro.props;
     transition: opacity 0.15s ease;
   }
 
-  /* Hovering links/buttons - reduced blur when scaled */
   .cursor.hovering {
     backdrop-filter: blur(2px);
     -webkit-backdrop-filter: blur(2px);
@@ -656,7 +649,6 @@ const { title } = Astro.props;
     background: rgba(180, 180, 180, 0.2);
   }
 
-  /* Hovering images/videos - minimal blur when large */
   .cursor.hovering-media {
     backdrop-filter: blur(1.5px);
     -webkit-backdrop-filter: blur(1.5px);
@@ -668,7 +660,6 @@ const { title } = Astro.props;
     background: rgba(180, 180, 180, 0.18);
   }
 
-  /* Hide cursor on touch devices */
   @media (hover: none), (pointer: coarse) {
     .cursor {
       display: none !important;
@@ -678,10 +669,10 @@ const { title } = Astro.props;
     }
   }
 
-  /* Respect reduced motion */
   @media (prefers-reduced-motion: reduce) {
     .cursor {
       transition: opacity 0.2s ease;
     }
   }
+  */
 </style>

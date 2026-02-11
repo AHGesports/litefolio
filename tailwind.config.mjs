@@ -10,6 +10,7 @@ export default {
       animation: {
         "slide-logos": "slide-logos 30s linear infinite",
         "vertical-slide": "vertical-slide 30s linear infinite forwards",
+        "breathe": "breathe 1.5s ease-in-out infinite",
       },
       keyframes: {
         "slide-logos": {
@@ -25,6 +26,10 @@ export default {
           to: {
             backgroundPosition: "350% 50%, 350% 50%",
           },
+        },
+        breathe: {
+          "0%, 100%": { transform: "scale(1)", opacity: "0.8" },
+          "50%": { transform: "scale(2.5)", opacity: "0" },
         },
       },
       colors: {

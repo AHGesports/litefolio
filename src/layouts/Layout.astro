@@ -12,7 +12,7 @@ const { title } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
   <head>
     <SEO
       title={`${SITE.TITLE} - Portfolio`}
@@ -369,11 +369,48 @@ const { title } = Astro.props;
     <script is:inline src="/vendor/overlayscrollbars.min.js"></script>
     <script is:inline>
       var OS = OverlayScrollbarsGlobal.OverlayScrollbars;
-      // Initialize on body
-      OS(document.body, {});
+      // Initialize on body with click scroll for better UX
+      var bodyInstance = OS(document.body, {
+        scrollbars: {
+          clickScroll: true
+        }
+      });
+
+      // Expose instance and scroll helper globally
+      window.osInstance = bodyInstance;
+      window.osScrollTo = function(target, options) {
+        var elements = bodyInstance.elements();
+        var scrollEl = elements.scrollOffsetElement;
+
+        if (typeof target === 'number') {
+          // Scroll to Y position
+          scrollEl.scrollTo({
+            top: target,
+            behavior: options && options.behavior || 'smooth'
+          });
+        } else if (target instanceof Element) {
+          // Scroll to element - always scroll to put element at top (below header)
+          var scrollTop = scrollEl.scrollTop;
+          var targetRect = target.getBoundingClientRect();
+          // Account for fixed header (6rem = 96px)
+          var scrollPadding = parseInt(getComputedStyle(document.documentElement).scrollPaddingTop) || 96;
+          // Calculate: current scroll + element's viewport offset - header padding
+          var targetY = scrollTop + targetRect.top - scrollPadding;
+
+          scrollEl.scrollTo({
+            top: Math.max(0, targetY),
+            behavior: options && options.behavior || 'smooth'
+          });
+        }
+      };
+
       // Initialize on modal content areas
       document.querySelectorAll('#skills-modal-content, #contact-modal .overflow-y-auto').forEach(function(el) {
-        OS(el, {});
+        OS(el, {
+          scrollbars: {
+            clickScroll: true
+          }
+        });
       });
 
       // Consolidated scroll handler with RAF throttling
@@ -386,9 +423,17 @@ const { title } = Astro.props;
         var headerHeight = 0; // PERF: Cached header height (avoid getBoundingClientRect on scroll)
         var scrollTicking = false;
 
+        // Get the OverlayScrollbars scroll element
+        var scrollEl = window.osInstance ? window.osInstance.elements().scrollOffsetElement : null;
+
+        // Helper to get current scroll position
+        function getScrollY() {
+          return scrollEl ? scrollEl.scrollTop : window.scrollY;
+        }
+
         // Cache section bounds and header height (recalculate on resize only)
         function cacheSectionBounds() {
-          var scrollY = window.scrollY;
+          var scrollY = getScrollY();
           sectionBounds = [];
           darkSections.forEach(function(section) {
             var rect = section.getBoundingClientRect();
@@ -404,7 +449,7 @@ const { title } = Astro.props;
         }
 
         function handleScroll() {
-          var scrollY = window.scrollY;
+          var scrollY = getScrollY();
           var viewportMiddle = scrollY + viewportHeight / 2;
           var isScrollbarOverDark = false;
 
@@ -459,7 +504,12 @@ const { title } = Astro.props;
           cacheSectionBounds();
         }
 
-        window.addEventListener('scroll', onScroll, { passive: true });
+        // Listen using OverlayScrollbars event API for reliable scroll events
+        if (window.osInstance) {
+          window.osInstance.on('scroll', onScroll);
+        } else {
+          window.addEventListener('scroll', onScroll, { passive: true });
+        }
         window.addEventListener('resize', onResize, { passive: true });
 
         // Initial setup
@@ -570,6 +620,7 @@ const { title } = Astro.props;
   body::-webkit-scrollbar {
     display: none;
   }
+
 
   .perfect-shadow {
     box-shadow: var(--perfect-shadow);

@@ -33,16 +33,21 @@ import { SKILL_CATEGORIES } from '../../data/skills';
     </div>
 
     <!-- Skills Content - Scrollable area (PERF: Content rendered lazily via JS) -->
-    <div id="skills-modal-content" class="flex-1 overflow-y-auto p-6 pt-4 space-y-6">
+    <div id="skills-modal-content" class="flex-1 overflow-y-auto p-6 pt-4 flex flex-col gap-6">
       <!-- Content will be injected by JavaScript when modal opens -->
     </div>
   </div>
 </div>
 
+<!-- Override OverlayScrollbars flex-flow: row !important -->
+<style>
+  #skills-modal-content {
+    flex-direction: column !important;
+  }
+</style>
+
 <!-- PERF FIX: Store skills data as JSON for lazy loading -->
-<script type="application/json" id="skills-data">
-  {JSON.stringify(SKILL_CATEGORIES)}
-</script>
+<script type="application/json" id="skills-data" set:html={JSON.stringify(SKILL_CATEGORIES)}></script>
 
 <script>
   interface Skill {
@@ -110,7 +115,7 @@ import { SKILL_CATEGORIES } from '../../data/skills';
   // PERF FIX: Build subsection DOM element
   function createSubsection(subsection: SkillSubsection): HTMLDivElement {
     const container = document.createElement('div');
-    container.className = 'mb-6';
+    container.className = 'w-full';
 
     // Subsection title
     const title = document.createElement('h3');

@@ -25,113 +25,68 @@ import ContactModal from "@/components/ContactModal.astro";
   <ContactModal />
 </Layout>
 
-<!-- Pattern Mouse Tracking Style (DISABLED)
 <style>
+  /* Animated Background Pattern - GPU Accelerated (compositor-only) */
   .pattern {
-    --mouse-x: 50%;
-    --mouse-y: 0px;
+    position: relative;
+    overflow: hidden;
+    /* Background is on ::before, not here (z-index: -1 would be hidden) */
+  }
 
-    background-color: #ffffff;
-    background-image: radial-gradient(circle at var(--mouse-x) var(--mouse-y), #f5fdff 70px, white),
+  .pattern::before {
+    content: '';
+    position: absolute;
+    /* Oversized to allow movement without edge reveal */
+    width: calc(100% + 1000px);
+    height: calc(100% + 1000px);
+    top: -500px;
+    left: -500px;
+
+    /* Gradient centered at upper-left angle for diagonal wave effect */
+    background-image:
       repeating-radial-gradient(
-        circle at var(--mouse-x) var(--mouse-y),
-        #ffffff,
-        #ffffff,
-        278px,
-        transparent 0,
+        circle at 25% 20%,
+        transparent 0px,
+        transparent 278px,
+        #eaeaea 278px,
         #eaeaea 280px
       );
+    background-color: #ffffff;
     background-blend-mode: multiply;
-    background-size: 100% 100%;
+
+    /* GPU acceleration */
+    will-change: transform;
+    backface-visibility: hidden;
+
+    /* Constant drift animation - runs on compositor thread */
+    /* linear for continuous motion without stops */
+    animation: pattern-drift 22s linear infinite;
+
+    z-index: -1;
+    pointer-events: none;
   }
-</style>
--->
 
-<!-- Pattern Animation Script (DISABLED)
-<script>
-  const patternEl = document.querySelector('.pattern') as HTMLElement | null;
+  /* Asymmetric orbit - more to the right, less to the left */
+  @keyframes pattern-drift {
+    0%      { transform: translate3d(380px, 0, 0); }
+    8.33%   { transform: translate3d(329px, -190px, 0); }
+    16.66%  { transform: translate3d(190px, -329px, 0); }
+    25%     { transform: translate3d(0, -380px, 0); }
+    33.33%  { transform: translate3d(-95px, -329px, 0); }
+    41.66%  { transform: translate3d(-165px, -190px, 0); }
+    50%     { transform: translate3d(-190px, 0, 0); }
+    58.33%  { transform: translate3d(-165px, 190px, 0); }
+    66.66%  { transform: translate3d(-95px, 329px, 0); }
+    75%     { transform: translate3d(0, 380px, 0); }
+    83.33%  { transform: translate3d(190px, 329px, 0); }
+    91.66%  { transform: translate3d(329px, 190px, 0); }
+    100%    { transform: translate3d(380px, 0, 0); }
+  }
 
-  if (patternEl) {
-    const pattern = patternEl;
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    if (!prefersReducedMotion) {
-      let mouseX = 50;
-      let mouseY = 0;
-      let currentX = 50;
-      let currentY = 0;
-      const ease = 0.08;
-
-      // Orbit settings (independent drift)
-      const orbitSpeedX = 0.006; // ~17 second cycle
-      const orbitSpeedY = 0.0045; // ~23 second cycle
-      const orbitRadiusX = 12; // Horizontal drift (%)
-      const orbitRadiusY = 60; // Vertical drift (px)
-      let time = 0;
-      let animationId: number | null = null;
-      let isPageVisible = true;
-      let isPatternVisible = true; // PERF: Track if pattern is in viewport
-
-      // Track mouse position
-      document.addEventListener('mousemove', (e) => {
-        mouseX = 50 + ((e.clientX / window.innerWidth) - 0.5) * 70;
-        mouseY = ((e.clientY / window.innerHeight) - 0.5) * 350;
-      });
-
-      // Smooth animation loop
-      function animate() {
-        // PERF: Stop animation when pattern is not visible (scrolled away)
-        if (!isPageVisible || !isPatternVisible) {
-          animationId = null;
-          return;
-        }
-
-        time++;
-
-        // Autonomous orbit (continuous drift)
-        const orbitX = Math.sin(time * orbitSpeedX) * orbitRadiusX;
-        const orbitY = Math.cos(time * orbitSpeedY) * orbitRadiusY;
-
-        // Combine mouse + orbit
-        const targetX = mouseX + orbitX;
-        const targetY = mouseY + orbitY;
-
-        // Ease toward target
-        currentX += (targetX - currentX) * ease;
-        currentY += (targetY - currentY) * ease;
-
-        pattern.style.setProperty('--mouse-x', `${currentX}%`);
-        pattern.style.setProperty('--mouse-y', `${currentY}px`);
-
-        animationId = requestAnimationFrame(animate);
-      }
-
-      // Visibility API: pause animation when tab is hidden
-      document.addEventListener('visibilitychange', () => {
-        isPageVisible = !document.hidden;
-        if (isPageVisible && isPatternVisible && !animationId) {
-          animate();
-        }
-      });
-
-      // PERF: IntersectionObserver to pause animation when scrolled away from hero
-      const heroSection = pattern.closest('section') || document.getElementById('hero');
-      if (heroSection) {
-        const patternObserver = new IntersectionObserver(
-          (entries) => {
-            isPatternVisible = entries[0].isIntersecting;
-            // Resume animation if visible and not already running
-            if (isPatternVisible && isPageVisible && !animationId) {
-              animate();
-            }
-          },
-          { threshold: 0, rootMargin: '100px' } // Small margin for smooth transition
-        );
-        patternObserver.observe(heroSection);
-      }
-
-      animate();
+  /* Mobile: slower animation for battery efficiency */
+  @media (hover: none) and (pointer: coarse) {
+    .pattern::before {
+      animation-duration: 30s;
     }
   }
-</script>
--->
+</style>

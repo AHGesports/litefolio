@@ -185,7 +185,7 @@ const firstLetter = SITE.TITLE.charAt(0).toUpperCase();
       toggle.setAttribute("aria-expanded", String(expanded));
     });
 
-    // Smooth scroll for anchor links
+    // Smooth scroll for anchor links using OverlayScrollbars
     document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
       anchor.addEventListener("click", (e) => {
         const href = anchor.getAttribute("href");
@@ -193,12 +193,21 @@ const firstLetter = SITE.TITLE.charAt(0).toUpperCase();
 
         e.preventDefault();
 
+        // Use OverlayScrollbars scroll helper if available, fallback to native
         if (href === "#top") {
-          window.scrollTo({ top: 0, behavior: "smooth" });
+          if (window.osScrollTo) {
+            window.osScrollTo(0, { behavior: "smooth" });
+          } else {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          }
         } else {
           const target = document.querySelector(href);
           if (target) {
-            target.scrollIntoView({ behavior: "smooth" });
+            if (window.osScrollTo) {
+              window.osScrollTo(target, { behavior: "smooth" });
+            } else {
+              target.scrollIntoView({ behavior: "smooth" });
+            }
           }
         }
 

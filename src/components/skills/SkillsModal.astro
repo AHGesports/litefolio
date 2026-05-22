@@ -49,7 +49,7 @@ import { SKILL_CATEGORIES } from '../../data/skills';
 </style>
 
 <!-- PERF FIX: Store skills data as JSON for lazy loading -->
-<script type="application/json" id="skills-data" set:html={JSON.stringify(SKILL_CATEGORIES)}></script>
+<script is:inline type="application/json" id="skills-data" set:html={JSON.stringify(SKILL_CATEGORIES)}></script>
 
 <script>
   interface Skill {

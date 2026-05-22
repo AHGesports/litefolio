@@ -13,5 +13,5 @@
     "jsx": "react-jsx",
     "jsxImportSource": "react"
   },
-  "exclude": ["RefProj", "node_modules", "dist"]
+  "exclude": ["RefProj", "node_modules", "dist", "out"]
 }

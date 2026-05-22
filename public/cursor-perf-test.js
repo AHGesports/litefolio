@@ -148,7 +148,7 @@
       console.log('\n🔬 COMPARISON TEST - Keep moving your mouse!\n');
 
       var highPerfStats, lowPerfStats;
-      var highPerfDropped, highPerfTotal, lowPerfDropped, lowPerfTotal;
+      var highPerfDropped, highPerfTotal, lowPerfDropped;
 
       console.log('Testing HIGH-PERF mode...');
       window.cursorDebug.setLowPerf(false);
@@ -258,7 +258,7 @@
       console.log('FPS overlay hidden.');
     },
 
-    stress: function(seconds) {
+    stress: async function(seconds) {
       seconds = seconds || 10;
       console.log('\n🔥 STRESS TEST - ' + seconds + ' seconds\n');
 
@@ -280,12 +280,11 @@
         }));
       }, 16);
 
-      return new Promise(function(resolve) {
+      const stats = await new Promise(function(resolve) {
         requestAnimationFrame(function() { measureFrame(resolve); });
-      }).then(function(stats) {
-        clearInterval(moveInterval);
-        return printResults(stats, 'STRESS TEST RESULTS');
       });
+      clearInterval(moveInterval);
+      return printResults(stats, 'STRESS TEST RESULTS');
     },
 
     help: function() {

@@ -9,34 +9,49 @@ interface Props {
 }
 
 const { title } = Astro.props;
+const canonicalUrl = SITE.URL;
+const previewImageUrl = new URL(SITE.PREVIEW_IMAGE, SITE.URL).href;
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
     <SEO
-      title={`${SITE.TITLE} - Portfolio`}
+      title={title}
+      canonical={canonicalUrl}
       description={SITE.DESCRIPTION}
       openGraph={{
         basic: {
-          title: `${SITE.TITLE} - Portfolio`,
+          title,
           type: "website",
-          image: "/assets/preview.png",
+          image: previewImageUrl,
+          url: canonicalUrl,
         },
+        optional: {
+          description: SITE.DESCRIPTION,
+          siteName: SITE.TITLE,
+        },
+        image: {
+          secureUrl: previewImageUrl,
+          type: "image/jpeg",
+          alt: `${SITE.TITLE} portfolio preview`,
+        },
+      }}
+      twitter={{
+        card: "summary_large_image",
+        title,
+        description: SITE.DESCRIPTION,
+        image: previewImageUrl,
+        imageAlt: `${SITE.TITLE} portfolio preview`,
       }}
     />
     <meta charset="UTF-8" />
-    <meta
-      name="description"
-      content={SITE.DESCRIPTION}
-    />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <!-- Preload critical fonts for faster FCP/LCP -->
     <link rel="preload" href="/fonts/IBMPlexMono-Bold-latin.woff2" as="font" type="font/woff2" crossorigin fetchpriority="high" />
     <link rel="preload" href="/fonts/GeistVF.woff" as="font" type="font/woff" crossorigin fetchpriority="high" />
     <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
 
     <!-- OverlayScrollbars CSS -->
     <link rel="stylesheet" href="/vendor/overlayscrollbars.min.css" />

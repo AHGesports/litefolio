@@ -7,12 +7,24 @@
 import SkillsModal from "./skills/SkillsModal.astro";
 import LaptopVideo from "./LaptopVideo.astro";
 import AgentArchitecture from "./AgentArchitecture.astro";
+import { getPinnedGitHubRepos } from "../data/github";
 import { SKILL_CATEGORIES, getSkillCount } from "../data/skills";
+import {
+  getEnterpriseExperienceBreakdown,
+  getEnterpriseExperienceLabel,
+} from "../data/profile";
+
+const enterpriseExperienceCompact = getEnterpriseExperienceLabel(new Date(), true);
+const enterpriseExperience = getEnterpriseExperienceLabel();
+const enterpriseExperienceBreakdown = getEnterpriseExperienceBreakdown();
+const githubProfileUrl = "https://github.com/AHGesports?tab=overview&from=2026-06-01&to=2026-06-12";
+const pinnedGitHubRepos = await getPinnedGitHubRepos("AHGesports");
+const hasPinnedGitHubRepos = pinnedGitHubRepos.length > 0;
 ---
 
 <section
   id="projects"
-  class="relative overflow-hidden bg-foreground w-full text-center select-none"
+  class="relative overflow-visible bg-foreground w-full text-center select-none"
 >
   <div class="container mx-auto flex flex-col justify-center items-center gap-6 sm:gap-10 p-4 sm:p-6 py-16 sm:py-24">
     <h2
@@ -86,67 +98,102 @@ import { SKILL_CATEGORIES, getSkillCount } from "../data/skills";
     <!-- Skills: right of Diagram row 2 (mobile/sm) | cols 4-5, rows 1-2 (lg) -->
     <!-- PERF FIX: Changed transition-all to transition-[transform,box-shadow] on all pills -->
     <article
-      class="order-3 lg:order-2 overflow-hidden group bg-dark-card col-span-1 lg:col-span-2 lg:row-span-2 lg:col-start-4 min-h-[320px] max-h-[648px] sm:min-h-[400px] sm:max-h-[620px] lg:min-h-[580px] lg:max-h-[680px] h-auto border border-dark-border rounded-[1rem] p-2 sm:p-2 lg:p-6 flex flex-col flex-1 gap-1 sm:gap-1.5 lg:gap-3 justify-center items-center"
+      class="order-3 lg:order-2 overflow-visible group bg-dark-card col-span-1 lg:col-span-2 lg:row-span-2 lg:col-start-4 min-h-[320px] max-h-[648px] sm:min-h-[400px] sm:max-h-[620px] lg:min-h-[580px] lg:max-h-[680px] h-auto border border-dark-border rounded-[1rem] p-2 sm:p-2 lg:p-6 flex flex-col flex-1 justify-center items-center"
     >
-      <div
-        role="button"
-        tabindex="0"
-        data-skill-category="languages"
-        class="w-fit rounded-full bg-background px-3 py-1.5 sm:px-4 sm:py-2.5 lg:px-5 lg:py-2.5 flex justify-center items-center gap-1 sm:gap-1.5 lg:gap-3 rotate-12 group-hover:rotate-0 border transition-[transform,box-shadow] duration-300 ease-in-out cursor-pointer hover:scale-105 hover:shadow-lg"
-      >
-        <span class="text-[9px] sm:text-[13px] lg:text-xl font-light tracking-tighter">Languages</span>
-        <span class="text-[7px] sm:text-[11px] lg:text-sm text-muted-foreground">({getSkillCount(SKILL_CATEGORIES[0])})</span>
-        <svg class="w-2.5 h-2.5 lg:w-4 lg:h-4 text-muted-foreground hidden sm:block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-      </div>
-      <div
-        role="button"
-        tabindex="0"
-        data-skill-category="backend"
-        class="w-fit rounded-full bg-background px-3 py-1.5 sm:px-4 sm:py-2.5 lg:px-5 lg:py-2.5 flex justify-center items-center gap-1 sm:gap-1.5 lg:gap-3 -rotate-6 group-hover:rotate-0 border transition-[transform,box-shadow] duration-300 ease-in-out cursor-pointer hover:scale-105 hover:shadow-lg"
-      >
-        <span class="text-[9px] sm:text-[13px] lg:text-xl font-light tracking-tighter">Backend</span>
-        <span class="text-[7px] sm:text-[11px] lg:text-sm text-muted-foreground">({getSkillCount(SKILL_CATEGORIES[1])})</span>
-        <svg class="w-2.5 h-2.5 lg:w-4 lg:h-4 text-muted-foreground hidden sm:block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-      </div>
-      <div
-        role="button"
-        tabindex="0"
-        data-skill-category="frontend"
-        class="w-fit rounded-full bg-background px-3 py-1.5 sm:px-4 sm:py-2.5 lg:px-5 lg:py-2.5 flex justify-center items-center gap-1 sm:gap-1.5 lg:gap-3 border transition-[transform,box-shadow] duration-300 ease-in-out cursor-pointer hover:scale-105 hover:shadow-lg"
-      >
-        <span class="text-[9px] sm:text-[13px] lg:text-xl font-light tracking-tighter">Frontend</span>
-        <span class="text-[7px] sm:text-[11px] lg:text-sm text-muted-foreground">({getSkillCount(SKILL_CATEGORIES[2])})</span>
-        <svg class="w-2.5 h-2.5 lg:w-4 lg:h-4 text-muted-foreground hidden sm:block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-      </div>
-      <div
-        role="button"
-        tabindex="0"
-        data-skill-category="devops"
-        class="w-fit rounded-full bg-background px-3 py-1.5 sm:px-4 sm:py-2.5 lg:px-5 lg:py-2.5 flex justify-center items-center gap-1 sm:gap-1.5 lg:gap-3 rotate-6 group-hover:rotate-0 border transition-[transform,box-shadow] duration-300 ease-in-out cursor-pointer hover:scale-105 hover:shadow-lg"
-      >
-        <span class="text-[9px] sm:text-[13px] lg:text-xl font-light tracking-tighter">DevOps</span>
-        <span class="text-[7px] sm:text-[11px] lg:text-sm text-muted-foreground">({getSkillCount(SKILL_CATEGORIES[3])})</span>
-        <svg class="w-2.5 h-2.5 lg:w-4 lg:h-4 text-muted-foreground hidden sm:block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-      </div>
-      <div
-        role="button"
-        tabindex="0"
-        data-skill-category="ai-automation"
-        class="w-fit rounded-full bg-background px-3 py-1.5 sm:px-4 sm:py-2.5 lg:px-5 lg:py-2.5 flex justify-center items-center gap-1 sm:gap-1.5 lg:gap-3 -rotate-12 group-hover:rotate-0 border transition-[transform,box-shadow] duration-300 ease-in-out cursor-pointer hover:scale-105 hover:shadow-lg"
-      >
-        <span class="text-[9px] sm:text-[13px] lg:text-xl font-light tracking-tighter">AI & Auto</span>
-        <span class="text-[7px] sm:text-[11px] lg:text-sm text-muted-foreground">({getSkillCount(SKILL_CATEGORIES[4])})</span>
-        <svg class="w-2.5 h-2.5 lg:w-4 lg:h-4 text-muted-foreground hidden sm:block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-      </div>
-      <div
-        role="button"
-        tabindex="0"
-        data-skill-category="specialized"
-        class="w-fit rounded-full bg-background px-3 py-1.5 sm:px-4 sm:py-2.5 lg:px-5 lg:py-2.5 flex justify-center items-center gap-1 sm:gap-1.5 lg:gap-3 rotate-3 group-hover:rotate-0 border transition-[transform,box-shadow] duration-300 ease-in-out cursor-pointer hover:scale-105 hover:shadow-lg"
-      >
-        <span class="text-[9px] sm:text-[13px] lg:text-xl font-light tracking-tighter">Specialized</span>
-        <span class="text-[7px] sm:text-[11px] lg:text-sm text-muted-foreground">({getSkillCount(SKILL_CATEGORIES[5])})</span>
-        <svg class="w-2.5 h-2.5 lg:w-4 lg:h-4 text-muted-foreground hidden sm:block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+      <div class="skill-pill-stage">
+        <div class="skill-click-cue" aria-hidden="true">
+          <span class="skill-click-cue-text">Click me!</span>
+        <svg class="skill-click-cue-arrow" viewBox="59.75 132.0 316.4 95.0" preserveAspectRatio="xMidYMid meet">
+            <defs>
+              <linearGradient id="skill-cue-arrow-gradient" x1="0" y1="0" x2="1" y2="0">
+                <stop stop-color="rgba(255,255,255,0.58)" />
+                <stop offset="0.52" stop-color="hsl(var(--secondary))" />
+                <stop offset="1" stop-color="rgba(255,255,255,0.86)" />
+              </linearGradient>
+            </defs>
+            <path class="skill-click-cue-arrow-line" d="M330.254,210.966c-56.916,1.224-110.16,25.704-167.076,28.764c-16.524,0.612-33.048-1.224-45.9-8.568c23.256-4.283,45.288-12.239,61.812-27.54c17.749-15.911,19.584-45.287,8.568-66.095c-10.404-19.584-36.72-20.196-55.08-15.3C89.125,132.63,59.75,184.65,84.229,221.369c-26.928,1.836-53.856,0-80.172,1.225c-5.508,0.611-5.508,8.567,0.612,8.567c26.928,1.836,59.364,4.284,91.188,2.448c1.836,1.225,3.672,3.061,5.508,4.284c64.872,45.288,159.732-11.628,229.5-13.464C338.821,223.817,338.821,210.354,330.254,210.966zM89.737,196.277c-6.732-25.091,15.3-46.511,35.496-56.916c20.196-10.404,48.96-10.404,55.692,15.912c7.956,30.6-18.36,48.959-43.452,56.916c-11.628,3.672-22.644,6.12-34.272,7.344C96.47,213.413,92.186,206.069,89.737,196.277z" />
+            <path class="skill-click-cue-arrow-head" d="M371.869,211.577c-8.567-5.508-16.523-11.016-24.479-16.523c-6.732-4.896-13.464-10.404-21.42-12.24c-6.12-1.836-12.24,7.344-6.732,11.627c6.732,4.896,14.076,9.18,20.809,13.464c4.896,3.061,9.792,6.732,14.075,9.792c-4.896,2.448-9.792,4.284-14.688,6.732c-3.672,1.836-7.956,3.672-11.628,5.508c-1.224,0.612-2.448,1.836-3.061,3.06c-1.836,2.448-0.611,1.225,0,0.612c-2.447,1.836-2.447,7.956,1.837,7.344l0,0c1.224,0.612,2.447,0.612,4.283,0.612c4.284-1.224,9.181-3.06,13.464-4.896c9.181-3.673,18.36-7.345,26.929-12.24C376.153,220.758,376.153,214.025,371.869,211.577z" />
+          </svg>
+        </div>
+        <div
+          role="button"
+          tabindex="0"
+          data-skill-category="languages"
+          aria-label="Open Languages skills"
+          class="skill-pill w-fit rounded-full bg-background px-3 py-1.5 sm:px-4 sm:py-2.5 lg:px-5 lg:py-2.5 flex justify-center items-center gap-1 sm:gap-1.5 lg:gap-3 border transition-[transform,box-shadow] duration-300 ease-in-out cursor-pointer hover:scale-105 hover:shadow-lg"
+        >
+          <span class="text-[9px] sm:text-[13px] lg:text-xl font-light tracking-tighter">Languages</span>
+          <span class="text-[7px] sm:text-[11px] lg:text-sm text-muted-foreground">({getSkillCount(SKILL_CATEGORIES[0])})</span>
+          <svg class="w-2.5 h-2.5 lg:w-4 lg:h-4 text-muted-foreground hidden sm:block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        </div>
+        <div
+          role="button"
+          tabindex="0"
+          data-skill-category="backend"
+          aria-label="Open Backend skills"
+          class="skill-pill w-fit rounded-full bg-background px-3 py-1.5 sm:px-4 sm:py-2.5 lg:px-5 lg:py-2.5 flex justify-center items-center gap-1 sm:gap-1.5 lg:gap-3 border transition-[transform,box-shadow] duration-300 ease-in-out cursor-pointer hover:scale-105 hover:shadow-lg"
+        >
+          <span class="text-[9px] sm:text-[13px] lg:text-xl font-light tracking-tighter">Backend</span>
+          <span class="text-[7px] sm:text-[11px] lg:text-sm text-muted-foreground">({getSkillCount(SKILL_CATEGORIES[1])})</span>
+          <svg class="w-2.5 h-2.5 lg:w-4 lg:h-4 text-muted-foreground hidden sm:block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        </div>
+        <div
+          role="button"
+          tabindex="0"
+          data-skill-category="frontend"
+          aria-label="Open Frontend skills"
+          class="skill-pill w-fit rounded-full bg-background px-3 py-1.5 sm:px-4 sm:py-2.5 lg:px-5 lg:py-2.5 flex justify-center items-center gap-1 sm:gap-1.5 lg:gap-3 border transition-[transform,box-shadow] duration-300 ease-in-out cursor-pointer hover:scale-105 hover:shadow-lg"
+        >
+          <span class="text-[9px] sm:text-[13px] lg:text-xl font-light tracking-tighter">Frontend</span>
+          <span class="text-[7px] sm:text-[11px] lg:text-sm text-muted-foreground">({getSkillCount(SKILL_CATEGORIES[2])})</span>
+          <svg class="w-2.5 h-2.5 lg:w-4 lg:h-4 text-muted-foreground hidden sm:block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        </div>
+        <div
+          role="button"
+          tabindex="0"
+          data-skill-category="devops"
+          aria-label="Open DevOps skills"
+          class="skill-pill w-fit rounded-full bg-background px-3 py-1.5 sm:px-4 sm:py-2.5 lg:px-5 lg:py-2.5 flex justify-center items-center gap-1 sm:gap-1.5 lg:gap-3 border transition-[transform,box-shadow] duration-300 ease-in-out cursor-pointer hover:scale-105 hover:shadow-lg"
+        >
+          <span class="text-[9px] sm:text-[13px] lg:text-xl font-light tracking-tighter">DevOps</span>
+          <span class="text-[7px] sm:text-[11px] lg:text-sm text-muted-foreground">({getSkillCount(SKILL_CATEGORIES[3])})</span>
+          <svg class="w-2.5 h-2.5 lg:w-4 lg:h-4 text-muted-foreground hidden sm:block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        </div>
+        <div
+          role="button"
+          tabindex="0"
+          data-skill-category="ai-automation"
+          aria-label="Open AI and automation skills"
+          class="skill-pill w-fit rounded-full bg-background px-3 py-1.5 sm:px-4 sm:py-2.5 lg:px-5 lg:py-2.5 flex justify-center items-center gap-1 sm:gap-1.5 lg:gap-3 border transition-[transform,box-shadow] duration-300 ease-in-out cursor-pointer hover:scale-105 hover:shadow-lg"
+        >
+          <span class="text-[9px] sm:text-[13px] lg:text-xl font-light tracking-tighter">AI & Auto</span>
+          <span class="text-[7px] sm:text-[11px] lg:text-sm text-muted-foreground">({getSkillCount(SKILL_CATEGORIES[4])})</span>
+          <svg class="w-2.5 h-2.5 lg:w-4 lg:h-4 text-muted-foreground hidden sm:block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        </div>
+        <div
+          role="button"
+          tabindex="0"
+          data-skill-category="specialized"
+          aria-label="Open Specialized skills"
+          class="skill-pill w-fit rounded-full bg-background px-3 py-1.5 sm:px-4 sm:py-2.5 lg:px-5 lg:py-2.5 flex justify-center items-center gap-1 sm:gap-1.5 lg:gap-3 border transition-[transform,box-shadow] duration-300 ease-in-out cursor-pointer hover:scale-105 hover:shadow-lg"
+        >
+          <span class="text-[9px] sm:text-[13px] lg:text-xl font-light tracking-tighter">Specialized</span>
+          <span class="text-[7px] sm:text-[11px] lg:text-sm text-muted-foreground">({getSkillCount(SKILL_CATEGORIES[5])})</span>
+          <svg class="w-2.5 h-2.5 lg:w-4 lg:h-4 text-muted-foreground hidden sm:block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        </div>
+        <!-- Certifications pill reserved for the next release.
+          <div
+            role="button"
+            tabindex="0"
+            data-skill-category="certifications"
+            aria-label="Open Certifications"
+            class="skill-pill w-fit rounded-full bg-background px-3 py-1.5 sm:px-4 sm:py-2.5 lg:px-5 lg:py-2.5 flex justify-center items-center gap-1 sm:gap-1.5 lg:gap-3 border transition-[transform,box-shadow] duration-300 ease-in-out cursor-pointer hover:scale-105 hover:shadow-lg"
+          >
+            <span class="text-[9px] sm:text-[13px] lg:text-xl font-light tracking-tighter">Certifications</span>
+            <span class="text-[7px] sm:text-[11px] lg:text-sm text-muted-foreground">({getSkillCount(SKILL_CATEGORIES[6])})</span>
+            <svg class="w-2.5 h-2.5 lg:w-4 lg:h-4 text-muted-foreground hidden sm:block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </div>
+        -->
       </div>
     </article>
     <!-- Diagram: left of Skills row 2 (mobile/sm) | cols 1-2, rows 3-4 (lg) -->
@@ -208,40 +255,118 @@ import { SKILL_CATEGORIES, getSkillCount } from "../data/skills";
     </article>
     <!-- Enterprise Experience - Full width row on mobile/tablet -->
     <article
-      class="order-5 overflow-hidden bg-dark-card col-span-2 lg:col-span-3 lg:row-span-2 lg:row-start-5 border min-h-[110px] max-h-[160px] sm:min-h-[140px] sm:max-h-[220px] lg:min-h-[260px] lg:max-h-[340px] h-auto border-dark-border rounded-[1rem] flex flex-row"
+      data-enterprise-experience-card
+      class="order-5 overflow-hidden bg-dark-card col-span-2 lg:col-span-3 lg:row-span-2 lg:row-start-5 border min-h-[300px] sm:min-h-[340px] lg:min-h-[360px] h-auto border-dark-border rounded-[1rem] flex flex-col"
     >
-      <div class="flex flex-col gap-1 sm:gap-2 w-1/2 lg:w-1/2 items-start p-3 sm:p-4 text-left shrink-0">
-        <h3
-          class="text-left text-base sm:text-lg lg:text-xl xl:text-2xl font-medium tracking-tighter text-pretty bg-clip-text text-transparent bg-gradient-to-br from-background via-background to-secondary"
-        >
-          Enterprise Experience
-        </h3>
-        <p
-          class="w-full text-[hsl(0,0%,60%)] text-left text-[10px] font-light tracking-tighter text-balance sm:hidden"
-        >
-          4 years building enterprise systems—ticketing, POS, and hardware integrations. The foundation of my engineering standards.
-        </p>
-        <p
-          class="w-full text-[hsl(0,0%,60%)] text-left hidden sm:block sm:text-xs lg:text-sm xl:text-base font-light tracking-tighter text-balance"
-        >
-          4 years of enterprise experience on large-scale systems taught me scale. Ticketing platforms, reservation systems, and POS solutions processing real transactions for real businesses. Hardware integrations from payment terminals to access control. The work that defined my engineering standards and career.
-        </p>
+      <div class="flex min-h-[140px] sm:min-h-[170px] lg:min-h-[190px] flex-row">
+        <div class="flex w-8/12 flex-col gap-1 sm:gap-2 items-start p-3 sm:p-4 text-left shrink-0">
+          <h3
+            class="text-left text-base sm:text-lg lg:text-xl xl:text-2xl font-medium tracking-tighter text-pretty bg-clip-text text-transparent bg-gradient-to-br from-background via-background to-secondary"
+          >
+            Enterprise Experience
+          </h3>
+          <p
+            class="w-full text-[hsl(0,0%,60%)] text-left text-xs font-light tracking-tighter text-balance sm:hidden"
+          >
+            <button
+              type="button"
+              class="experience-tooltip-trigger"
+              aria-label="Show enterprise experience breakdown"
+            >
+              <span data-enterprise-experience data-format="compact">{enterpriseExperienceCompact}</span>
+              <span class="experience-tooltip" role="tooltip">
+                {enterpriseExperienceBreakdown.map((period, index) => (
+                  <span data-enterprise-period={index}>{period.company}: {period.label}</span>
+                ))}
+              </span>
+            </button> building enterprise systems, ticketing, POS, and hardware integrations. The foundation of my engineering standards.
+          </p>
+          <p
+            class="w-full text-[hsl(0,0%,60%)] text-left hidden sm:block sm:text-sm lg:text-lg font-light tracking-tighter text-balance"
+          >
+            <button
+              type="button"
+              class="experience-tooltip-trigger"
+              aria-label="Show enterprise experience breakdown"
+            >
+              <span data-enterprise-experience>{enterpriseExperience}</span>
+              <span class="experience-tooltip" role="tooltip">
+                {enterpriseExperienceBreakdown.map((period, index) => (
+                  <span data-enterprise-period={index}>{period.company}: {period.label}</span>
+                ))}
+              </span>
+            </button> of enterprise experience on large-scale systems taught me scale. Ticketing platforms, reservation systems, and POS solutions processing real transactions for real businesses. Hardware integrations from payment terminals to access control. The work that defined my engineering standards and career.
+          </p>
+        </div>
+        <div class="flex w-4/12 items-center justify-end p-2 sm:p-3 sm:pr-5 lg:pl-[4%] lg:pr-6 min-h-[110px] overflow-hidden">
+          <img
+            src="/assets/mockup3.svg"
+            alt="Enterprise systems mockup"
+            loading="lazy"
+            class="object-contain max-w-[70px] sm:max-w-[100px] lg:max-w-[150px] xl:max-w-[180px]"
+          />
+        </div>
       </div>
-      <div class="flex-1 flex items-center justify-center lg:justify-start p-2 lg:pl-[6%] min-h-[80px] lg:min-h-[120px] overflow-hidden">
-        <img
-          src="/assets/mockup3.svg"
-          alt="Mockup Project"
-          loading="lazy"
-          class="object-contain max-w-[70px] sm:max-w-[90px] lg:max-w-[157px] xl:max-w-[190px]"
-        />
+      <div data-github-pins-panel class="border-t border-white/10 p-3 sm:p-4 flex flex-col gap-2 overflow-hidden">
+        <div class="flex items-center justify-between gap-3">
+          <div class="flex min-w-0 items-center">
+            <h4 class="truncate text-left text-[11px] sm:text-xs lg:text-sm font-medium uppercase tracking-[0.14em] text-white/75">
+              My Latest Public GitHub Changes
+            </h4>
+          </div>
+          <a
+            href={githubProfileUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="shrink-0 inline-flex min-h-8 items-center rounded-full border border-white/15 px-2.5 py-1 text-[10px] sm:text-xs font-medium text-white/70 transition-[background-color,border-color,color] duration-200 hover:bg-white/10 hover:border-white/30 hover:text-white focus:outline-none focus:ring-2 focus:ring-white/25 cursor-pointer"
+          >
+            Visit GitHub
+          </a>
+        </div>
+        {hasPinnedGitHubRepos ? (
+          <div class="grid w-full grid-cols-1 sm:grid-cols-2 gap-1.5 sm:gap-2">
+            {pinnedGitHubRepos.map((repo) => (
+              <a
+                data-github-repo-card
+                href={repo.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Open ${repo.name} on GitHub`}
+                class="group/repo flex min-h-11 min-w-0 cursor-pointer items-start gap-2 rounded-lg border border-white/10 bg-white/[0.03] px-2.5 py-2 text-left transition-[background-color,border-color] duration-200 hover:border-white/25 hover:bg-white/[0.06] focus:outline-none focus:ring-2 focus:ring-white/25"
+              >
+                <img src="/logos/github.svg" alt="" loading="lazy" class="mt-0.5 h-3.5 w-3.5 shrink-0 invert opacity-55 transition-opacity duration-200 group-hover/repo:opacity-90" />
+                <span class="min-w-0 flex-1">
+                  <span class="block truncate text-xs sm:text-[13px] lg:text-sm font-medium tracking-tighter text-white/85 group-hover/repo:text-white">
+                    {repo.name}
+                  </span>
+                  {repo.description && (
+                    <span class="block truncate text-[10px] sm:text-[11px] lg:text-xs font-light tracking-tighter text-[hsl(0,0%,58%)]">
+                      {repo.description}
+                    </span>
+                  )}
+                </span>
+                <svg class="mt-0.5 h-3.5 w-3.5 shrink-0 text-white/40 transition-[color,transform] duration-200 group-hover/repo:translate-x-0.5 group-hover/repo:text-white/75" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </a>
+            ))}
+          </div>
+        ) : (
+          <div data-github-pins-fallback class="rounded-lg border border-white/10 bg-white/[0.03] p-3 text-left">
+            <p class="text-xs sm:text-sm font-medium tracking-tighter text-white/75">
+              GitHub pins are not available in this build.
+            </p>
+            <p class="mt-1 text-[10px] sm:text-xs font-light tracking-tighter text-[hsl(0,0%,55%)]">
+              Add a valid server-side GITHUB_TOKEN and restart the dev server or rebuild.
+            </p>
+          </div>
+        )}
       </div>
     </article>
     <!-- CTA - Full width row on mobile/tablet -->
     <article
-      class="order-6 overflow-hidden bg-dark-card col-span-2 lg:col-span-2 lg:row-span-2 lg:col-start-4 lg:row-start-5 border min-h-[120px] max-h-[200px] sm:min-h-[140px] sm:max-h-[220px] lg:min-h-[260px] lg:max-h-[340px] h-auto border-dark-border rounded-[1rem]"
+      class="order-6 overflow-hidden bg-dark-card col-span-2 lg:col-span-2 lg:row-span-2 lg:col-start-4 lg:row-start-5 border min-h-[120px] max-h-[200px] sm:min-h-[140px] sm:max-h-[220px] lg:min-h-[360px] lg:max-h-none h-full border-dark-border rounded-[1rem]"
     >
       <div
-        class="w-full h-full flex flex-col gap-3 sm:gap-5 justify-center items-center p-3 sm:p-4"
+        class="w-full min-h-full flex flex-col gap-3 sm:gap-5 justify-center items-center p-3 sm:p-4"
       >
         <h1
           class="text-base sm:text-xl lg:text-2xl font-medium tracking-tighter text-pretty bg-clip-text text-transparent bg-gradient-to-br from-background via-background to-secondary text-center"
@@ -313,6 +438,415 @@ import { SKILL_CATEGORIES, getSkillCount } from "../data/skills";
   /* PERF FIX: Pause animate-ping by default, JS enables when visible */
   #dev-ping-dot {
     animation-play-state: paused;
+  }
+
+  .skill-pill-stage {
+    --skill-cue-step: 1.95rem;
+    position: relative;
+    display: flex;
+    width: min(100%, 10.75rem);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+    padding-right: 1.45rem;
+  }
+
+  .skill-click-cue {
+    position: absolute;
+    right: -2.35rem;
+    top: 0.62rem;
+    z-index: 1;
+    display: flex;
+    width: max-content;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.28rem;
+    color: hsla(var(--background), 0.86);
+    pointer-events: none;
+    transform-origin: left center;
+    animation: skill-cue-travel 8.4s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+    will-change: transform, opacity;
+  }
+
+  .skill-click-cue-text {
+    background: linear-gradient(
+      90deg,
+      hsla(var(--background), 0.72) 0%,
+      hsla(var(--secondary), 0.95) 44%,
+      hsl(var(--background)) 62%,
+      hsla(var(--secondary), 0.84) 100%
+    );
+    background-size: 240% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    font-size: 0.58rem;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0;
+    white-space: nowrap;
+    animation: skill-cue-text-glow 1.4s ease-in-out infinite;
+  }
+
+  .skill-click-cue-arrow {
+    width: 2.7rem;
+    height: 0.9rem;
+    flex: 0 0 auto;
+    color: hsl(var(--secondary));
+    transform: scale(-0.68, 0.68);
+    transform-origin: center;
+    overflow: visible;
+    translate: 0 0;
+    animation: skill-arrow-pulse 1.4s ease-in-out infinite;
+  }
+
+  .skill-click-cue-arrow-line,
+  .skill-click-cue-arrow-head {
+    fill: url("#skill-cue-arrow-gradient");
+  }
+
+  .skill-click-cue-arrow-line {
+    opacity: 0.95;
+  }
+
+  .skill-click-cue-arrow-head {
+    opacity: 0.98;
+  }
+
+  .skill-pill {
+    position: relative;
+    outline: none;
+    rotate: 0deg;
+    scale: 1;
+    translate: 0 0;
+    transform-origin: center;
+    animation: skill-pill-wobble 8.4s ease-in-out infinite;
+    will-change: transform;
+  }
+
+  .skill-pill::after {
+    content: "";
+    position: absolute;
+    inset: -0.2rem;
+    border: 1px solid hsla(var(--secondary), 0.25);
+    border-radius: inherit;
+    opacity: 0;
+    pointer-events: none;
+    animation: skill-pill-hint 8.4s ease-in-out infinite;
+  }
+
+  .skill-pill:hover::after,
+  .skill-pill:focus-visible::after {
+    animation-play-state: paused;
+    opacity: 1;
+  }
+
+  .skill-pill:hover,
+  .skill-pill:focus-visible {
+    animation-play-state: paused;
+    rotate: 0deg;
+    scale: 1;
+    translate: 0 0;
+  }
+
+  .skill-pill:focus-visible {
+    box-shadow:
+      0 0 0 2px hsla(var(--foreground), 1),
+      0 0 0 4px hsla(var(--secondary), 0.48);
+  }
+
+  .skill-pill[data-skill-category="backend"] {
+    animation-delay: 1.2s;
+  }
+
+  .skill-pill[data-skill-category="backend"]::after {
+    animation-delay: 1.2s;
+  }
+
+  .skill-pill[data-skill-category="frontend"] {
+    animation-delay: 2.4s;
+  }
+
+  .skill-pill[data-skill-category="frontend"]::after {
+    animation-delay: 2.4s;
+  }
+
+  .skill-pill[data-skill-category="devops"] {
+    animation-delay: 3.6s;
+  }
+
+  .skill-pill[data-skill-category="devops"]::after {
+    animation-delay: 3.6s;
+  }
+
+  .skill-pill[data-skill-category="ai-automation"] {
+    animation-delay: 4.8s;
+  }
+
+  .skill-pill[data-skill-category="ai-automation"]::after {
+    animation-delay: 4.8s;
+  }
+
+  .skill-pill[data-skill-category="specialized"] {
+    animation-delay: 6s;
+  }
+
+  .skill-pill[data-skill-category="specialized"]::after {
+    animation-delay: 6s;
+  }
+
+  @keyframes skill-cue-text-glow {
+    0%,
+    100% {
+      opacity: 0.78;
+      translate: 0 0;
+    }
+    45%,
+    65% {
+      opacity: 1;
+      translate: -0.06rem 0;
+    }
+  }
+
+  @keyframes skill-arrow-pulse {
+    0%,
+    100% {
+      translate: 0 0;
+      opacity: 0.78;
+    }
+    52% {
+      translate: 0.12rem 0;
+      opacity: 1;
+    }
+  }
+
+  @keyframes skill-arrow-flow {
+    0%,
+    100% {
+      stroke-dashoffset: 0;
+    }
+    52% {
+      stroke-dashoffset: -14;
+    }
+  }
+
+  @keyframes skill-cue-travel {
+    0%,
+    9.5% {
+      opacity: 1;
+      transform: translate3d(0, 0, 0) rotate(-2deg);
+    }
+    14.3%,
+    23.8% {
+      opacity: 1;
+      transform: translate3d(0.1rem, var(--skill-cue-step), 0) rotate(2deg);
+    }
+    28.6%,
+    38.1% {
+      opacity: 1;
+      transform: translate3d(-0.05rem, calc(var(--skill-cue-step) * 2), 0) rotate(-1deg);
+    }
+    42.9%,
+    52.4% {
+      opacity: 1;
+      transform: translate3d(0.08rem, calc(var(--skill-cue-step) * 3), 0) rotate(2deg);
+    }
+    57.1%,
+    66.7% {
+      opacity: 1;
+      transform: translate3d(-0.06rem, calc(var(--skill-cue-step) * 4), 0) rotate(-2deg);
+    }
+    71.4%,
+    81% {
+      opacity: 1;
+      transform: translate3d(0.08rem, calc(var(--skill-cue-step) * 5), 0) rotate(2deg);
+    }
+    98% {
+      opacity: 0;
+      transform: translate3d(0.08rem, calc(var(--skill-cue-step) * 5), 0) rotate(2deg);
+    }
+    99% {
+      opacity: 0;
+      transform: translate3d(0, 0, 0) rotate(-2deg);
+    }
+    100% {
+      opacity: 1;
+      transform: translate3d(0, 0, 0) rotate(-2deg);
+    }
+  }
+
+  @keyframes skill-pill-wobble {
+    0%,
+    12%,
+    100% {
+      rotate: 0deg;
+      scale: 1;
+      translate: 0 0;
+    }
+    2% {
+      rotate: -4.2deg;
+      scale: 1.055;
+      translate: -0.08rem 0;
+    }
+    4.5% {
+      rotate: 5.2deg;
+      scale: 1.105;
+      translate: 0.12rem -0.04rem;
+    }
+    7% {
+      rotate: -3deg;
+      scale: 1.065;
+      translate: -0.07rem 0.02rem;
+    }
+    9.5% {
+      rotate: 1.4deg;
+      scale: 1.025;
+      translate: 0.02rem 0;
+    }
+  }
+
+  @keyframes skill-pill-hint {
+    0%,
+    11%,
+    100% {
+      opacity: 0;
+    }
+    3%,
+    8% {
+      opacity: 1;
+    }
+    13% {
+      opacity: 0;
+    }
+  }
+
+  .experience-tooltip-trigger {
+    position: relative;
+    display: inline;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    letter-spacing: inherit;
+    text-align: inherit;
+    text-decoration: underline;
+    text-decoration-style: dotted;
+    text-underline-offset: 0.2em;
+    cursor: help;
+  }
+
+  .experience-tooltip-trigger:focus-visible {
+    outline: 1px solid hsla(var(--secondary), 0.8);
+    outline-offset: 2px;
+  }
+
+  .experience-tooltip {
+    position: absolute;
+    left: 0;
+    bottom: calc(100% + 0.5rem);
+    z-index: 20;
+    display: flex;
+    width: max-content;
+    max-width: min(260px, 70vw);
+    flex-direction: column;
+    gap: 0.25rem;
+    border: 1px solid hsla(var(--secondary), 0.22);
+    border-radius: 0.5rem;
+    background: hsl(var(--foreground));
+    padding: 0.5rem 0.625rem;
+    color: hsl(var(--background));
+    font-size: 0.75rem;
+    line-height: 1.25;
+    letter-spacing: 0;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(0.25rem);
+    transition:
+      opacity 160ms ease,
+      transform 160ms ease;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  }
+
+  .experience-tooltip-trigger:hover .experience-tooltip,
+  .experience-tooltip-trigger:focus-visible .experience-tooltip {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (min-width: 640px) {
+    .skill-pill-stage {
+      --skill-cue-step: 2.95rem;
+      width: min(100%, 14.75rem);
+      gap: 0.48rem;
+      padding-right: 3.05rem;
+    }
+
+    .skill-click-cue {
+      right: -3.35rem;
+      top: 0.98rem;
+      gap: 0.34rem;
+    }
+
+    .skill-click-cue-text {
+      font-size: 0.75rem;
+    }
+
+    .skill-click-cue-arrow {
+      width: 3.8rem;
+      height: 1.25rem;
+      transform: scale(-0.64, 0.64);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .skill-pill-stage {
+      --skill-cue-step: 3.7rem;
+      width: min(100%, 19rem);
+      gap: 0.84rem;
+      padding-right: 3.75rem;
+    }
+
+    .skill-click-cue {
+      right: -4.05rem;
+      top: 0.98rem;
+      gap: 0.42rem;
+    }
+
+    .skill-click-cue-text {
+      font-size: 0.95rem;
+    }
+
+    .skill-click-cue-arrow {
+      width: 4.95rem;
+      height: 1.8rem;
+      transform: scale(-0.6, 0.6);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .skill-click-cue,
+    .skill-click-cue-text,
+    .skill-click-cue-arrow,
+    .skill-click-cue-arrow path,
+    .skill-pill,
+    .skill-pill::after {
+      animation: none;
+    }
+
+    .skill-pill {
+      rotate: 0deg;
+      scale: 1;
+      translate: 0 0;
+    }
+
+    .skill-pill::after {
+      opacity: 1;
+      box-shadow: none;
+    }
   }
 </style>
 

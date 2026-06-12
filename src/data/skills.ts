@@ -2,6 +2,8 @@ export interface Skill {
   id: string;
   name: string;
   icon?: string;
+  image?: string;
+  url?: string;
 }
 
 export interface SkillSubsection {
@@ -96,6 +98,7 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
           { id: 'mysql', name: 'MySQL', icon: '/logos/mysql.svg' },
           { id: 'mssql', name: 'MsSql', icon: '/logos/mssql.svg' },
           { id: 'neon', name: 'Neon.tech', icon: '/logos/neon.svg' },
+          { id: 'weaviate', name: 'Weaviate', icon: '/logos/python.svg' },
           { id: 'lowdb', name: 'LowDB' },
           { id: 'json-storage', name: 'JSON-based storage' },
         ],
@@ -166,6 +169,7 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
       {
         title: 'Logging',
         skills: [
+          { id: 'opentelemetry', name: 'OpenTelemetry' },
           { id: 'winston', name: 'Winston', icon: '/logos/nodejs.svg' },
           { id: 'log4net', name: 'log4net', icon: '/logos/dotnet.svg' },
         ],
@@ -264,6 +268,7 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
           { id: 'vscode', name: 'VS Code', icon: '/logos/vscode.svg' },
           { id: 'visualstudio', name: 'Visual Studio', icon: '/logos/visualstudio.svg' },
           { id: 'webstorm', name: 'WebStorm', icon: '/logos/webstorm.svg' },
+          { id: 'ripgrep', name: 'ripgrep' },
           { id: 'vim', name: 'Vim', icon: '/logos/vim.svg' },
           { id: 'dbeaver', name: 'DBeaver', icon: '/logos/dbeaver.svg' },
           { id: 'plsql-dev', name: 'PL/SQL Developer', icon: '/logos/oracle.svg' },
@@ -314,9 +319,27 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
         title: 'AI Frameworks',
         skills: [
           { id: 'langchain', name: 'Langchain', icon: '/logos/langchain.svg' },
+          { id: 'pydantic-ai', name: 'Pydantic AI', icon: '/logos/pydantic.svg' },
           { id: 'mcp', name: 'MCP (Model Context Protocol)', icon: '/logos/anthropic.svg' },
           { id: 'prompt-engineering', name: 'Prompt Engineering', icon: '/logos/openai.svg' },
+          { id: 'rag', name: 'RAG', icon: '/logos/openai.svg' },
           { id: 'scrollhelp', name: 'ScrollHelp Documentation AI' },
+        ],
+      },
+      {
+        title: 'AI Observability & Evaluation',
+        skills: [
+          { id: 'langfuse', name: 'Langfuse' },
+          { id: 'phoenix', name: 'Phoenix' },
+          { id: 'ragas', name: 'Ragas', icon: '/logos/python.svg' },
+        ],
+      },
+      {
+        title: 'AI Safety & Data Processing',
+        skills: [
+          { id: 'guardrails-ai', name: 'Guardrails AI', icon: '/logos/python.svg' },
+          { id: 'presidio', name: 'Presidio', icon: '/logos/python.svg' },
+          { id: 'unstructured-ai', name: 'Unstructured AI', icon: '/logos/python.svg' },
         ],
       },
       {
@@ -399,6 +422,8 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
         skills: [
           { id: 'solid', name: 'SOLID principles' },
           { id: 'system-design', name: 'System Design' },
+          { id: 'ai-systems-architecture-types', name: 'AI systems architecture types' },
+          { id: 'agent-coding', name: 'Agent Coding' },
           { id: 'repository-pattern', name: 'Repository pattern' },
           { id: 'service-layer', name: 'Service layer architecture' },
         ],
@@ -433,6 +458,8 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
       {
         title: 'Excel & CSV',
         skills: [
+          { id: 'pandas', name: 'pandas', icon: '/logos/python.svg' },
+          { id: 'numpy', name: 'NumPy', icon: '/logos/python.svg' },
           { id: 'epplusfree', name: 'EPPlusFree', icon: '/logos/dotnet.svg' },
           { id: 'exceljs', name: 'ExcelJS', icon: '/logos/nodejs.svg' },
           { id: 'xlsx', name: 'XLSX', icon: '/logos/nodejs.svg' },
@@ -492,6 +519,49 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
           { id: 'unity', name: 'Unity', icon: '/logos/unity.svg' },
           { id: 'unity-ui', name: 'Unity UI', icon: '/logos/unity.svg' },
           { id: 'threejs', name: 'Three.js', icon: '/logos/threejs.svg' },
+        ],
+      },
+    ],
+  },
+  {
+    id: 'certifications',
+    title: 'Certifications',
+    previewIcons: [
+      { src: '/logos/default.svg', alt: 'Certifications' },
+    ],
+    subsections: [
+      {
+        title: 'Books',
+        skills: [
+          {
+            id: 'architecting-modern-web-applications-with-aspnet-core-and-azure',
+            name: 'Architecting Modern Web Applications with ASP.NET Core and Azure',
+            image: '/assets/certifications/web-application-guide-cover-image.png',
+            url: 'https://learn.microsoft.com/en-us/dotnet/architecture/modern-web-apps-azure/',
+          },
+        ],
+      },
+      {
+        title: 'Certifications',
+        skills: [
+          {
+            id: 'safe-and-reliable-ai-via-guardrails',
+            name: 'Safe and reliable AI via guardrails',
+            image: '/assets/certifications/safe-and-reliable-ai-via-guardrails.png',
+            url: 'https://www.deeplearning.ai/courses/safe-and-reliable-ai-via-guardrails',
+          },
+          {
+            id: 'retrieval-augmented-generation-rag',
+            name: 'Retrieval Augmented Generation (RAG)',
+            image: '/assets/certifications/retrieval-augmented-generation.png',
+            url: 'https://www.deeplearning.ai/courses/retrieval-augmented-generation',
+          },
+          {
+            id: 'evaluating-ai-agents',
+            name: 'Evaluating AI Agents',
+            image: '/assets/certifications/evaluating-ai-agents.png',
+            url: 'https://www.deeplearning.ai/courses/evaluating-ai-agents',
+          },
         ],
       },
     ],

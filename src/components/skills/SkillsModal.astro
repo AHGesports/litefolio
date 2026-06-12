@@ -56,6 +56,8 @@ import { SKILL_CATEGORIES } from '../../data/skills';
     id: string;
     name: string;
     icon?: string;
+    image?: string;
+    url?: string;
   }
 
   interface SkillSubsection {
@@ -88,7 +90,8 @@ import { SKILL_CATEGORIES } from '../../data/skills';
     'frontend': 'Frontend',
     'devops': 'DevOps & Quality',
     'ai-automation': 'AI & Automation',
-    'specialized': 'Specialized'
+    'specialized': 'Specialized',
+    'certifications': 'Certifications'
   };
 
   let currentTrigger: HTMLElement | null = null;
@@ -98,15 +101,36 @@ import { SKILL_CATEGORIES } from '../../data/skills';
   const getOS = () => (window as any).OverlayScrollbarsGlobal?.OverlayScrollbars;
 
   // PERF FIX: Build skill item DOM element using createElement (safe, no XSS)
-  function createSkillItem(skill: Skill): HTMLDivElement {
-    const item = document.createElement('div');
+  function createSkillItem(skill: Skill): HTMLDivElement | HTMLAnchorElement {
+    const hasImage = Boolean(skill.image);
+    const hasUrl = Boolean(skill.url);
+    const item = (hasUrl
+      ? document.createElement('a')
+      : document.createElement('div')) as HTMLDivElement | HTMLAnchorElement;
+
+    if (hasUrl) {
+      item.setAttribute('href', skill.url || '#');
+      item.setAttribute('target', '_blank');
+      item.setAttribute('rel', 'noopener noreferrer');
+    }
+
     // PERF FIX: Changed transition-all to transition-colors (specific property)
-    item.className = 'flex items-center gap-2 px-3 py-1.5 bg-white/5 border border-white/10 rounded-full text-sm text-white/90 hover:bg-primary/20 hover:border-primary/30 hover:text-white transition-colors duration-200 cursor-default';
+    item.className = hasImage
+      ? 'flex min-w-[13rem] max-w-full items-center gap-3 rounded-xl bg-white/5 border border-white/10 px-3 py-2 text-sm text-white/90 hover:bg-primary/20 hover:border-primary/30 hover:text-white transition-colors duration-200 cursor-default'
+      : 'flex items-center gap-2 px-3 py-1.5 bg-white/5 border border-white/10 rounded-full text-sm text-white/90 hover:bg-primary/20 hover:border-primary/30 hover:text-white transition-colors duration-200 cursor-default';
+
+    if (hasUrl) {
+      item.className = `${item.className} no-underline`;
+    }
 
     const img = document.createElement('img');
-    img.src = skill.icon || '/logos/default.svg';
+    img.src = skill.image || skill.icon || '/logos/default.svg';
     img.alt = '';
-    img.className = 'w-4 h-4 opacity-80';
+    img.loading = 'lazy';
+    img.decoding = 'async';
+    img.className = hasImage
+      ? 'h-14 w-14 shrink-0 rounded-md bg-white/5 object-contain p-1'
+      : 'w-4 h-4 opacity-80';
     img.setAttribute('aria-hidden', 'true');
 
     const span = document.createElement('span');

@@ -5,7 +5,6 @@ export const SITE = {
     "A full-stack developer with a strong focus on building fast, accessible, and maintainable web applications.",
   PREVIEW_IMAGE: "/video/poster.jpg",
   EMAIL: "arshia.hemati@gmail.com",
-  BIO: "I'm a 22 year old full-stack developer passionate about building things for the web and sharing my knowledge with others.",
   CONTACT_TEXT: "Follow my work and articles on the platforms below.",
 };
 
